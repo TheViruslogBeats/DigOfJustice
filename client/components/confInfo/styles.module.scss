@@ -1,0 +1,15 @@
+.confInfo {
+  text-align: center;
+  margin-bottom: 100px;
+  & h1 {
+    margin-bottom: 128px;
+  }
+  & p {
+    font-weight: 300;
+    font-size: 20px;
+    margin: 0 auto;
+    width: 1120px;
+    color: black;
+    text-align: justify;
+  }
+}
