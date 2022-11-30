@@ -2,7 +2,23 @@
   text-align: center;
   margin-bottom: 100px;
   & h1 {
+    width: 1002px;
+    margin: 0 auto;
     margin-bottom: 128px;
+    white-space: nowrap;
+    position: relative;
+    &::before {
+      content: "";
+      height: 3px;
+      background-color: #3a7388;
+      width: calc(100% - 80px);
+      position: absolute;
+      transform-origin: right;
+      width: 60%;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -100%;
+    }
   }
   & p {
     font-weight: 300;
@@ -11,5 +27,7 @@
     width: 1120px;
     color: black;
     text-align: justify;
+    font-style: italic;
   }
 }
+ 

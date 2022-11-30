@@ -1,13 +1,19 @@
+import { motion } from "framer-motion";
 import styles from "./styles.module.scss";
 
-interface Props {}
+const ConfInfo = () => {
 
-const ConfInfo = (props: Props) => {
+
   return (
-    <div className={styles.confInfo}>
+    <motion.div
+      initial={{ opacity: 0, translateY: "-30%" }}
+      animate={{ opacity: 1, translateY: "0%" }}
+      transition={{ type: "spring", duration: 2 }}
+      className={styles.confInfo}
+    >
       <h1 className="titleH1">О КОНФЕРЕНЦИИ</h1>
       <p>
-        Национальная научно-практическая конференция «Цифровизация правосудия:
+        I Национальная научно-практическая конференция «Цифровизация правосудия:
         проблемы и перспективы» - уникальная площадка для диалога ученых и
         практиков об актуальных вопросах цифровой трансформации и информационной
         безопасности правосудия, разработки пилотных проектов использования
@@ -33,9 +39,7 @@ const ConfInfo = (props: Props) => {
         искусственного интеллекта в судебной деятельности», созданные
         междисциплинарными научными группами.
       </p>
-      <br />
-      <p>Мы не выбираем дорогу, мы определяем путь</p>
-    </div>
+    </motion.div>
   );
 };
 

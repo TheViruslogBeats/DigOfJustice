@@ -4,9 +4,35 @@ import image1 from "../../public/img/image1.svg";
 import image2 from "../../public/img/image2.svg";
 import { HiOutlineLocationMarker, HiOutlineCalendar } from "react-icons/hi";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const Header = () => {
+  const [scroll, setScroll] = useState(0);
+  const [colorOpacity, setColorOpacity] = useState(0);
+  const [backdropBlur, setBackdropBlur] = useState(0);
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleScroll = () => {
+    setScroll(window.scrollY);
+  };
+  const calculatePercents = (max: number, maxpercent: number, now: number) => {
+    if ((now * maxpercent) / max > maxpercent) {
+      return maxpercent;
+    }
+    return (now * maxpercent) / max;
+  };
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setColorOpacity(calculatePercents(500, 75, scroll));
+      setBackdropBlur(calculatePercents(500, 5, scroll));
+    }, 0);
+    return () => clearTimeout(timeout);
+  }, [scroll]);
   return (
     <header
       className={styles.header}
@@ -17,7 +43,22 @@ const Header = () => {
       }}
     >
       <div className={styles.bgHeader}>
-        <div className={styles.topBar}>
+        <motion.div
+          className={styles.topBar}
+          initial={{
+            translateY: "-30%",
+            opacity: 0,
+            backgroundColor: `hsl(196, 40%, 38%, 0)`,
+            backdropFilter: `blur(0px)`,
+          }}
+          animate={{
+            translateY: "0%",
+            opacity: 1,
+            backgroundColor: `hsl(196, 40%, 38%, 0.${colorOpacity})`,
+            backdropFilter: `blur(${backdropBlur}px)`,
+          }}
+          transition={{ duration: 1, type: "spring" }}
+        >
           <div className={styles.topBarLeft}>
             <Image src={image1} alt="Суд" />
             <p style={{ width: "126px" }} className={styles.headerP}>
@@ -36,13 +77,23 @@ const Header = () => {
             <button className={styles.topBarButton}>ОРГАНИЗАТОРЫ</button>
             <button className={styles.topBarButton}>ТРЕБОВАНИЯ</button>
           </div>
-        </div>
+        </motion.div>
         <div className={styles.headerInfo}>
-          <p className={styles.leftInfo}>
+          <motion.p
+            initial={{ translateX: "-20%", opacity: 0 }}
+            animate={{ translateX: "0%", opacity: 1 }}
+            transition={{ duration: 3, type: "spring" }}
+            className={styles.leftInfo}
+          >
             I НАЦИОНАЛЬНАЯ НАУЧНО - ПРАКТИЧЕСКАЯ КОНФЕРЕНЦИЯ{" "}
             <b>ЦИФРОВИЗАЦИЯ ПРАВОСУДИЯ: ПРОБЛЕМЫ И ПЕРСПЕКТИВЫ</b>
-          </p>
-          <div className={styles.rightInfo}>
+          </motion.p>
+          <motion.div
+            initial={{ translateX: "20%", opacity: 0 }}
+            animate={{ translateX: "0%", opacity: 1 }}
+            transition={{ duration: 3, type: "spring" }}
+            className={styles.rightInfo}
+          >
             <div>
               <HiOutlineLocationMarker />
               <p style={{ width: "228px" }}>
@@ -56,8 +107,8 @@ const Header = () => {
               </p>
               <HiOutlineCalendar />
             </div>
-            <button>РЕГИСТРАЦИЯ</button>
-          </div>
+            <button style={{display: "none"}}>РЕГИСТРАЦИЯ</button>
+          </motion.div>
         </div>
       </div>
     </header>

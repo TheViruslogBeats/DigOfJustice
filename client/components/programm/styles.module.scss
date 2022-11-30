@@ -1,0 +1,77 @@
+.programm {
+  width: 1100px;
+  margin: 0 auto;
+  margin-bottom: 64px;
+  & h1 {
+    margin-bottom: 48px;
+  }
+}
+
+.programmContainer {
+  color: #000;
+}
+
+.programmMainContainer {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 32px;
+  align-items: center;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.programmMainContainer1 {
+  & p {
+    color: #3a7388;
+    text-align: center;
+    &:nth-child(1) {
+      font-weight: 800;
+      font-size: 40px;
+    }
+    &:nth-child(2) {
+      font-weight: 400;
+      font-size: 32px;
+    }
+  }
+}
+.programmMainContainer2 {
+  & p {
+    font-family: "Inter";
+    color: #3a7388;
+    text-align: center;
+    &:nth-child(1) {
+      font-weight: 700;
+      font-size: 40px;
+    }
+    &:nth-child(2) {
+      font-weight: 300;
+      font-size: 64px;
+    }
+  }
+}
+
+.programmSectionbtns {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.programmSectionbtn {
+  width: 382px;
+  border-radius: 10px;
+  background-color: #fff;
+  color: #3a7388;
+  font-weight: 800;
+  font-size: 14px;
+  padding: 16px 32px;
+  transition: 0.15s ease-in-out background-color, 0.15s ease-in-out color;
+  &:hover {
+    background-color: #3a7388;
+    color: #fff;
+  }
+  &.programmSectionbtnActive {
+    background-color: #3a7388;
+    color: #fff;
+  }
+}
