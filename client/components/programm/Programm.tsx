@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 import { FaArrowDown } from "react-icons/fa";
 import { motion } from "framer-motion";
@@ -52,12 +52,31 @@ const Programm = () => {
   const [sectionList, setSectionList] = useState([
     [
       {
+        title:
+          "ПЕРЕДАЧА ФИНАНСОВОМУ УПРАВЛЯЮЩЕМУ ДОСТУПА К КРИПТОКОШЕЛЬКУ; КВАЛИФИКАЦИЯ ФОРМЫ КОНТРАКТА, ЗАКЛЮЧЕННОГО ЧЕРЕЗ БЛОКЧЕЙН-ПЛАТФОРМУ; ЦИФРОВОЕ АДМИНИСТРИРОВАНИЕ ДОГОВОРОВ",
+        speaker: "Охаси Ивао (Ohashi Iwao)",
+        speakerInfo:
+          "Советник по Японии и странам АТР, Ассоциация индустриальных парков России",
         time: "10:25",
         date: "9 декабря",
         place: "АУДИТОРИЯ 35A",
       },
     ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
   ]);
+  const [sectionArray, setSectionArray] = useState(sectionList[section]);
+
+  useEffect(() => {
+    setSectionArray(sectionList[section]);
+  }, [section]);
 
   const setOpened = (id: number) => {
     setPrograms(
@@ -280,174 +299,28 @@ const Programm = () => {
           </div>
 
           <ul className={styles.programmSectionList}>
-            <li>
-              <div>
-                <p className={styles.programmSectionListMainInfo}>
-                  передача финансовому управляющему доступа к криптокошельку;
-                  квалификация формы контракта, заключенного через
-                  блокчейн-платформу; цифровое администрирование договоров
-                </p>
-                <br />
-                <p className={styles.programmSectionListSecondInfo}>
-                  <b>Охаси Ивао (Ohashi Iwao)</b>
-                  <br /> Советник по Японии и странам АТР, <br /> Ассоциация
-                  индустриальных парков России
-                </p>
-              </div>
-              <div className={styles.programmSectionListPlace}>
-                <p>АУДИТОРИЯ 35А</p>
-              </div>
-              <p className={styles.programmSectionListTime}>
-                10:25 <br /> 9 ДЕКАБРЯ
-              </p>
-            </li>
-            <li>
-              <div>
-                <p className={styles.programmSectionListMainInfo}>
-                  передача финансовому управляющему доступа к криптокошельку;
-                  квалификация формы контракта, заключенного через
-                  блокчейн-платформу; цифровое администрирование договоров
-                </p>
-                <br />
-                <p className={styles.programmSectionListSecondInfo}>
-                  <b>Охаси Ивао (Ohashi Iwao)</b>
-                  <br /> Советник по Японии и странам АТР, <br /> Ассоциация
-                  индустриальных парков России
-                </p>
-              </div>
-              <div className={styles.programmSectionListPlace}>
-                <p>АУДИТОРИЯ 35А</p>
-              </div>
-              <p className={styles.programmSectionListTime}>
-                10:25 <br /> 9 ДЕКАБРЯ
-              </p>
-            </li>
-            <li>
-              <div>
-                <p className={styles.programmSectionListMainInfo}>
-                  передача финансовому управляющему доступа к криптокошельку;
-                  квалификация формы контракта, заключенного через
-                  блокчейн-платформу; цифровое администрирование договоров
-                </p>
-                <br />
-                <p className={styles.programmSectionListSecondInfo}>
-                  <b>Охаси Ивао (Ohashi Iwao)</b>
-                  <br /> Советник по Японии и странам АТР, <br /> Ассоциация
-                  индустриальных парков России
-                </p>
-              </div>
-              <div className={styles.programmSectionListPlace}>
-                <p>АУДИТОРИЯ 35А</p>
-              </div>
-              <p className={styles.programmSectionListTime}>
-                10:25 <br /> 9 ДЕКАБРЯ
-              </p>
-            </li>
-            <li>
-              <div>
-                <p className={styles.programmSectionListMainInfo}>
-                  передача финансовому управляющему доступа к криптокошельку;
-                  квалификация формы контракта, заключенного через
-                  блокчейн-платформу; цифровое администрирование договоров
-                </p>
-                <br />
-                <p className={styles.programmSectionListSecondInfo}>
-                  <b>Охаси Ивао (Ohashi Iwao)</b>
-                  <br /> Советник по Японии и странам АТР, <br /> Ассоциация
-                  индустриальных парков России
-                </p>
-              </div>
-              <div className={styles.programmSectionListPlace}>
-                <p>АУДИТОРИЯ 35А</p>
-              </div>
-              <p className={styles.programmSectionListTime}>
-                10:25 <br /> 9 ДЕКАБРЯ
-              </p>
-            </li>
-            <li>
-              <div>
-                <p className={styles.programmSectionListMainInfo}>
-                  передача финансовому управляющему доступа к криптокошельку;
-                  квалификация формы контракта, заключенного через
-                  блокчейн-платформу; цифровое администрирование договоров
-                </p>
-                <br />
-                <p className={styles.programmSectionListSecondInfo}>
-                  <b>Охаси Ивао (Ohashi Iwao)</b>
-                  <br /> Советник по Японии и странам АТР, <br /> Ассоциация
-                  индустриальных парков России
-                </p>
-              </div>
-              <div className={styles.programmSectionListPlace}>
-                <p>АУДИТОРИЯ 35А</p>
-              </div>
-              <p className={styles.programmSectionListTime}>
-                10:25 <br /> 9 ДЕКАБРЯ
-              </p>
-            </li>
-            <li>
-              <div>
-                <p className={styles.programmSectionListMainInfo}>
-                  передача финансовому управляющему доступа к криптокошельку;
-                  квалификация формы контракта, заключенного через
-                  блокчейн-платформу; цифровое администрирование договоров
-                </p>
-                <br />
-                <p className={styles.programmSectionListSecondInfo}>
-                  <b>Охаси Ивао (Ohashi Iwao)</b>
-                  <br /> Советник по Японии и странам АТР, <br /> Ассоциация
-                  индустриальных парков России
-                </p>
-              </div>
-              <div className={styles.programmSectionListPlace}>
-                <p>АУДИТОРИЯ 35А</p>
-              </div>
-              <p className={styles.programmSectionListTime}>
-                10:25 <br /> 9 ДЕКАБРЯ
-              </p>
-            </li>
-            <li>
-              <div>
-                <p className={styles.programmSectionListMainInfo}>
-                  передача финансовому управляющему доступа к криптокошельку;
-                  квалификация формы контракта, заключенного через
-                  блокчейн-платформу; цифровое администрирование договоров
-                </p>
-                <br />
-                <p className={styles.programmSectionListSecondInfo}>
-                  <b>Охаси Ивао (Ohashi Iwao)</b>
-                  <br /> Советник по Японии и странам АТР, <br /> Ассоциация
-                  индустриальных парков России
-                </p>
-              </div>
-              <div className={styles.programmSectionListPlace}>
-                <p>АУДИТОРИЯ 35А</p>
-              </div>
-              <p className={styles.programmSectionListTime}>
-                10:25 <br /> 9 ДЕКАБРЯ
-              </p>
-            </li>
-            <li>
-              <div>
-                <p className={styles.programmSectionListMainInfo}>
-                  передача финансовому управляющему доступа к криптокошельку;
-                  квалификация формы контракта, заключенного через
-                  блокчейн-платформу; цифровое администрирование договоров
-                </p>
-                <br />
-                <p className={styles.programmSectionListSecondInfo}>
-                  <b>Охаси Ивао (Ohashi Iwao)</b>
-                  <br /> Советник по Японии и странам АТР, <br /> Ассоциация
-                  индустриальных парков России
-                </p>
-              </div>
-              <div className={styles.programmSectionListPlace}>
-                <p>АУДИТОРИЯ 35А</p>
-              </div>
-              <p className={styles.programmSectionListTime}>
-                10:25 <br /> 9 ДЕКАБРЯ
-              </p>
-            </li>
+            {sectionArray.map((section) => {
+              return (
+                <li>
+                  <div className={styles.programmSectionListFlex}>
+                    <p className={styles.programmSectionListMainInfo}>
+                      {section.title}
+                    </p>
+                    <br />
+                    <p className={styles.programmSectionListSecondInfo}>
+                      <b>{section.speaker}</b>
+                      <br /> {section.speakerInfo}
+                    </p>
+                  </div>
+                  <div className={styles.programmSectionListPlace}>
+                    <p>{section.place}</p>
+                  </div>
+                  <p className={styles.programmSectionListTime}>
+                    {section.time} <br /> {section.date}
+                  </p>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>
