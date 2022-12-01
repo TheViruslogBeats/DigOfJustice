@@ -60,15 +60,17 @@ const Header = () => {
           transition={{ duration: 1, type: "spring" }}
         >
           <div className={styles.topBarLeft}>
-            <Image src={image1} alt="Суд" />
-            <p style={{ width: "126px" }} className={styles.headerP}>
-              МОСКОВСКИЙ ГОРОДСКОЙ СУД
-            </p>
+            <div className={styles.topBarLeftCtn}>
+              <Image src={image1} alt="Суд" />
+              <p className={styles.headerP1}>МОСКОВСКИЙ ГОРОДСКОЙ СУД</p>
+            </div>
             <div className={styles.Vline}></div>
-            <Image src={image2} alt="МИРЭА" />
-            <p style={{ width: "259px" }} className={styles.headerP}>
-              РОССИЙСКИЙ ТЕХНОЛОГИЧЕСКИЙ УНИВЕРСИТЕТ - МИРЭА
-            </p>
+            <div className={styles.topBarLeftCtn}>
+              <Image src={image2} alt="МИРЭА" />
+              <p className={styles.headerP2}>
+                ИНСТИТУТ КИБЕРБЕЗОПАСНОСТИ И ЦИФРОВЫХ ТЕХНОЛОГИЙ
+              </p>
+            </div>
           </div>
           <div className={styles.topBarRight}>
             <button className={styles.topBarButton}>О КОНФЕРЕНЦИИ</button>
@@ -85,7 +87,8 @@ const Header = () => {
             transition={{ duration: 3, type: "spring" }}
             className={styles.leftInfo}
           >
-            I НАЦИОНАЛЬНАЯ НАУЧНО - ПРАКТИЧЕСКАЯ КОНФЕРЕНЦИЯ{" "}
+            I НАЦИОНАЛЬНАЯ НАУЧНО - ПРАКТИЧЕСКАЯ КОНФЕРЕНЦИЯ
+            <br />
             <b>ЦИФРОВИЗАЦИЯ ПРАВОСУДИЯ: ПРОБЛЕМЫ И ПЕРСПЕКТИВЫ</b>
           </motion.p>
           <motion.div
@@ -107,7 +110,7 @@ const Header = () => {
               </p>
               <HiOutlineCalendar />
             </div>
-            <button style={{display: "none"}}>РЕГИСТРАЦИЯ</button>
+            <button style={{ display: "none" }}>РЕГИСТРАЦИЯ</button>
           </motion.div>
         </div>
       </div>

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import React, { useState } from "react";
 import bgModal from "../../public/img/bgModal.svg";
 import styles from "./styles.module.scss";
+import Image from "next/image"
 
 let speakers = [
   {
