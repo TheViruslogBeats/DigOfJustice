@@ -86,9 +86,9 @@ const SectionItem = (props: Props) => {
               <b>Вопросы к обсуждению:</b>
             </p>
             <ol className={styles.programmSectionListQA}>
-              {props.section.questions.map((q) => {
+              {props.section.questions.map((q, index) => {
                 return (
-                  <li>
+                  <li key={index}>
                     <p>{q}</p>
                   </li>
                 );

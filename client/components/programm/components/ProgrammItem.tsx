@@ -5,6 +5,7 @@ import { FaArrowDown } from "react-icons/fa";
 interface Props {
   prog: prog;
   setOpened: (id: number) => void;
+  key: number
 }
 
 interface prog {
@@ -27,7 +28,7 @@ interface inform {
 const ProgrammItem = (props: Props) => {
   return (
     <>
-      <div className={styles.programmMainContainer}>
+      <div key={props.key} className={styles.programmMainContainer}>
         <div className={styles.programmMainContainer1}>
           <p>{props.prog.title}</p>
           <p>{props.prog.where}</p>
@@ -63,9 +64,9 @@ const ProgrammItem = (props: Props) => {
           transition={{ duration: 1, type: "spring" }}
           className={styles.programmInfoContainers}
         >
-          {props.prog.inform.map((infos) => {
+          {props.prog.inform.map((infos, index) => {
             return (
-              <div className={styles.programmInfoContainer}>
+              <div key={index} className={styles.programmInfoContainer}>
                 <div className={styles.programmInformation}>
                   <img src={infos.img} alt={infos.img} />
                   <p>{infos.fio}</p>

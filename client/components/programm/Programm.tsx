@@ -417,82 +417,83 @@ const Programm = () => {
         reports: [],
       },
     ],
-    [{
-      id: 0,
-      title:
-        "«Цифровые технологии в судебной системе и защита данных в сфере судопроизводства»",
-      date: "14 ДЕКАБРЯ",
-      time: "12.00 - 14.20",
-      place: "Проспект Вернадского, 78, корпус Е, конференц-зал Е-23",
-      showArrow: true,
-      opened: false,
-      hQuesions: false,
-      questions: [
-        
-      ],
-      hReports: false,
-      reports: [],
-    },
-    {
-      id: 1,
-      title: "Кофе - брейк",
-      date: "",
-      time: "13.00 - 13.20",
-      place: "",
-      showArrow: false,
-      opened: false,
-      hQuesions: true,
-      questions: [],
-      hReports: false,
-      reports: [],
-    },],
-    [{
-      id: 0,
-      title:
-        "«Облачные технологии и Центр обработки данных: перспективы использования в следственной и судебной деятельности»",
-      date: "14 ДЕКАБРЯ",
-      time: "15.00 - 17.20",
-      place: "Стромынка, 20, Малый зал Ученого совета",
-      showArrow: true,
-      opened: false,
-      hQuesions: true,
-      questions: [
-        "Облачные сервисы (public cloud services) ― это программы и платформы, «живущие» и функционирующие на серверах облачных провайдеров. Основная особенность облачных приложений заключается в следующем: создавая аккаунт пользователь сможет получать доступ к собственной информации с любого гаджета в любой точке мира. Необходимым и достаточным условием является создание логина и пароля. Использовать облачные службы не только удобно, но и безопасно. Даже если с телефоном или компьютером что-то случится, Ваши данные не исчезнут.  ",
-        "В ходе работы круглого стола планируется рассмотреть необходимость и возможность применения облачных технологий и создания центров обработки данных для аккумулирования и быстрого доступа к базам результатов баллистических и судебно-медицинских экспертиз.  ",
-       
-      ],
-      hReports: false,
-      reports: [],
-    },
-    {
-      id: 1,
-      title: "Кофе - брейк",
-      date: "",
-      time: "16.20 - 16.40",
-      place: "",
-      showArrow: false,
-      opened: false,
-      hQuesions: true,
-      questions: [],
-      hReports: false,
-      reports: [],
-    },],
-    [{
-      id: 0,
-      title:
-        "«Заседание Студенческого научного общества Института кибербезопасности и цифровых технологий РТУ МИРЭА, презентация результатов НИР учебно-научного центра «Этика искусственного интеллекта в судебной деятельности»",
-      date: "15 ДЕКАБРЯ",
-      time: "14.20 - 15.40",
-      place: "Стромынка, 20, Учебно-научный центр «Этика искусственного интеллекта в судебной деятельности»",
-      showArrow: true,
-      opened: false,
-      hQuesions: false,
-      questions: [
-        
-      ],
-      hReports: false,
-      reports: [],
-    },
+    [
+      {
+        id: 0,
+        title:
+          "«Цифровые технологии в судебной системе и защита данных в сфере судопроизводства»",
+        date: "14 ДЕКАБРЯ",
+        time: "12.00 - 14.20",
+        place: "Проспект Вернадского, 78, корпус Е, конференц-зал Е-23",
+        showArrow: true,
+        opened: false,
+        hQuesions: false,
+        questions: [],
+        hReports: false,
+        reports: [],
+      },
+      {
+        id: 1,
+        title: "Кофе - брейк",
+        date: "",
+        time: "13.00 - 13.20",
+        place: "",
+        showArrow: false,
+        opened: false,
+        hQuesions: true,
+        questions: [],
+        hReports: false,
+        reports: [],
+      },
+    ],
+    [
+      {
+        id: 0,
+        title:
+          "«Облачные технологии и Центр обработки данных: перспективы использования в следственной и судебной деятельности»",
+        date: "14 ДЕКАБРЯ",
+        time: "15.00 - 17.20",
+        place: "Стромынка, 20, Малый зал Ученого совета",
+        showArrow: true,
+        opened: false,
+        hQuesions: true,
+        questions: [
+          "Облачные сервисы (public cloud services) ― это программы и платформы, «живущие» и функционирующие на серверах облачных провайдеров. Основная особенность облачных приложений заключается в следующем: создавая аккаунт пользователь сможет получать доступ к собственной информации с любого гаджета в любой точке мира. Необходимым и достаточным условием является создание логина и пароля. Использовать облачные службы не только удобно, но и безопасно. Даже если с телефоном или компьютером что-то случится, Ваши данные не исчезнут.  ",
+          "В ходе работы круглого стола планируется рассмотреть необходимость и возможность применения облачных технологий и создания центров обработки данных для аккумулирования и быстрого доступа к базам результатов баллистических и судебно-медицинских экспертиз.  ",
+        ],
+        hReports: false,
+        reports: [],
+      },
+      {
+        id: 1,
+        title: "Кофе - брейк",
+        date: "",
+        time: "16.20 - 16.40",
+        place: "",
+        showArrow: false,
+        opened: false,
+        hQuesions: true,
+        questions: [],
+        hReports: false,
+        reports: [],
+      },
+    ],
+    [
+      {
+        id: 0,
+        title:
+          "«Заседание Студенческого научного общества Института кибербезопасности и цифровых технологий РТУ МИРЭА, презентация результатов НИР учебно-научного центра «Этика искусственного интеллекта в судебной деятельности»",
+        date: "15 ДЕКАБРЯ",
+        time: "14.20 - 15.40",
+        place:
+          "Стромынка, 20, Учебно-научный центр «Этика искусственного интеллекта в судебной деятельности»",
+        showArrow: true,
+        opened: false,
+        hQuesions: false,
+        questions: [],
+        hReports: false,
+        reports: [],
+      },
     ],
   ]);
   const [sectionArray, setSectionArray] = useState(sectionList[section]);
@@ -559,15 +560,16 @@ const Programm = () => {
     <div className={styles.programm}>
       <h2 className="titleH1">ПРОГРАММА</h2>
       <div className={styles.programmContainer}>
-        {programs.map((prog) => {
-          return <ProgrammItem prog={prog} setOpened={setOpened} />;
+        {programs.map((prog, index) => {
+          return <ProgrammItem key={index} prog={prog} setOpened={setOpened} />;
         })}
         <h3 className="titleH1">СЕКЦИИ</h3>
         <div className={styles.programmSections}>
           <div className={styles.programmSectionbtns}>
-            {sectionButtons.map((button) => {
+            {sectionButtons.map((button, index) => {
               return (
                 <SectionButtons
+                  key={index}
                   id={button.id}
                   text={button.text}
                   setSection={setSection}
@@ -578,9 +580,10 @@ const Programm = () => {
           </div>
 
           <ul className={styles.programmSectionList}>
-            {sectionArray.map((section) => {
+            {sectionArray.map((section, index) => {
               return (
                 <SectionItem
+                  key={index}
                   section={section}
                   setSectionOpened={setSectionOpened}
                 />
