@@ -74,12 +74,12 @@ const Header = () => {
           </div>
           <div className={styles.topBarRight}>
             <button className={styles.topBarButton}>О КОНФЕРЕНЦИИ</button>
-            <button className={styles.topBarButton}>ЗАДАЧИ КОНФЕРЕНЦИИ</button>
+            {/* <button className={styles.topBarButton}>ЗАДАЧИ КОНФЕРЕНЦИИ</button> */}
             <button className={styles.topBarButton}>ПРОГРАММА</button>
-            <button className={styles.topBarButton}>СПИКЕРЫ</button>
+            {/* <button className={styles.topBarButton}>СПИКЕРЫ</button> */}
             <button className={styles.topBarButton}>НАПРАВЛЕНИЯ</button>
-            <button className={styles.topBarButton}>ОРГАНИЗАТОРЫ</button>
-            <button className={styles.topBarButton}>ТРЕБОВАНИЯ</button>
+            {/* <button className={styles.topBarButton}>ОРГАНИЗАТОРЫ</button> */}
+            {/* <button className={styles.topBarButton}>ТРЕБОВАНИЯ</button> */}
           </div>
         </motion.div>
         <div className={styles.headerInfo}>

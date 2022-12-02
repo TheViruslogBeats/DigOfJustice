@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 import { FaArrowDown } from "react-icons/fa";
 import { motion } from "framer-motion";
+import ProgrammItem from "./components/ProgrammItem";
+import SectionButtons from "./components/SectionButton";
+import SectionItem from "./components/SectionItem";
 
 const Programm = () => {
   const [section, setSection] = useState(0);
@@ -52,31 +55,494 @@ const Programm = () => {
   const [sectionList, setSectionList] = useState([
     [
       {
-        title:
-          "ПЕРЕДАЧА ФИНАНСОВОМУ УПРАВЛЯЮЩЕМУ ДОСТУПА К КРИПТОКОШЕЛЬКУ; КВАЛИФИКАЦИЯ ФОРМЫ КОНТРАКТА, ЗАКЛЮЧЕННОГО ЧЕРЕЗ БЛОКЧЕЙН-ПЛАТФОРМУ; ЦИФРОВОЕ АДМИНИСТРИРОВАНИЕ ДОГОВОРОВ",
-        speaker: "Охаси Ивао (Ohashi Iwao)",
-        speakerInfo:
-          "Советник по Японии и странам АТР, Ассоциация индустриальных парков России",
-        time: "10:25",
-        date: "9 декабря",
-        place: "АУДИТОРИЯ 35A",
+        id: 0,
+        title: "«Цифровые технологии и стандарты доказывания»",
+        date: "12 ДЕКАБРЯ",
+        time: "10.00 - 12.20",
+        place: "Стромынка, 20, Малый зал Ученого совета",
+        showArrow: true,
+        opened: false,
+        hQuesions: true,
+        questions: [
+          "Обсуждение экспертным сообществом векторных направлений исследования актуальной проблематики цифровой трансформации правосудия;",
+          "Судебное нормотворчество ad hoc и contra legem vs искусственный интеллект; правовые позиции суда;",
+          "Механизм формирования, проблемы прогнозируемого когнитивного влияния при использовании программ поддержки принятия решений;",
+          "Этика искусственного интеллекта и  легитимизация предела допустимости его применения в правосудной деятельности;",
+          "Лакуны доказательственного права и инструменты их восполнения;",
+          "Доктрины доказательственного права;",
+          "Имплементация в процесс и допустимость участия искусственного интеллекта;",
+          "Расследование киберинцидентов;",
+          "Проблемы квалификации, коллизионность в определении критерия допустимости доказательств.",
+        ],
+        hReports: false,
+        reports: [],
+      },
+      {
+        id: 1,
+        title: "Кофе-брейк",
+        date: "",
+        time: "11.00 - 11.20",
+        place: "",
+        showArrow: false,
+        opened: false,
+        hQuesions: false,
+        questions: [],
+        hReports: false,
+        reports: [],
+      },
+      {
+        id: 2,
+        title: "Обсуждение и подписание резолюции",
+        date: "",
+        time: "12.20 - 12.30",
+        place: "",
+        showArrow: false,
+        opened: false,
+        hQuesions: false,
+        questions: [],
+        hReports: false,
+        reports: [],
       },
     ],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
+    [
+      {
+        id: 0,
+        title:
+          "«Предметно-ориентированные информационные системы в правосудии: возможности, проблемы, перспективы» с международным участием",
+        date: "12 ДЕКАБРЯ",
+        time: "11.30 - 16.00",
+        place: "Стромынка, 20, Малый зал Ученого совета",
+        showArrow: true,
+        opened: false,
+        hQuesions: true,
+        questions: [
+          "Возможности применения существующих предметно-ориентированных информационных систем в судебной деятельности; перспективы автоматизации обеспечивающих процессов в судебной деятельности;",
+          "Перспективы автоматизации обеспечивающих процессов в судебной деятельности;",
+          "Проблемы анализа и структурирования данных о судебной деятельности при автоматизации;",
+          "Разработка баз данных для автоматизации деятельности сотрудников организаций в сфере правосудия;",
+          "Проблемы проектирования информационных систем поддержки судебной деятельности",
+        ],
+        hReports: false,
+        reports: [],
+      },
+      {
+        id: 1,
+        title: "Кофе - брейк",
+        date: "",
+        time: "13.00 - 13.30",
+        place: "",
+        showArrow: false,
+        opened: false,
+        hQuesions: true,
+        questions: [],
+        hReports: false,
+        reports: [],
+      },
+    ],
+    [
+      {
+        id: 0,
+        title:
+          "«Свободное программное обеспечение и цифровая трансформация правосудия»",
+        date: "12 ДЕКАБРЯ",
+        time: "10.00 - 14.00",
+        place: "Стромынка, 20, конференц-зал А-459",
+        showArrow: true,
+        opened: false,
+        hQuesions: true,
+        questions: [
+          "Проблемы развития и внедрения свободного программного обеспечения в судебную и экспертную деятельность;",
+          "Задачи подготовки ИТ-кадров при переходе на отечественное программное обеспечение;",
+          "Оптимизация программного кода систем конечно-элементного анализа, обзор задач, потенциально возникающих при внедрении проекта «Электронное Водительское удостоверение»;",
+          "Применение инфраструктуры FacePay для автоматической фиксации административных правонарушений на объектах транспорта;",
+          "Система информационного ведения учета в архивах, непригодных для оцифровывания;",
+          "Некоторые вопросы фиксации правонарушений по шумности автотранспорта и другие актуальные междисциплинарные аспекты оптимизации правоохранительной деятельности",
+        ],
+        hReports: false,
+        reports: [],
+      },
+      {
+        id: 1,
+        title: "Кофе - брейк",
+        date: "",
+        time: "12.00 - 13.20",
+        place: "",
+        showArrow: false,
+        opened: false,
+        hQuesions: true,
+        questions: [],
+        hReports: false,
+        reports: [],
+      },
+    ],
+    [
+      {
+        id: 0,
+        title:
+          "«Парадигма цифровой трансформации гражданского судопроизводства»",
+        date: "13 ДЕКАБРЯ",
+        time: "10.00 - 12.20",
+        place: "Стромынка, 20, Малый зал Ученого совета",
+        showArrow: true,
+        opened: false,
+        hQuesions: true,
+        questions: [
+          "Обсуждение проблем судебной дискреции и обеспечения процессуальных прав в условиях цифровизации цивилистических процессов;",
+          "Проблема соблюдения процессуального равенства;",
+          "Коллизии понятийно-категориального аппарата;",
+          "Критерий разграничения цифрового и электронного доказательства в гражданском процессе;",
+          "Технологии Big Data и программы поддержки принятия решений – перспективы оптимизации гражданского судопроизводства;",
+          "Проблемы правовой квалификации цифровых феноменов в цивилистическом процессе.",
+        ],
+        hReports: false,
+        reports: [],
+      },
+      {
+        id: 1,
+        title: "Кофе - брейк",
+        date: "",
+        time: "11.00 - 11.20",
+        place: "",
+        showArrow: false,
+        opened: false,
+        hQuesions: true,
+        questions: [],
+        hReports: false,
+        reports: [],
+      },
+      {
+        id: 2,
+        title:
+          "«Облачные технологии и Центр обработки данных: перспективы использования в следственной и судебной деятельности»",
+        date: "14 ДЕКАБРЯ",
+        time: "15.00 - 17.20",
+        place: "Стромынка, 20, Малый зал Ученого совета",
+        showArrow: true,
+        opened: false,
+        hQuesions: true,
+        questions: [
+          "Искусственный интеллект в правосудии;",
+          "Машиночитаемое право: проблемы семантики;",
+          "Судебная дискреция и искусственный интеллект; ",
+          "Судебная практика как матрица права vs искусственный интеллект как система оптимизации правосудия;",
+          "Этические нормы и искусственный интеллект; этика искусственного интеллекта.",
+        ],
+        hReports: false,
+        reports: [],
+      },
+      {
+        id: 3,
+        title: "Кофе - брейк",
+        date: "",
+        time: "15.20 - 15.40",
+        place: "",
+        showArrow: false,
+        opened: false,
+        hQuesions: true,
+        questions: [],
+        hReports: false,
+        reports: [],
+      },
+    ],
+    [
+      {
+        id: 0,
+        title:
+          "«Анализ и мониторинг социальных сетей: криминологический аспект»",
+        date: "12 ДЕКАБРЯ",
+        time: "15.00 - 18.00",
+        place: "Стромынка, 20, Зал Ученого совета",
+        showArrow: true,
+        opened: false,
+        hQuesions: true,
+        questions: [
+          "Определение психотипа личности посредством анализа социальных сетей;",
+          "Возможность использования результатов переписок как доказательственной базы;",
+          "Вовлечение слабозащищенных категорий лиц в совершение противоправных действий;",
+          "Необходимость создания системы регистрации в социальных сетях, доступной для проверки правоохранительными органами (аспекты коррупции, морали и защищенности от кражи данных сторонними лицами);",
+          "Обсуждение создания новой превентивной ИС, предупреждающей совершения преступлений через социальные сети",
+        ],
+        hReports: false,
+        reports: [],
+      },
+      {
+        id: 1,
+        title: "Кофе - брейк",
+        date: "",
+        time: "16.20 - 16.40",
+        place: "",
+        showArrow: false,
+        opened: false,
+        hQuesions: true,
+        questions: [],
+        hReports: false,
+        reports: [],
+      },
+      {
+        id: 2,
+        title:
+          "«Облачные технологии и Центр обработки данных: перспективы использования в следственной и судебной деятельности»",
+        date: "14 ДЕКАБРЯ",
+        time: "15.00 - 17.20",
+        place: "Стромынка, 20, Малый зал Ученого совета",
+        showArrow: true,
+        opened: false,
+        hQuesions: true,
+        questions: [
+          "Облачные сервисы (public cloud services) ― это программы и платформы, «живущие» и функционирующие на серверах облачных провайдеров. Основная особенность облачных приложений заключается в следующем: создавая аккаунт пользователь сможет получать доступ к собственной информации с любого гаджета в любой точке мира. Необходимым и достаточным условием является создание логина и пароля. Использовать облачные службы не только удобно, но и безопасно. Даже если с телефоном или компьютером что-то случится, Ваши данные не исчезнут. ",
+          "В ходе работы круглого стола планируется рассмотреть необходимость и возможность применения облачных технологий и создания центров обработки данных для аккумулирования и быстрого доступа к базам результатов баллистических и судебно-медицинских экспертиз.",
+        ],
+        hReports: false,
+        reports: [],
+      },
+      {
+        id: 3,
+        title: "Кофе - брейк",
+        date: "",
+        time: "16.20 - 16.40",
+        place: "",
+        showArrow: false,
+        opened: false,
+        hQuesions: true,
+        questions: [],
+        hReports: false,
+        reports: [],
+      },
+    ],
+    [
+      {
+        id: 0,
+        title:
+          "«Цифровые и интеллектуальные методы принятия решений в судебной деятельности» с международным участием»",
+        date: "13 ДЕКАБРЯ",
+        time: "12.20 - 14.20",
+        place: "Стромынка, 20, Малый зал Ученого совета",
+        showArrow: true,
+        opened: false,
+        hQuesions: true,
+        questions: [
+          "К дискуссии предлагаются вопросы применения интеллектуальных технологий в судебной деятельности, автоматизации обработки и анализа информации в рамках существующих процессуальных норм. Докладчиками будут рассмотрены направления совершенствования системы правосудия России, формы организации судебной деятельности в условиях технологической модернизации, а также современные подходы к совершенствованию точности и быстродействия поддержки принятия решений с использованием современных технологий сбора, хранения, обработки данных на базе интеллектуальных алгоритмов.",
+        ],
+        hReports: false,
+        reports: [],
+      },
+      {
+        id: 1,
+        title: "Кофе - брейк",
+        date: "",
+        time: "13.00 - 13.20",
+        place: "",
+        showArrow: false,
+        opened: false,
+        hQuesions: true,
+        questions: [],
+        hReports: false,
+        reports: [],
+      },
+    ],
+    [
+      {
+        id: 0,
+        title:
+          "«Феномен цифровизации экономической деятельности в правовых позициях судов»",
+        date: "13 ДЕКАБРЯ",
+        time: "14.20 - 16.20",
+        place: "Стромынка, 20, Малый зал Ученого совета",
+        showArrow: true,
+        opened: false,
+        hQuesions: true,
+        questions: [
+          "Нормотворчество ad hoc: Передача финансовому управляющему доступа к криптокошельку; ",
+          "Судебная интерпретация правовой природы криптовалюты; ",
+          "Проблемы квалификации правовой природы и формы контракта, заключенного через блокчейн-платформу; ",
+          "Цифровое администрирование договоров; ",
+          "Методология судебных бухгалтерских экспертиз: цифровые инструменты и их допустимость;",
+          "Экономическая и финансовая безопасность и Fintech: вектор судебной практики; ",
+          "Краудфандинг, цифровое кредитование, цифровая идентификация и проблемы кибербезопасности",
+        ],
+        hReports: false,
+        reports: [],
+      },
+      {
+        id: 1,
+        title: "Кофе - брейк",
+        date: "",
+        time: "15.00 - 15.20",
+        place: "",
+        showArrow: false,
+        opened: false,
+        hQuesions: true,
+        questions: [],
+        hReports: false,
+        reports: [],
+      },
+    ],
+    [
+      {
+        id: 0,
+        title:
+          "«Современные технологии мониторинга и анализа данных в цифровой криминалистике»",
+        date: "14 ДЕКАБРЯ",
+        time: "10.00 - 14.20",
+        place: "Стромынка, 20, конференц-зал коворкинг зоны",
+        showArrow: true,
+        opened: false,
+        hQuesions: true,
+        questions: [
+          "Методы идентификации личности в цифровой криминалистике; ",
+          "Верификация рукописной подписи;  ",
+          "Инструменты текстовой аналитики для мониторинга изменений параметров графов связей;  ",
+          "Математические модели для прогнозирования динамики настроений пользователей интернет- ресурсов; ",
+          "Методология судебных бухгалтерских экспертиз: цифровые инструменты и их допустимость;",
+          "Расследование инцидентов ИБ в контексте инфраструктурного детсруктивизма; ",
+          "Методы обнаружения компьютерных инцидентов на  объектах КИИ;",
+          "Теоретико-игровая модель  информационно-аналитического мониторинга;",
+          "Особенности функционирования отечественных систем мониторинга обнаружения вторжений; ",
+          "Методика формирования списка критериев в системах обнаружения вторжений",
+        ],
+        hReports: false,
+        reports: [],
+      },
+      {
+        id: 1,
+        title: "Кофе - брейк",
+        date: "",
+        time: "11.20 - 11.40",
+        place: "",
+        showArrow: false,
+        opened: false,
+        hQuesions: true,
+        questions: [],
+        hReports: false,
+        reports: [],
+      },
+    ],
+    [{
+      id: 0,
+      title:
+        "«Цифровые технологии в судебной системе и защита данных в сфере судопроизводства»",
+      date: "14 ДЕКАБРЯ",
+      time: "12.00 - 14.20",
+      place: "Проспект Вернадского, 78, корпус Е, конференц-зал Е-23",
+      showArrow: true,
+      opened: false,
+      hQuesions: false,
+      questions: [
+        
+      ],
+      hReports: false,
+      reports: [],
+    },
+    {
+      id: 1,
+      title: "Кофе - брейк",
+      date: "",
+      time: "13.00 - 13.20",
+      place: "",
+      showArrow: false,
+      opened: false,
+      hQuesions: true,
+      questions: [],
+      hReports: false,
+      reports: [],
+    },],
+    [{
+      id: 0,
+      title:
+        "«Облачные технологии и Центр обработки данных: перспективы использования в следственной и судебной деятельности»",
+      date: "14 ДЕКАБРЯ",
+      time: "15.00 - 17.20",
+      place: "Стромынка, 20, Малый зал Ученого совета",
+      showArrow: true,
+      opened: false,
+      hQuesions: true,
+      questions: [
+        "Облачные сервисы (public cloud services) ― это программы и платформы, «живущие» и функционирующие на серверах облачных провайдеров. Основная особенность облачных приложений заключается в следующем: создавая аккаунт пользователь сможет получать доступ к собственной информации с любого гаджета в любой точке мира. Необходимым и достаточным условием является создание логина и пароля. Использовать облачные службы не только удобно, но и безопасно. Даже если с телефоном или компьютером что-то случится, Ваши данные не исчезнут.  ",
+        "В ходе работы круглого стола планируется рассмотреть необходимость и возможность применения облачных технологий и создания центров обработки данных для аккумулирования и быстрого доступа к базам результатов баллистических и судебно-медицинских экспертиз.  ",
+       
+      ],
+      hReports: false,
+      reports: [],
+    },
+    {
+      id: 1,
+      title: "Кофе - брейк",
+      date: "",
+      time: "16.20 - 16.40",
+      place: "",
+      showArrow: false,
+      opened: false,
+      hQuesions: true,
+      questions: [],
+      hReports: false,
+      reports: [],
+    },],
+    [{
+      id: 0,
+      title:
+        "«Заседание Студенческого научного общества Института кибербезопасности и цифровых технологий РТУ МИРЭА, презентация результатов НИР учебно-научного центра «Этика искусственного интеллекта в судебной деятельности»",
+      date: "15 ДЕКАБРЯ",
+      time: "14.20 - 15.40",
+      place: "Стромынка, 20, Учебно-научный центр «Этика искусственного интеллекта в судебной деятельности»",
+      showArrow: true,
+      opened: false,
+      hQuesions: false,
+      questions: [
+        
+      ],
+      hReports: false,
+      reports: [],
+    },
+    ],
   ]);
   const [sectionArray, setSectionArray] = useState(sectionList[section]);
+
+  const [sectionButtons, setSectionButtons] = useState([
+    { id: 0, text: "Стратегическая сессия" },
+    {
+      id: 1,
+      text: "Предметно-ориентированные информационные системы в правосудии: возможности, проблемы, перспективы",
+    },
+    {
+      id: 2,
+      text: "Свободное программное обеспечение и цифровая трансформация правосудия",
+    },
+    { id: 3, text: "Панельная дискуссия" },
+    { id: 4, text: "Круглый стол" },
+    {
+      id: 5,
+      text: "Цифровые и интеллектуальные методы принятия решений в судебной деятельности",
+    },
+    {
+      id: 6,
+      text: "Феномен цифровизации экономической деятельности в правовых позициях судов",
+    },
+    {
+      id: 7,
+      text: "Современные технологии мониторинга и анализа данных в цифровой криминалистике",
+    },
+    { id: 8, text: "Мероприятие-сателлит – Презентация платформы Веримаг" },
+    {
+      id: 9,
+      text: "Цифровые технологии в судебной системе и защита данных в сфере судопроизводства",
+    },
+    { id: 10, text: "Заседание" },
+  ]);
 
   useEffect(() => {
     setSectionArray(sectionList[section]);
   }, [section]);
+
+  const setSectionOpened = (id: number) => {
+    setSectionArray(
+      sectionArray.map((section) => {
+        if (section.id === id) {
+          section.opened = !section.opened;
+        }
+        return section;
+      })
+    );
+  };
 
   const setOpened = (id: number) => {
     setPrograms(
@@ -94,231 +560,30 @@ const Programm = () => {
       <h2 className="titleH1">ПРОГРАММА</h2>
       <div className={styles.programmContainer}>
         {programs.map((prog) => {
-          return (
-            <>
-              <div className={styles.programmMainContainer}>
-                <div className={styles.programmMainContainer1}>
-                  <p>{prog.title}</p>
-                  <p>{prog.where}</p>
-                </div>
-                <div className={styles.programmMainContainer2}>
-                  <p>{prog.date}</p>
-                  <p>{prog.time}</p>
-                </div>
-                {prog.info && (
-                  <div className={styles.programmMainContainer3}>
-                    <FaArrowDown
-                      className={
-                        prog.infoOpened
-                          ? styles.programmMainContainerSVG +
-                            " " +
-                            styles.programmMainContainerSVGOpened
-                          : styles.programmMainContainerSVG
-                      }
-                      onClick={() => {
-                        setOpened(prog.id);
-                      }}
-                    />
-                  </div>
-                )}
-              </div>
-              {prog.info && (
-                <motion.div
-                  initial={{ height: 0, marginBottom: 0 }}
-                  animate={{
-                    height: prog.infoOpened ? "auto" : 0,
-                    marginBottom: prog.infoOpened ? "64px" : 0,
-                  }}
-                  transition={{ duration: 1, type: "spring" }}
-                  className={styles.programmInfoContainers}
-                >
-                  {prog.inform.map((infos) => {
-                    return (
-                      <div className={styles.programmInfoContainer}>
-                        <div className={styles.programmInformation}>
-                          <img src={infos.img} alt={infos.img} />
-                          <p>{infos.fio}</p>
-                        </div>
-                        <p className={styles.programmInfoText}>{infos.text}</p>
-                      </div>
-                    );
-                  })}
-                </motion.div>
-              )}
-            </>
-          );
+          return <ProgrammItem prog={prog} setOpened={setOpened} />;
         })}
         <h3 className="titleH1">СЕКЦИИ</h3>
         <div className={styles.programmSections}>
           <div className={styles.programmSectionbtns}>
-            <button
-              onClick={() => {
-                setSection(0);
-              }}
-              className={
-                section === 0
-                  ? styles.programmSectionbtn +
-                    " " +
-                    styles.programmSectionbtnActive
-                  : styles.programmSectionbtn
-              }
-            >
-              Стратегическая сессия
-            </button>
-            <button
-              className={
-                section === 1
-                  ? styles.programmSectionbtn +
-                    " " +
-                    styles.programmSectionbtnActive
-                  : styles.programmSectionbtn
-              }
-              onClick={() => {
-                setSection(1);
-              }}
-            >
-              Предметно-ориентированные информационные системы в правосудии:
-              возможности, проблемы, перспективы
-            </button>
-            <button
-              className={
-                section === 2
-                  ? styles.programmSectionbtn +
-                    " " +
-                    styles.programmSectionbtnActive
-                  : styles.programmSectionbtn
-              }
-              onClick={() => {
-                setSection(2);
-              }}
-            >
-              Свободное программное обеспечение и цифровая трансформация
-              правосудия
-            </button>
-            <button
-              className={
-                section === 3
-                  ? styles.programmSectionbtn +
-                    " " +
-                    styles.programmSectionbtnActive
-                  : styles.programmSectionbtn
-              }
-              onClick={() => {
-                setSection(3);
-              }}
-            >
-              Панельная дискуссия
-            </button>
-            <button
-              className={
-                section === 4
-                  ? styles.programmSectionbtn +
-                    " " +
-                    styles.programmSectionbtnActive
-                  : styles.programmSectionbtn
-              }
-              onClick={() => {
-                setSection(4);
-              }}
-            >
-              Круглый стол
-            </button>
-            <button
-              className={
-                section === 5
-                  ? styles.programmSectionbtn +
-                    " " +
-                    styles.programmSectionbtnActive
-                  : styles.programmSectionbtn
-              }
-              onClick={() => {
-                setSection(5);
-              }}
-            >
-              Цифровые и интеллектуальные методы принятия решений в судебной
-              деятельности
-            </button>
-            <button
-              className={
-                section === 6
-                  ? styles.programmSectionbtn +
-                    " " +
-                    styles.programmSectionbtnActive
-                  : styles.programmSectionbtn
-              }
-              onClick={() => {
-                setSection(6);
-              }}
-            >
-              Современные технологии мониторинга и анализа данных в цифровой
-              криминалистике
-            </button>
-            <button
-              className={
-                section === 7
-                  ? styles.programmSectionbtn +
-                    " " +
-                    styles.programmSectionbtnActive
-                  : styles.programmSectionbtn
-              }
-              onClick={() => {
-                setSection(7);
-              }}
-            >
-              Мероприятие-сателлит – Презентация платформы Веримаг
-            </button>
-            <button
-              className={
-                section === 8
-                  ? styles.programmSectionbtn +
-                    " " +
-                    styles.programmSectionbtnActive
-                  : styles.programmSectionbtn
-              }
-              onClick={() => {
-                setSection(8);
-              }}
-            >
-              Цифровые технологии в судебной системе и защита данных в сфере
-              судопроизводства
-            </button>
-            <button
-              className={
-                section === 9
-                  ? styles.programmSectionbtn +
-                    " " +
-                    styles.programmSectionbtnActive
-                  : styles.programmSectionbtn
-              }
-              onClick={() => {
-                setSection(9);
-              }}
-            >
-              Заседание
-            </button>
+            {sectionButtons.map((button) => {
+              return (
+                <SectionButtons
+                  id={button.id}
+                  text={button.text}
+                  setSection={setSection}
+                  section={section}
+                />
+              );
+            })}
           </div>
 
           <ul className={styles.programmSectionList}>
             {sectionArray.map((section) => {
               return (
-                <li>
-                  <div className={styles.programmSectionListFlex}>
-                    <p className={styles.programmSectionListMainInfo}>
-                      {section.title}
-                    </p>
-                    <br />
-                    <p className={styles.programmSectionListSecondInfo}>
-                      <b>{section.speaker}</b>
-                      <br /> {section.speakerInfo}
-                    </p>
-                  </div>
-                  <div className={styles.programmSectionListPlace}>
-                    <p>{section.place}</p>
-                  </div>
-                  <p className={styles.programmSectionListTime}>
-                    {section.time} <br /> {section.date}
-                  </p>
-                </li>
+                <SectionItem
+                  section={section}
+                  setSectionOpened={setSectionOpened}
+                />
               );
             })}
           </ul>

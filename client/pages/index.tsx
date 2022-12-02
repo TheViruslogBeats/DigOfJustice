@@ -12,7 +12,7 @@ import Speakers from "../components/speakers/Speakers";
 import Programm from "../components/programm/Programm";
 
 export default function Home() {
-  const [devMode, setDevMode] = useState(true);
+  const [devMode, setDevMode] = useState(false);
 
   return (
     <div className={styles.container}>

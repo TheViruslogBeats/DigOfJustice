@@ -118,7 +118,7 @@
 .programmSections {
   width: 100%;
   display: flex;
-  height: 882px;
+  height: 987px;
   align-items: center;
   overflow: hidden;
 }
@@ -205,84 +205,207 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  & li {
-    min-height: 160px;
-    position: relative;
-    &::before {
-      position: absolute;
-      content: "";
-      background-color: #3a7388;
-      bottom: 0;
-      width: 100%;
-      height: 1px;
+  list-style-type: none;
+  & p {
+    color: #3a7388;
+  }
+}
+
+.programmSectionListMainContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 80px;
+  margin-bottom: 32px;
+  position: relative;
+  &::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    background-color: #3a7388;
+    height: 1px;
+    bottom: -10px;
+  }
+}
+
+.programmSectionListMainContainer1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  & p {
+    width: 450px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+    & b {
+      color: #3a7388;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 24px;
     }
-    &:last-child {
-      &::before {
-        height: 0;
+  }
+}
+
+.programmSectionListMainContainer2 {
+  display: flex;
+  align-items: center;
+  & div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & p {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 300;
+      font-size: 24px;
+      color: #3a7388;
+      & b {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        color: #3a7388;
       }
     }
   }
 }
 
-.programmSectionListPlace {
-  display: flex;
-  justify-content: end;
-  margin-bottom: 16px;
-  & p {
-    margin-right: 64px;
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    padding: 3px 12px;
-    background: #3a7388;
-    width: 155px;
-    text-align: center;
-    border-radius: 8px;
+.programmSectionListMainSVG {
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  padding: 8px;
+  border-radius: 50%;
+  margin-left: 16px;
+  transition: 0.15s ease-in-out color, 0.15s ease-in-out background-color,
+    0.2s ease-in-out transform;
+  transform: rotate(180deg);
+  & path {
+    color: #3a7388;
+  }
+  &:hover {
+    background-color: #3a7388;
+    & path {
+      color: white;
+    }
   }
 }
 
-.programmSectionListFlex {
+.programmSectionListMainSVGOpened {
+  transform: rotate(0deg);
+}
+
+.programmSectionListHiddenContainer {
+  margin: 32px;
+  height: auto;
+  overflow: hidden;
+  & p {
+    & b {
+      font-family: "Raleway";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      color: #3a7388;
+    }
+  }
+}
+
+.programmSectionListQA {
   display: flex;
   flex-direction: column;
-  min-height: 131px;
-  justify-content: space-between;
-}
-
-.programmSectionListMainInfo {
-  width: 500px;
-  text-transform: uppercase;
-  color: #3a7388;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0.1em;
-}
-
-.programmSectionListSecondInfo {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  letter-spacing: 0.1em;
-  max-width: 360px;
-  color: #000;
-  & b {
-    font-weight: 600;
-    color: #000;
+  gap: 8px;
+  margin-top: 16px;
+  width: 400px;
+  & li {
+    margin-left: 16px;
+    width: 500px;
+    position: relative;
+    &::before {
+      position: absolute;
+      content: "●";
+      color: #3a7388;
+      left: -3%;
+      top: 50%;
+      transform: translateY(-60%);
+    }
   }
 }
 
-.programmSectionListTime {
-  position: absolute;
-  top: 50%;
-  text-transform: uppercase;
-  right: 0;
-  text-align: center;
-  font-family: "Inter";
+.programmSectionListPeapCtn {
+  width: 100%;
+}
+
+.programmSectionListPeapTitle {
+  font-family: "Raleway";
   font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  transform: rotate(90deg) translateY(-80%) translateX(-20%);
-  color: #3a7388;
-  width: 150px;
+  font-weight: 800;
+  font-size: 20px;
+  margin-top: 32px;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.programmSectionListPeapLi {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  & p:nth-child(1) {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    color: #3a7388;
+    text-transform: uppercase;
+  }
+  position: relative;
+  &::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: #3a7388;
+    bottom: 0;
+  }
+}
+
+.programmSectionListPeapLiCtn {
+  margin-bottom: 8px;
+  & div {
+    & p {
+      color: #000;
+      font-weight: 400;
+      font-size: 14px;
+      &:nth-child(2) {
+        width: 300px;
+      }
+      & b {
+        font-weight: 600;
+        font-size: 14px;
+        color: #000;
+      }
+    }
+    &:nth-child(2) {
+      display: flex;
+      width: 100%;
+      justify-content: flex-end;
+      & p {
+        font-weight: 700;
+        font-size: 14px;
+        color: #fff;
+        padding: 2px 8px;
+        background-color: #3a7388;
+        width: 100px;
+        border-radius: 8px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.programmSectionListPeap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
