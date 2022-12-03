@@ -32,7 +32,7 @@ const SectionListModel = dataBase.define("sectionlist", {
     type: Sequelize.BOOLEAN,
   },
   questions: {
-    type: Sequelize.ARRAY(Sequelize.STRING),
+    type: Sequelize.ARRAY(Sequelize.STRING(1000)),
   },
   hReports: {
     type: Sequelize.BOOLEAN,
