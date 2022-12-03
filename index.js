@@ -18,6 +18,7 @@ const PORT = 5000;
 
 const whitelist = [
   "https://virusbeats.ru",
+  "https://conf.mirea.ru",
   "http://128.68.56.25",
   "http://localhost:3000",
   undefined,

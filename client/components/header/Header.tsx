@@ -78,7 +78,6 @@ const Header = () => {
             {/* <button className={styles.topBarButton}>ЗАДАЧИ КОНФЕРЕНЦИИ</button> */}
             <button className={styles.topBarButton}>ПРОГРАММА</button>
             {/* <button className={styles.topBarButton}>СПИКЕРЫ</button> */}
-            
             {/* <button className={styles.topBarButton}>ОРГАНИЗАТОРЫ</button> */}
             <button onClick={() => {
               headerState.downloadReq()
@@ -115,7 +114,7 @@ const Header = () => {
               </p>
               <HiOutlineCalendar />
             </div>
-            <button>РЕГИСТРАЦИЯ</button>
+            {/* <button>РЕГИСТРАЦИЯ</button> */}
           </motion.div>
         </div>
       </div>

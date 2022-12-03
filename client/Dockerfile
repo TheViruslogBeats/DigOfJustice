@@ -1,6 +1,6 @@
 FROM node:16-alpine AS base
 
-WORKDIR /client
+WORKDIR /app/conf-app/DigOfjustice/client
 
 FROM base AS dependencies
 
@@ -10,23 +10,22 @@ RUN npm install
 
 FROM dependencies AS build
 
-WORKDIR /client
+WORKDIR /app/conf-app/DigOfjustice/client
 
-COPY . .
+COPY . . 
 
 RUN npm i && npm run build
 
 FROM node:16-alpine AS realese
 
-WORKDIR /client
+WORKDIR /app/conf-app/DigOfjustice/client
 
-COPY --from=dependencies ./package.json ./
+COPY --from=dependencies app/conf-app/DigOfjustice/client/package*.json ./
 
 RUN npm i
 
-COPY --from=build . .
+COPY --from=build /app/conf-app/DigOfjustice/client ./
 
 EXPOSE 80
 
 CMD [ "npm", "run", "start" ]
-
