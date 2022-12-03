@@ -11,11 +11,10 @@ const Register = (props: Props) => {
   const acDegree = useRef<HTMLInputElement | null>(null);
   const topic = useRef<HTMLInputElement | null>(null);
   const fullNameSupervisor = useRef<HTMLInputElement | null>(null);
-  const acDegreeSupervisor = useRef<HTMLInputElement | null>(null);
-  const supervisorPosition = useRef<HTMLInputElement | null>(null);
+  const rankSupervisor = useRef<HTMLInputElement | null>(null);
+  const positionSupervisor = useRef<HTMLInputElement | null>(null);
   const email = useRef<HTMLInputElement | null>(null);
-  const phNum = useRef<HTMLInputElement | null>(null);
-  const formPartic = useRef<HTMLSelectElement | null>(null);
+  const [formOfParticipation, setFormOfParticipation] = useState(0);
 
   return (
     <div className={styles.register}>
@@ -112,40 +111,50 @@ const Register = (props: Props) => {
               type="text"
               placeholder="Звание научного руководителя"
               className={styles.registerInput}
-              ref={acDegreeSupervisor}
+              ref={rankSupervisor}
             />
             <input
               type="text"
               placeholder="Должность научного руководителя"
               className={styles.registerInput}
-              ref={supervisorPosition}
+              ref={positionSupervisor}
             />
             <div className={styles.checkboxWrapper}>
-          <p>ФОРМА УЧАСТИЯ</p>
-          <div className={styles.checkboxContainer}>
-            <label className={styles.CheckboxLabel}>
-              <input
-                type="radio"
-                name="formaUhc"
-                className={styles.hiddenCheckbox}
-              />
-              <span className={styles.FakeCheckbox}></span>
-              <span className={styles.CheckboxText}>Очно</span>
-            </label>
-            <label className={styles.CheckboxLabel}>
-              <input
-                type="radio"
-                name="formaUhc"
-                className={styles.hiddenCheckbox}
-              />
-              <span className={styles.FakeCheckbox}></span>
-              <span className={styles.CheckboxText}>Онлайн</span>
-            </label>
+              <p>ФОРМА УЧАСТИЯ</p>
+              <div className={styles.checkboxContainer}>
+                <label className={styles.CheckboxLabel}>
+                  <input
+                    type="radio"
+                    name="formaUhc"
+                    className={styles.hiddenCheckbox}
+                    value={0}
+                    checked={formOfParticipation === 0}
+                    onClick={() => {
+                      setFormOfParticipation(0);
+                    }}
+                  />
+                  <span className={styles.FakeCheckbox}></span>
+                  <span className={styles.CheckboxText}>Очно</span>
+                </label>
+                <label className={styles.CheckboxLabel}>
+                  <input
+                    type="radio"
+                    name="formaUhc"
+                    className={styles.hiddenCheckbox}
+                    value={1}
+                    checked={formOfParticipation === 1}
+                    onClick={() => {
+                      setFormOfParticipation(1);
+                    }}
+                  />
+                  <span className={styles.FakeCheckbox}></span>
+                  <span className={styles.CheckboxText}>Онлайн</span>
+                </label>
+              </div>
+            </div>
           </div>
         </div>
-          </div>
-        </div>
-        
+
         <button className={styles.registerButton}>РЕГИСТРАЦИЯ</button>
       </form>
     </div>
