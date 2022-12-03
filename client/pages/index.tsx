@@ -42,7 +42,7 @@ export default function Home() {
       <ConfInfo />
       <Programm />
       {devMode && <Speakers />}
-      {devMode && <Register />}
+      <Register />
     </div>
   );
 }

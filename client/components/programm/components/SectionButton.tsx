@@ -1,14 +1,14 @@
 import React from "react";
 import styles from "../styles.module.scss";
 
-interface Props {
+import { SectionButtonsType } from "../../../state/state";
+
+interface Props extends SectionButtonsType {
   setSection: (value: React.SetStateAction<number>) => void;
   section: number;
-  id: number;
-  text: string;
 }
 
-const SectionButton = (props: Props) => {
+const SectionButton: React.FC<Props> = (props) => {
   return (
     <button
       onClick={() => {

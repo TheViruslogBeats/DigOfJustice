@@ -6,6 +6,7 @@ import { HiOutlineLocationMarker, HiOutlineCalendar } from "react-icons/hi";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import headerState from "../../state/headerState";
 
 const Header = () => {
   const [scroll, setScroll] = useState(0);
@@ -77,9 +78,11 @@ const Header = () => {
             {/* <button className={styles.topBarButton}>ЗАДАЧИ КОНФЕРЕНЦИИ</button> */}
             <button className={styles.topBarButton}>ПРОГРАММА</button>
             {/* <button className={styles.topBarButton}>СПИКЕРЫ</button> */}
-            <button className={styles.topBarButton}>НАПРАВЛЕНИЯ</button>
+            
             {/* <button className={styles.topBarButton}>ОРГАНИЗАТОРЫ</button> */}
-            {/* <button className={styles.topBarButton}>ТРЕБОВАНИЯ</button> */}
+            <button onClick={() => {
+              headerState.downloadReq()
+            }} className={styles.topBarButton}>ТРЕБОВАНИЯ</button>
           </div>
         </motion.div>
         <div className={styles.headerInfo}>
@@ -107,12 +110,12 @@ const Header = () => {
               </p>
             </div>
             <div style={{ alignSelf: "end" }}>
-              <p style={{ width: "195px", textAlign: "right" }}>
-                <b>ДАТА ПРОВЕДЕНИЯ:</b> Декабрь 9/12/13/14 2022
+              <p style={{ width: "220px", textAlign: "right" }}>
+                <b>ДАТА ПРОВЕДЕНИЯ:</b> ДЕКАБРЬ 9/12/13/14/15/16 2022
               </p>
               <HiOutlineCalendar />
             </div>
-            <button style={{ display: "none" }}>РЕГИСТРАЦИЯ</button>
+            <button>РЕГИСТРАЦИЯ</button>
           </motion.div>
         </div>
       </div>
