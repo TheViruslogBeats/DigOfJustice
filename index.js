@@ -1,4 +1,3 @@
-//САНЯ ПИДОР
 const ProgramListInfoModel = require("./database/models/programListInfoModel");
 const ProgramListModel = require("./database/models/programListModel");
 const ReportsModel = require("./database/models/reportsModel");
