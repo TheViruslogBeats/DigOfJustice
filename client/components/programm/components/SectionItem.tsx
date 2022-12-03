@@ -4,7 +4,7 @@ import { FaArrowDown } from "react-icons/fa";
 import styles from "../styles.module.scss";
 import { SectionListType } from "../../../state/state";
 
-interface Props extends SectionListType {
+interface Props {
   section: SectionListType;
   setSectionOpened: (id: number) => void;
 }
@@ -81,9 +81,9 @@ const SectionItem = (props: Props) => {
           <div className={styles.programmSectionListPeapCtn}>
             <p className={styles.programmSectionListPeapTitle}>Доклады</p>
             <ul className={styles.programmSectionListPeap}>
-              {props.reports.map((report) => {
+              {props.section.reports.map((report, key) => {
                 return (
-                  <li className={styles.programmSectionListPeapLi}>
+                  <li key={key} className={styles.programmSectionListPeapLi}>
                     <p>{report.topic}</p>
                     <div className={styles.programmSectionListPeapLiCtn}>
                       <div>

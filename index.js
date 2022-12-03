@@ -100,7 +100,6 @@ const kek = async () => {
     text: "Приветственное слово заместителя председателя Московского городского суда",
     programlistId: 1,
   });
-  console.log("kek");
 };
 
 const kek2 = async () => {
@@ -154,9 +153,9 @@ const kek3 = async () => {
         date: "12 ДЕКАБРЯ",
         time: "10.00 - 12.20",
         place: "Стромынка, 20, Малый зал Ученого совета",
-        showArrow: true,
+        showArrow: false,
         opened: false,
-        hQuesions: true,
+        hQuesions: false,
         questions: [
           "Обсуждение экспертным сообществом векторных направлений исследования актуальной проблематики цифровой трансформации правосудия;",
           "Судебное нормотворчество ad hoc и contra legem vs искусственный интеллект; правовые позиции суда;",
@@ -169,7 +168,6 @@ const kek3 = async () => {
           "Проблемы квалификации, коллизионность в определении критерия допустимости доказательств.",
         ],
         hReports: false,
-        reports: [],
       },
       {
         title: "Кофе-брейк",
@@ -181,7 +179,6 @@ const kek3 = async () => {
         hQuesions: false,
         questions: [],
         hReports: false,
-        reports: [],
       },
       {
         title: "Обсуждение и подписание резолюции",
@@ -193,7 +190,6 @@ const kek3 = async () => {
         hQuesions: false,
         questions: [],
         hReports: false,
-        reports: [],
       },
     ],
     [
@@ -203,9 +199,9 @@ const kek3 = async () => {
         date: "12 ДЕКАБРЯ",
         time: "11.30 - 16.00",
         place: "Стромынка, 20, Малый зал Ученого совета",
-        showArrow: true,
+        showArrow: false,
         opened: false,
-        hQuesions: true,
+        hQuesions: false,
         questions: [
           "Возможности применения существующих предметно-ориентированных информационных систем в судебной деятельности; перспективы автоматизации обеспечивающих процессов в судебной деятельности;",
           "Перспективы автоматизации обеспечивающих процессов в судебной деятельности;",
@@ -214,7 +210,6 @@ const kek3 = async () => {
           "Проблемы проектирования информационных систем поддержки судебной деятельности",
         ],
         hReports: false,
-        reports: [],
       },
       {
         title: "Кофе - брейк",
@@ -223,10 +218,9 @@ const kek3 = async () => {
         place: "",
         showArrow: false,
         opened: false,
-        hQuesions: true,
+        hQuesions: false,
         questions: [],
         hReports: false,
-        reports: [],
       },
     ],
     [
@@ -236,9 +230,9 @@ const kek3 = async () => {
         date: "12 ДЕКАБРЯ",
         time: "10.00 - 14.00",
         place: "Стромынка, 20, конференц-зал А-459",
-        showArrow: true,
+        showArrow: false,
         opened: false,
-        hQuesions: true,
+        hQuesions: false,
         questions: [
           "Проблемы развития и внедрения свободного программного обеспечения в судебную и экспертную деятельность;",
           "Задачи подготовки ИТ-кадров при переходе на отечественное программное обеспечение;",
@@ -248,7 +242,6 @@ const kek3 = async () => {
           "Некоторые вопросы фиксации правонарушений по шумности автотранспорта и другие актуальные междисциплинарные аспекты оптимизации правоохранительной деятельности",
         ],
         hReports: false,
-        reports: [],
       },
       {
         title: "Кофе - брейк",
@@ -257,10 +250,9 @@ const kek3 = async () => {
         place: "",
         showArrow: false,
         opened: false,
-        hQuesions: true,
+        hQuesions: false,
         questions: [],
         hReports: false,
-        reports: [],
       },
     ],
     [
@@ -270,9 +262,9 @@ const kek3 = async () => {
         date: "12 ДЕКАБРЯ",
         time: "15.00 - 18.00",
         place: "Стромынка, 20, Зал Ученого совета",
-        showArrow: true,
+        showArrow: false,
         opened: false,
-        hQuesions: true,
+        hQuesions: false,
         questions: [
           "Определение психотипа личности посредством анализа социальных сетей;",
           "Возможность использования результатов переписок как доказательственной базы;",
@@ -281,7 +273,6 @@ const kek3 = async () => {
           "Обсуждение создания новой превентивной ИС, предупреждающей совершения преступлений через социальные сети",
         ],
         hReports: false,
-        reports: [],
       },
       {
         title: "Кофе - брейк",
@@ -290,10 +281,9 @@ const kek3 = async () => {
         place: "",
         showArrow: false,
         opened: false,
-        hQuesions: true,
+        hQuesions: false,
         questions: [],
         hReports: false,
-        reports: [],
       },
     ],
     [
@@ -303,9 +293,9 @@ const kek3 = async () => {
         date: "13 ДЕКАБРЯ",
         time: "10.00 - 12.20",
         place: "Стромынка, 20, Малый зал Ученого совета",
-        showArrow: true,
+        showArrow: false,
         opened: false,
-        hQuesions: true,
+        hQuesions: false,
         questions: [
           "Обсуждение проблем судебной дискреции и обеспечения процессуальных прав в условиях цифровизации цивилистических процессов;",
           "Проблема соблюдения процессуального равенства;",
@@ -315,7 +305,6 @@ const kek3 = async () => {
           "Проблемы правовой квалификации цифровых феноменов в цивилистическом процессе.",
         ],
         hReports: false,
-        reports: [],
       },
       {
         title: "Кофе - брейк",
@@ -324,10 +313,9 @@ const kek3 = async () => {
         place: "",
         showArrow: false,
         opened: false,
-        hQuesions: true,
+        hQuesions: false,
         questions: [],
         hReports: false,
-        reports: [],
       },
     ],
     [
@@ -337,14 +325,13 @@ const kek3 = async () => {
         date: "13 ДЕКАБРЯ",
         time: "12.20 - 14.20",
         place: "Стромынка, 20, Малый зал Ученого совета",
-        showArrow: true,
+        showArrow: false,
         opened: false,
-        hQuesions: true,
+        hQuesions: false,
         questions: [
           "К дискуссии предлагаются вопросы применения интеллектуальных технологий в судебной деятельности, автоматизации обработки и анализа информации в рамках существующих процессуальных норм. Докладчиками будут рассмотрены направления совершенствования системы правосудия России, формы организации судебной деятельности в условиях технологической модернизации, а также современные подходы к совершенствованию точности и быстродействия поддержки принятия решений с использованием современных технологий сбора, хранения, обработки данных на базе интеллектуальных алгоритмов.",
         ],
         hReports: false,
-        reports: [],
       },
       {
         title: "Кофе - брейк",
@@ -353,10 +340,9 @@ const kek3 = async () => {
         place: "",
         showArrow: false,
         opened: false,
-        hQuesions: true,
+        hQuesions: false,
         questions: [],
         hReports: false,
-        reports: [],
       },
     ],
     [
@@ -366,9 +352,9 @@ const kek3 = async () => {
         date: "13 ДЕКАБРЯ",
         time: "14.20 - 16.20",
         place: "Стромынка, 20, Малый зал Ученого совета",
-        showArrow: true,
+        showArrow: false,
         opened: false,
-        hQuesions: true,
+        hQuesions: false,
         questions: [
           "Нормотворчество ad hoc: Передача финансовому управляющему доступа к криптокошельку; ",
           "Судебная интерпретация правовой природы криптовалюты; ",
@@ -379,7 +365,6 @@ const kek3 = async () => {
           "Краудфандинг, цифровое кредитование, цифровая идентификация и проблемы кибербезопасности",
         ],
         hReports: false,
-        reports: [],
       },
       {
         title: "Кофе - брейк",
@@ -388,10 +373,9 @@ const kek3 = async () => {
         place: "",
         showArrow: false,
         opened: false,
-        hQuesions: true,
+        hQuesions: false,
         questions: [],
         hReports: false,
-        reports: [],
       },
     ],
     [
@@ -401,9 +385,9 @@ const kek3 = async () => {
         date: "14 ДЕКАБРЯ",
         time: "10.00 - 14.20",
         place: "Стромынка, 20, конференц-зал коворкинг зоны",
-        showArrow: true,
+        showArrow: false,
         opened: false,
-        hQuesions: true,
+        hQuesions: false,
         questions: [
           "Методы идентификации личности в цифровой криминалистике; ",
           "Верификация рукописной подписи;  ",
@@ -417,7 +401,6 @@ const kek3 = async () => {
           "Методика формирования списка критериев в системах обнаружения вторжений",
         ],
         hReports: false,
-        reports: [],
       },
       {
         title: "Кофе - брейк",
@@ -426,10 +409,9 @@ const kek3 = async () => {
         place: "",
         showArrow: false,
         opened: false,
-        hQuesions: true,
+        hQuesions: false,
         questions: [],
         hReports: false,
-        reports: [],
       },
     ],
     [],
@@ -445,7 +427,6 @@ const kek3 = async () => {
         hQuesions: false,
         questions: [],
         hReports: false,
-        reports: [],
       },
       {
         title: "Кофе - брейк",
@@ -454,10 +435,9 @@ const kek3 = async () => {
         place: "",
         showArrow: false,
         opened: false,
-        hQuesions: true,
+        hQuesions: false,
         questions: [],
         hReports: false,
-        reports: [],
       },
     ],
     [
@@ -467,15 +447,14 @@ const kek3 = async () => {
         date: "14 ДЕКАБРЯ",
         time: "15.00 - 17.20",
         place: "Стромынка, 20, Малый зал Ученого совета",
-        showArrow: true,
+        showArrow: false,
         opened: false,
-        hQuesions: true,
+        hQuesions: false,
         questions: [
           "Облачные сервисы (public cloud services) ― это программы и платформы, «живущие» и функционирующие на серверах облачных провайдеров. Основная особенность облачных приложений заключается в следующем: создавая аккаунт пользователь сможет получать доступ к собственной информации с любого гаджета в любой точке мира. Необходимым и достаточным условием является создание логина и пароля. Использовать облачные службы не только удобно, но и безопасно. Даже если с телефоном или компьютером что-то случится, Ваши данные не исчезнут. ",
           "В ходе работы круглого стола планируется рассмотреть необходимость и возможность применения облачных технологий и создания центров обработки данных для аккумулирования и быстрого доступа к базам результатов баллистических и судебно-медицинских экспертиз.",
         ],
         hReports: false,
-        reports: [],
       },
       {
         title: "Кофе - брейк",
@@ -484,10 +463,9 @@ const kek3 = async () => {
         place: "",
         showArrow: false,
         opened: false,
-        hQuesions: true,
+        hQuesions: false,
         questions: [],
         hReports: false,
-        reports: [],
       },
     ],
 
@@ -504,7 +482,6 @@ const kek3 = async () => {
         hQuesions: false,
         questions: [],
         hReports: false,
-        reports: [],
       },
     ],
     [
@@ -513,9 +490,9 @@ const kek3 = async () => {
         date: "16 ДЕКАБРЯ",
         time: "14.00 - 17.00",
         place: "Стромынка, 20, Зал Ученого совета",
-        showArrow: true,
+        showArrow: false,
         opened: false,
-        hQuesions: true,
+        hQuesions: false,
         questions: [
           "Искусственный интеллект в правосудии;",
           "Машиночитаемое право: проблемы семантики;",
@@ -524,7 +501,6 @@ const kek3 = async () => {
           "Этические нормы и искусственный интеллект; этика искусственного интеллекта",
         ],
         hReports: false,
-        reports: [],
       },
       {
         title: "Кофе - брейк",
@@ -533,18 +509,16 @@ const kek3 = async () => {
         place: "",
         showArrow: false,
         opened: false,
-        hQuesions: true,
+        hQuesions: false,
         questions: [],
         hReports: false,
-        reports: [],
       },
     ],
   ];
-  a.map((b, i) => {
-    let sectionbuttonId = i + 1
-    b.map(c => {
-      // console.log({...c, sectionbuttonId});
-      SectionListModel.create({...c, sectionbuttonId})
-    })
+  a.map(async (b, i) => {
+    let sectionbuttonId = i + 1;
+    b.map(async (c) => {
+      await SectionListModel.create({ ...c, sectionbuttonId });
+    });
   });
 };
