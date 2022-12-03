@@ -39,6 +39,12 @@ const SectionListModel = dataBase.define(
     hReports: {
       type: Sequelize.BOOLEAN,
     },
+    isSection: {
+      type: Sequelize.BOOLEAN,
+    },
+    canRegister: {
+      type: Sequelize.BOOLEAN,
+    }
   },
   { timestamps: false }
 );

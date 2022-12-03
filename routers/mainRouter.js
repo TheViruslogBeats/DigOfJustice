@@ -1,12 +1,16 @@
 const { Router } = require("express");
-const mainContorller = require("../controllers/mainContorller")
+const mainContorller = require("../controllers/mainContorller");
 
-const router = new Router()
+const { body } = require("express-validator");
+
+const router = new Router();
 
 router.post("/sendBid");
-router.get("/downloadFile", mainContorller.downloadFile)
+router.get("/downloadFile", mainContorller.downloadFile);
 
+router.post("/report", body("email").isEmail(), mainContorller.sendReport);
 
-router.get("/program", mainContorller.getProgramm)
+router.get("/sections", mainContorller.getRegisterSections)
+router.get("/program", mainContorller.getProgramm);
 
-module.exports = router
+module.exports = router;

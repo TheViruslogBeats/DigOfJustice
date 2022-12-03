@@ -47,8 +47,8 @@ const ProgrammItem = (props: Props) => {
           transition={{ duration: 1, type: "spring" }}
           className={styles.programmInfoContainers}
         >
-          {props.prog.inform.map((infos, index) => {
-            return <ProgrammItemInfo progInform={infos} />;
+          {props.prog.inform.map((infos) => {
+            return <ProgrammItemInfo key={infos.id} progInform={infos} />;
           })}
         </motion.div>
       )}

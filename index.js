@@ -154,6 +154,8 @@ const kek3 = async () => {
         showArrow: false,
         opened: false,
         hQuesions: false,
+        isSection: true,
+        canRegister: true,
         questions: [
           "Обсуждение экспертным сообществом векторных направлений исследования актуальной проблематики цифровой трансформации правосудия;",
           "Судебное нормотворчество ad hoc и contra legem vs искусственный интеллект; правовые позиции суда;",

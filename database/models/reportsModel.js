@@ -26,6 +26,10 @@ const ReportsModel = dataBase.define("reports", {
   workPlaceAndPosition: {
     type: Sequelize.STRING,
   },
+  acDegree: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
   topic: {
     type: Sequelize.STRING,
     allowNull: false,

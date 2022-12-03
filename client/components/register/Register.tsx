@@ -4,12 +4,12 @@ import styles from "./styles.module.scss";
 interface Props {}
 
 const Register = (props: Props) => {
-  const [works, setWorks] = useState(0);
+  const [activityType, setActivityType] = useState(0);
   const fullName = useRef<HTMLInputElement | null>(null);
-  const workPlace = useRef<HTMLInputElement | null>(null);
-  const studyPlace = useRef<HTMLInputElement | null>(null);
+  const workPlaceAndPosition = useRef<HTMLInputElement | null>(null);
+  const studyPlaceAndSpecialy = useRef<HTMLInputElement | null>(null);
   const acDegree = useRef<HTMLInputElement | null>(null);
-  const docTheme = useRef<HTMLInputElement | null>(null);
+  const topic = useRef<HTMLInputElement | null>(null);
   const fullNameSupervisor = useRef<HTMLInputElement | null>(null);
   const acDegreeSupervisor = useRef<HTMLInputElement | null>(null);
   const supervisorPosition = useRef<HTMLInputElement | null>(null);
@@ -29,9 +29,9 @@ const Register = (props: Props) => {
               name="vidDe"
               className={styles.hiddenCheckbox}
               value={0}
-              checked={works === 0}
+              checked={activityType === 0}
               onClick={() => {
-                setWorks(0);
+                setActivityType(0);
               }}
             />
             <span className={styles.FakeCheckbox}></span>
@@ -43,9 +43,9 @@ const Register = (props: Props) => {
               name="vidDe"
               className={styles.hiddenCheckbox}
               value={1}
-              checked={works === 1}
+              checked={activityType === 1}
               onClick={() => {
-                setWorks(1);
+                setActivityType(1);
               }}
             />
             <span className={styles.FakeCheckbox}></span>
@@ -63,13 +63,13 @@ const Register = (props: Props) => {
               ref={fullName}
             />
 
-            {works === 1 ? (
+            {activityType === 1 ? (
               <>
                 <input
                   type="text"
                   placeholder="Место работы и должность"
                   className={styles.registerInput}
-                  ref={workPlace}
+                  ref={workPlaceAndPosition}
                 />
               </>
             ) : (
@@ -78,7 +78,7 @@ const Register = (props: Props) => {
                   type="text"
                   placeholder="Место обучения и специальность"
                   className={styles.registerInput}
-                  ref={studyPlace}
+                  ref={studyPlaceAndSpecialy}
                 />
               </>
             )}
@@ -92,7 +92,7 @@ const Register = (props: Props) => {
               type="text"
               placeholder="Тема доклада"
               className={styles.registerInput}
-              ref={docTheme}
+              ref={topic}
             />
             <input
               type="email"

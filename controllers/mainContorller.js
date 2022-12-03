@@ -3,6 +3,9 @@ const ProgramListModel = require("../database/models/programListModel");
 const SectionButtonsModel = require("../database/models/sectionButtonsModel");
 const SectionListModel = require("../database/models/sectionListModel");
 
+const { validationResult } = require("express-validator");
+const ReportsModel = require("../database/models/reportsModel");
+
 const getProgramms = async () => {
   let programsTemp = await ProgramListModel.findAll();
   let programs = [];
@@ -76,6 +79,61 @@ class mainContorller {
     } catch (error) {
       console.log(error);
       res.status(500).json("Ошибка при скачивании");
+    }
+  }
+
+  async getRegisterSections(req, res) {
+    try {
+      let sections = await SectionListModel.findAll({
+        where: { isSection: true, canRegister: true },
+      });
+      res.json(sections)
+    } catch (error) {
+
+    }
+  }
+
+  async sendReport(req, res) {
+    try {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        res.status(500).json({ message: "Ошибка сервера", errors });
+      }
+      const {
+        fullName,
+        email,
+        activityType,
+        studyPlaceAndSpecialy,
+        workPlaceAndPosition,
+        topic,
+        section,
+        fullNameSupervisor,
+        rankSupervisor,
+        positionSupervisor,
+        formOfParticipation,
+        sectionlistId,
+      } = req.body;
+      let candidate = ReportsModel.findOne({ where: email });
+      if (candidate) {
+        res.status(400).json("Пользователь с таким email уже зарегистрирован");
+      }
+      const user = ReportsModel.create({
+        fullName,
+        email,
+        activityType,
+        studyPlaceAndSpecialy,
+        workPlaceAndPosition,
+        topic,
+        section,
+        fullNameSupervisor,
+        rankSupervisor,
+        positionSupervisor,
+        formOfParticipation,
+        sectionlistId,
+      });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json("Ошибка сервера");
     }
   }
 }

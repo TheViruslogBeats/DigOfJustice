@@ -5,6 +5,7 @@ import styles from "../styles.module.scss";
 import headerState, { SectionListType } from "../../../state/headerState";
 import { observer } from "mobx-react-lite";
 import SectionReportItem from "./SectionReportItem";
+import SectionQItem from "./SectionQItem";
 
 interface Props {
   section: SectionListType;
@@ -66,9 +67,7 @@ const SectionItem = (props: Props) => {
             </p>
             <ol className={styles.programmSectionListQA}>
               {props.section.questions.map((q, index) => {
-                return (
-                  
-                );
+                return <SectionQItem question={q} key={index} />;
               })}
             </ol>
           </>
@@ -78,9 +77,7 @@ const SectionItem = (props: Props) => {
             <p className={styles.programmSectionListPeapTitle}>Доклады</p>
             <ul className={styles.programmSectionListPeap}>
               {props.section.reports.map((report) => {
-                return (
-                  <SectionReportItem key={report.id} report={report}/>
-                );
+                return <SectionReportItem key={report.id} report={report} />;
               })}
             </ul>
           </div>
