@@ -1,8 +1,11 @@
-version: '3.8'
+version: "3.2"
 services:
- nextjs:
-   build:
-     context: .
-     dockerfile: Dockerfile
-   ports:
-     - "8886:80"
+
+  client-app:
+    container_name: suite-conf-mirea
+    image: alex5405/mireaconf
+    ports:
+     - "80:80"
+    
+    restart: always
+    build: ./
