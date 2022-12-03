@@ -38,10 +38,15 @@ const getSections = async () => {
   sectionListTemp.map((a) => sectionList.push(a.dataValues));
 
   sectionList.map((a) => {
-    if(a.questions.length > 0) {
-      a.hQuesions = true
+    if (a.questions.length > 0) {
+      a.showArrow = true;
+      a.hQuesions = true;
     }
-    a.reports = []
+    a.reports = [];
+    if (a.reports.length > 0) {
+      a.showArrow = true;
+      a.hReports = true;
+    }
   });
   sectionButtons.map((a) => {
     a.sectionList = [];

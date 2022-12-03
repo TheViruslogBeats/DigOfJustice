@@ -1,28 +1,33 @@
 import React from "react";
 import styles from "../styles.module.scss";
+import { observer } from "mobx-react-lite";
 
-import { SectionButtonsType } from "../../../state/state";
+import headerState, { SectionButtonsType } from "../../../state/headerState";
 
-interface Props extends SectionButtonsType {
-  setSection: (value: React.SetStateAction<number>) => void;
-  section: number;
+interface Props {
+  button: SectionButtonsType;
 }
 
 const SectionButton: React.FC<Props> = (props) => {
   return (
     <button
       onClick={() => {
-        props.setSection(props.id);
+        console.log("sykablyat");
+
+        headerState.setCurrentButtonAndList(
+          props.button.id,
+          props.button.sectionList
+        );
       }}
       className={
-        props.section === props.id
+        headerState.currentButton === props.button.id
           ? styles.programmSectionbtn + " " + styles.programmSectionbtnActive
           : styles.programmSectionbtn
       }
     >
-      {props.text}
+      {props.button.text}
     </button>
   );
 };
 
-export default SectionButton;
+export default observer(SectionButton);

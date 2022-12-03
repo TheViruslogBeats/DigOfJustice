@@ -2,11 +2,12 @@ import { motion } from "framer-motion";
 import React from "react";
 import { FaArrowDown } from "react-icons/fa";
 import styles from "../styles.module.scss";
-import { SectionListType } from "../../../state/state";
+import headerState, { SectionListType } from "../../../state/headerState";
+import { observer } from "mobx-react-lite";
+import SectionReportItem from "./SectionReportItem";
 
 interface Props {
   section: SectionListType;
-  setSectionOpened: (id: number) => void;
 }
 
 const SectionItem = (props: Props) => {
@@ -43,10 +44,7 @@ const SectionItem = (props: Props) => {
                   : styles.programmSectionListMainSVG
               }
               onClick={() => {
-                console.log("click" + props.section.id);
-
-                props.setSectionOpened(props.section.id);
-                console.log(props.section.opened);
+                headerState.openList(props.section.id);
               }}
             />
           )}
@@ -69,9 +67,7 @@ const SectionItem = (props: Props) => {
             <ol className={styles.programmSectionListQA}>
               {props.section.questions.map((q, index) => {
                 return (
-                  <li key={index}>
-                    <p>{q}</p>
-                  </li>
+                  
                 );
               })}
             </ol>
@@ -81,27 +77,9 @@ const SectionItem = (props: Props) => {
           <div className={styles.programmSectionListPeapCtn}>
             <p className={styles.programmSectionListPeapTitle}>Доклады</p>
             <ul className={styles.programmSectionListPeap}>
-              {props.section.reports.map((report, key) => {
+              {props.section.reports.map((report) => {
                 return (
-                  <li key={key} className={styles.programmSectionListPeapLi}>
-                    <p>{report.topic}</p>
-                    <div className={styles.programmSectionListPeapLiCtn}>
-                      <div>
-                        <p>
-                          <b>{report.fullName}</b>
-                        </p>
-                        <p>
-                          {report.studyPlaceAndSpecialy.length > 0 &&
-                            report.studyPlaceAndSpecialy}
-                          {report.workPlaceAndPosition.length > 0 &&
-                            report.workPlaceAndPosition}
-                        </p>
-                      </div>
-                      <div>
-                        <p>{report.activityType}</p>
-                      </div>
-                    </div>
-                  </li>
+                  <SectionReportItem key={report.id} report={report}/>
                 );
               })}
             </ul>
@@ -112,4 +90,4 @@ const SectionItem = (props: Props) => {
   );
 };
 
-export default SectionItem;
+export default observer(SectionItem);

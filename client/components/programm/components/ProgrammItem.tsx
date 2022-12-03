@@ -1,34 +1,17 @@
 import { motion } from "framer-motion";
 import styles from "../styles.module.scss";
 import { FaArrowDown } from "react-icons/fa";
+import headerState, { programsType } from "../../../state/headerState";
+import ProgrammItemInfo from "./ProgrammItemInfo";
 
 interface Props {
-  prog: prog;
-  setOpened: (id: number) => void;
-  key: number
-}
-
-interface prog {
-  id: number;
-  title: string;
-  where: string;
-  date: string;
-  time: string;
-  info: boolean;
-  infoOpened: boolean;
-  inform: inform[];
-}
-
-interface inform {
-  img: string;
-  fio: string;
-  text: string;
+  prog: programsType;
 }
 
 const ProgrammItem = (props: Props) => {
   return (
     <>
-      <div key={props.key} className={styles.programmMainContainer}>
+      <div key={props.prog.id} className={styles.programmMainContainer}>
         <div className={styles.programmMainContainer1}>
           <p>{props.prog.title}</p>
           <p>{props.prog.where}</p>
@@ -48,7 +31,7 @@ const ProgrammItem = (props: Props) => {
                   : styles.programmMainContainerSVG
               }
               onClick={() => {
-                props.setOpened(props.prog.id);
+                headerState.openProgram(props.prog.id);
               }}
             />
           </div>
@@ -65,15 +48,7 @@ const ProgrammItem = (props: Props) => {
           className={styles.programmInfoContainers}
         >
           {props.prog.inform.map((infos, index) => {
-            return (
-              <div key={index} className={styles.programmInfoContainer}>
-                <div className={styles.programmInformation}>
-                  <img src={infos.img} alt={infos.img} />
-                  <p>{infos.fio}</p>
-                </div>
-                <p className={styles.programmInfoText}>{infos.text}</p>
-              </div>
-            );
+            return <ProgrammItemInfo progInform={infos} />;
           })}
         </motion.div>
       )}

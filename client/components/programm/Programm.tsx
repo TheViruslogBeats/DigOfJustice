@@ -1,80 +1,39 @@
+//modules
 import { useEffect, useState } from "react";
+import { observer } from "mobx-react-lite";
+//styles
 import styles from "./styles.module.scss";
+//state
+import headerState from "../../state/headerState";
+
+//components
 import ProgrammItem from "./components/ProgrammItem";
 import SectionButtons from "./components/SectionButton";
 import SectionItem from "./components/SectionItem";
-import {
-  programsArray,
-  sectionButtonsArray,
-  sectionListArray,
-} from "../../state/state";
 
 const Programm = () => {
-  const [section, setSection] = useState(0);
-  const [programs, setPrograms] = useState(programsArray);
-  const [sectionList, setSectionList] = useState(sectionListArray);
-  const [sectionArray, setSectionArray] = useState(sectionList[section]);
-  const [sectionButtons, setSectionButtons] = useState(
-    sectionButtonsArray.sort((a, b) => a.text.length - b.text.length)
-  );
 
   useEffect(() => {
-    setSectionArray(sectionList[section]);
-  }, [section]);
-
-  const setSectionOpened = (id: number) => {
-    setSectionArray(
-      sectionArray.map((section) => {
-        if (section.id === id) {
-          section.opened = !section.opened;
-        }
-        return section;
-      })
-    );
-  };
-
-  const setOpened = (id: number) => {
-    setPrograms(
-      programs.map((prog) => {
-        if (prog.id === id) {
-          prog.infoOpened = !prog.infoOpened;
-        }
-        return prog;
-      })
-    );
-  };
+    headerState.getProgramm();
+  }, []);
 
   return (
     <div className={styles.programm}>
       <h2 className="titleH1">ПРОГРАММА</h2>
       <div className={styles.programmContainer}>
-        {programs.map((prog, index) => {
-          return <ProgrammItem key={index} prog={prog} setOpened={setOpened} />;
+        {headerState.program.programs?.map((program) => {
+          return <ProgrammItem key={program.id} prog={program} />;
         })}
         <div className={styles.programmSections}>
           <div className={styles.programmSectionbtns}>
-            {sectionButtons.map((button, index) => {
-              return (
-                <SectionButtons
-                  key={index}
-                  id={button.id}
-                  text={button.text}
-                  setSection={setSection}
-                  section={section}
-                />
-              );
+            {headerState.program.sections?.map((button) => {
+              return <SectionButtons key={button.id} button={button} />;
             })}
           </div>
 
           <ul className={styles.programmSectionList}>
-            {sectionArray.map((section, index) => {
-              return (
-                <SectionItem
-                  key={index}
-                  section={section}
-                  setSectionOpened={setSectionOpened}
-                />
-              );
+            {headerState.currentList.map((section) => {
+              return <SectionItem key={section.id} section={section} />;
             })}
           </ul>
         </div>
@@ -83,4 +42,4 @@ const Programm = () => {
   );
 };
 
-export default Programm;
+export default observer(Programm);
