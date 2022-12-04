@@ -1,13 +1,24 @@
 import { motion } from "framer-motion";
 import styles from "./styles.module.scss";
+import { useRef, useEffect } from "react";
+import headerState from "../../state/headerState";
 
 const ConfInfo = () => {
+  const confRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    console.log(confRef.current?.offsetTop);
+    if (confRef.current?.offsetTop) {
+      headerState.setConfOffsetTop(confRef.current?.offsetTop);
+    }
+  }, []);
   return (
     <motion.div
       initial={{ opacity: 0, translateY: "-30%" }}
       animate={{ opacity: 1, translateY: "0%" }}
       transition={{ type: "spring", duration: 2 }}
       className={styles.confInfo}
+      ref={confRef}
     >
       <h1 className="titleH1">О КОНФЕРЕНЦИИ</h1>
       <p>

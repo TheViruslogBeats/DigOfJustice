@@ -9,49 +9,49 @@ const ReportsModel = dataBase.define("reports", {
     allowNull: false,
   },
   fullName: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING(1000),
     allowNull: false,
   },
   email: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING(1000),
     allowNull: false,
   },
   activityType: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING(1000),
     allowNull: false,
   },
   studyPlaceAndSpecialy: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING(1000),
   },
   workPlaceAndPosition: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING(1000),
   },
   acDegree: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING(1000),
     allowNull: false,
   },
   topic: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING(1000),
     allowNull: false,
   },
   section: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING(1000),
     allowNull: false,
   },
   fullNameSupervisor: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING(1000),
     allowNull: false,
   },
   rankSupervisor: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING(1000),
     allowNull: false,
   },
   positionSupervisor: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING(1000),
     allowNull: false,
   },
   formOfParticipation: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING(1000),
     allowNull: false,
   },
   moderated: {

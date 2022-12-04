@@ -9,7 +9,9 @@
 
 .speakersContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 32px;
 }
 
 .speaker {
@@ -19,6 +21,7 @@
   border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
+  transition: 0.15s ease-in-out box-shadow, 0.15s ease-in-out transform;
   &::before {
     content: "";
     position: absolute;
@@ -30,10 +33,12 @@
     height: 100%;
     z-index: -2;
     opacity: 0;
-    transition: 0.3s ease-in-out opacity, 0.3s ease-in-out transform;
     transform-origin: top;
+    transition: 0.15s ease-in-out opacity, 0.15s ease-in-out transform;
   }
   &:hover {
+    box-shadow: 0px 5px 10px 0 hsla(0, 0%, 0%, 0.5);
+    transform: translateY(-2.5%);
     &::before {
       opacity: 1;
       transform: translate(-50%, -50%) scaleY(1);
@@ -49,8 +54,12 @@
   }
   & div {
     position: absolute;
-    left: 8px;
-    bottom: 8px;
+    left: 0px;
+    bottom: 0px;
+    padding: 8px 16px;
+    border-radius: 0 10px 0 10px;
+    backdrop-filter: blur(6px);
+    background-color: hsla(196, 40%, 38%, 0.5);
     & p {
       text-transform: uppercase;
 
@@ -73,20 +82,59 @@
 }
 
 .speakersModal {
-  width: 930px;
+  width: 928px;
   height: 700px;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 10px;
-  padding: 14px;
+  padding: 16px;
+  display: flex;
+  padding-top: 80px;
+  & div:last-child {
+    margin-top: 100px;
+    margin-left: 48px;
+    & ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-top: 32px;
+      height: 380px;
+      & li {
+        display: flex;
+      }
+    }
+  }
 }
 
 .speakersModalImage {
-  width: 300px;
-  height: 530px;
-  margin-top: 10%;
   object-fit: cover;
   border-radius: 10px;
+}
+
+.speakerFullName {
+  color: #3a7388;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+.speakerLiTitle {
+  color: #3a7388;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  width: 200px;
+  text-transform: uppercase;
+}
+
+.speakerLiPr {
+  color: #3a7388;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  text-transform: uppercase;
+  width: 350px;
 }

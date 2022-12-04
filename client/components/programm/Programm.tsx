@@ -1,5 +1,5 @@
 //modules
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { observer } from "mobx-react-lite";
 //styles
 import styles from "./styles.module.scss";
@@ -12,13 +12,17 @@ import SectionButtons from "./components/SectionButton";
 import SectionItem from "./components/SectionItem";
 
 const Programm = () => {
+  const progRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     headerState.getProgramm();
+    if(progRef.current?.offsetTop) {
+      headerState.setProgOffsetTop(progRef.current?.offsetTop)
+    }
   }, []);
 
   return (
-    <div className={styles.programm}>
+    <div ref={progRef} className={styles.programm}>
       <h2 className="titleH1">ПРОГРАММА</h2>
       <div className={styles.programmContainer}>
         {headerState.program.programs?.map((program) => {

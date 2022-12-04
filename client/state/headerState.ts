@@ -61,8 +61,31 @@ class HeaderState {
   currentButton: number = 1;
   currentList: SectionListType[] = [];
 
+  confoffsetTop: number = 0;
+  progoffsetTop: number = 0;
+  regoffsetTop: number = 0;
+
   constructor() {
     makeAutoObservable(this);
+  }
+
+  setRegOffsetTop(data: number) {
+    this.regoffsetTop = data - 100;
+  }
+
+  setProgOffsetTop(data: number) {
+    this.progoffsetTop = data - 125 / window.devicePixelRatio;
+  }
+
+  setConfOffsetTop(data: number) {
+    this.confoffsetTop = data - 250 / window.devicePixelRatio;
+  }
+
+  goToElement(data: number) {
+    window.scrollTo({
+      top: data,
+      behavior: "smooth",
+    });
   }
 
   openList(id: number) {

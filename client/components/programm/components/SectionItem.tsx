@@ -7,8 +7,6 @@ import { observer } from "mobx-react-lite";
 import SectionReportItem from "./SectionReportItem";
 import SectionQItem from "./SectionQItem";
 
-import { devMode } from "../../../state/prodMode";
-
 interface Props {
   section: SectionListType;
 }
@@ -74,7 +72,7 @@ const SectionItem = (props: Props) => {
             </ol>
           </>
         )}
-        {devMode && props.section.hReports && (
+        {props.section.hReports && (
           <div className={styles.programmSectionListPeapCtn}>
             <p className={styles.programmSectionListPeapTitle}>Доклады</p>
             <ul className={styles.programmSectionListPeap}>

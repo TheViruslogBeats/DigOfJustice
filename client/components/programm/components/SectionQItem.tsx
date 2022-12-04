@@ -1,13 +1,12 @@
 import React from "react";
 
 interface Props {
-  key: number;
   question: string;
 }
 
 const SectionQItem = (props: Props) => {
   return (
-    <li key={props.key}>
+    <li>
       <p>{props.question}</p>
     </li>
   );

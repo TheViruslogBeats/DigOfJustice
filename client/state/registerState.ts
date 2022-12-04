@@ -35,13 +35,21 @@ class RegisterState {
   }
 
   async sendReport(data: ReportType) {
-    if (data.studyPlaceAndSpecialy === undefined) {
-      data.studyPlaceAndSpecialy = "";
-    } else if (data.workPlaceAndPosition === undefined) {
-      data.workPlaceAndPosition = "";
+    try {
+      if (data.studyPlaceAndSpecialy === undefined) {
+        data.studyPlaceAndSpecialy = "";
+      } else if (data.workPlaceAndPosition === undefined) {
+        data.workPlaceAndPosition = "";
+      }
+      let response = await $api.post("/api/report", { ...data });
+      if(response.status === 200) {
+        return true
+      } else {
+        return false
+      }
+    } catch (error) {
+      console.log(error)
     }
-    let response = await $api.post("/api/report", { ...data });
-    console.log(response.data);
   }
 }
 

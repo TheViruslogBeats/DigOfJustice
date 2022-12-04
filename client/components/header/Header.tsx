@@ -7,7 +7,6 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import headerState from "../../state/headerState";
-import { devMode } from "../../state/prodMode";
 
 const Header = () => {
   const [scroll, setScroll] = useState(0);
@@ -75,14 +74,28 @@ const Header = () => {
             </div>
           </div>
           <div className={styles.topBarRight}>
-            <button className={styles.topBarButton}>О КОНФЕРЕНЦИИ</button>
+            <button
+              className={styles.topBarButton}
+              onClick={() => {
+                headerState.goToElement(headerState.confoffsetTop);
+              }}
+            >
+              О КОНФЕРЕНЦИИ
+            </button>
             {/* <button className={styles.topBarButton}>ЗАДАЧИ КОНФЕРЕНЦИИ</button> */}
-            <button className={styles.topBarButton}>ПРОГРАММА</button>
+            <button onClick={() => {
+              headerState.goToElement(headerState.progoffsetTop)
+            }} className={styles.topBarButton}>ПРОГРАММА</button>
             {/* <button className={styles.topBarButton}>СПИКЕРЫ</button> */}
             {/* <button className={styles.topBarButton}>ОРГАНИЗАТОРЫ</button> */}
-            <button onClick={() => {
-              headerState.downloadReq()
-            }} className={styles.topBarButton}>ТРЕБОВАНИЯ</button>
+            <button
+              onClick={() => {
+                headerState.downloadReq();
+              }}
+              className={styles.topBarButton}
+            >
+              ТРЕБОВАНИЯ
+            </button>
           </div>
         </motion.div>
         <div className={styles.headerInfo}>
@@ -105,8 +118,8 @@ const Header = () => {
             <div>
               <HiOutlineLocationMarker />
               <p style={{ width: "228px" }}>
-                <b>МЕСТО ВСТРЕЧИ:</b> <br /> МОСКВА, СТРОМЫНКА, 20 <br /> ПРОСПЕКТ
-                ВЕРНАДСКОГО, 78 КОРПУС Е
+                <b>МЕСТО ВСТРЕЧИ:</b> <br /> МОСКВА, СТРОМЫНКА, 20 <br />{" "}
+                ПРОСПЕКТ ВЕРНАДСКОГО, 78 КОРПУС Е
               </p>
             </div>
             <div style={{ alignSelf: "end" }}>
@@ -115,7 +128,9 @@ const Header = () => {
               </p>
               <HiOutlineCalendar />
             </div>
-            {devMode && <button>РЕГИСТРАЦИЯ</button>}
+            <button onClick={()=> {
+              headerState.goToElement(headerState.regoffsetTop)
+            }}>РЕГИСТРАЦИЯ</button>
           </motion.div>
         </div>
       </div>

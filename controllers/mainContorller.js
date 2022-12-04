@@ -38,8 +38,6 @@ const getSections = async () => {
   let sectionButtons = [];
   let sectionList = [];
   let reportsList = await ReportsModel.findAll({ raw: true, where: {moderated: true} });
-  console.log(reportsList);
-
   sectionButtonsTemp.map((a) => sectionButtons.push(a.dataValues));
   sectionListTemp.map((a) => sectionList.push(a.dataValues));
 
