@@ -44,7 +44,7 @@ app.use("/api", mainRouter);
 const startServer = async () => {
   try {
     await dataBase.authenticate().then(async () => {
-      await dataBase.sync({ force: true });
+      await dataBase.sync({force: true});
       await kek();
       await kek2();
       await kek3();
@@ -103,41 +103,41 @@ const kek = async () => {
 
 const kek2 = async () => {
   let a = [
-    {
+    { id:1,
       text: "Стратегическая сессия «Цифровые технологии и стандарты доказывания»",
     },
-    {
+    { id:2,
       text: "Предметно-ориентированные информационные системы в правосудии: возможности, проблемы, перспективы»",
     },
-    {
+    { id:3,
       text: "Свободное программное обеспечение и цифровая трансформация правосудия",
     },
-    {
+    { id:4,
       text: "Панельная дискуссия «Анализ и мониторинг социальных сетей: криминологический аспект»",
     },
-    {
+    { id:5,
       text: "Круглый стол «Парадигма цифровой трансформации гражданского судопроизводства»",
     },
-    {
+    { id:6,
       text: "Цифровые и интеллектуальные методы принятия решений в судебной деятельности» с международным участием",
     },
-    {
+    { id:7,
       text: "Феномен цифровизации экономической деятельности в правовых позициях судов",
     },
-    {
+    { id:8,
       text: "Современные технологии мониторинга и анализа данных в цифровой криминалистике",
     },
-    {
+    { id:9,
       text: "Мероприятие-сателлит – Презентация платформы Веримаг",
     },
-    {
+    { id:10,
       text: "Цифровые технологии в судебной системе и защита данных в сфере судопроизводства",
     },
-    {
+    { id:11,
       text: "Круглый стол «Облачные технологии и Центр обработки данных: перспективы использования в следственной и судебной деятельности»",
     },
-    { text: "Заседание" },
-    {
+    { id:12, text: "Заседание" },
+    { id:13,
       text: "Панельная дискуссия «Судебное усмотрение в контексте цифровой трансформации права»",
     },
   ];
@@ -169,6 +169,7 @@ const kek3 = async () => {
           "Проблемы квалификации, коллизионность в определении критерия допустимости доказательств.",
         ],
         hReports: false,
+        sectionbuttonId: 1,
       },
       {
         title: "Кофе-брейк",
@@ -180,6 +181,7 @@ const kek3 = async () => {
         hQuesions: false,
         questions: [],
         hReports: false,
+        sectionbuttonId: 1,
       },
       {
         title: "Обсуждение и подписание резолюции",
@@ -191,8 +193,10 @@ const kek3 = async () => {
         hQuesions: false,
         questions: [],
         hReports: false,
+        sectionbuttonId: 1,
       },
     ],
+    //
     [
       {
         title:
@@ -211,6 +215,7 @@ const kek3 = async () => {
           "Проблемы проектирования информационных систем поддержки судебной деятельности",
         ],
         hReports: false,
+        sectionbuttonId: 2,
       },
       {
         title: "Кофе - брейк",
@@ -222,6 +227,7 @@ const kek3 = async () => {
         hQuesions: false,
         questions: [],
         hReports: false,
+        sectionbuttonId: 2,
       },
     ],
     [
@@ -243,6 +249,7 @@ const kek3 = async () => {
           "Некоторые вопросы фиксации правонарушений по шумности автотранспорта и другие актуальные междисциплинарные аспекты оптимизации правоохранительной деятельности",
         ],
         hReports: false,
+        sectionbuttonId: 3,
       },
       {
         title: "Кофе - брейк",
@@ -254,6 +261,7 @@ const kek3 = async () => {
         hQuesions: false,
         questions: [],
         hReports: false,
+        sectionbuttonId: 3,
       },
     ],
     [
@@ -274,6 +282,7 @@ const kek3 = async () => {
           "Обсуждение создания новой превентивной ИС, предупреждающей совершения преступлений через социальные сети",
         ],
         hReports: false,
+        sectionbuttonId: 4,
       },
       {
         title: "Кофе - брейк",
@@ -285,6 +294,7 @@ const kek3 = async () => {
         hQuesions: false,
         questions: [],
         hReports: false,
+        sectionbuttonId: 4,
       },
     ],
     [
@@ -306,6 +316,7 @@ const kek3 = async () => {
           "Проблемы правовой квалификации цифровых феноменов в цивилистическом процессе.",
         ],
         hReports: false,
+        sectionbuttonId: 5,
       },
       {
         title: "Кофе - брейк",
@@ -317,6 +328,7 @@ const kek3 = async () => {
         hQuesions: false,
         questions: [],
         hReports: false,
+        sectionbuttonId: 5,
       },
     ],
     [
@@ -333,6 +345,7 @@ const kek3 = async () => {
           "К дискуссии предлагаются вопросы применения интеллектуальных технологий в судебной деятельности, автоматизации обработки и анализа информации в рамках существующих процессуальных норм. Докладчиками будут рассмотрены направления совершенствования системы правосудия России, формы организации судебной деятельности в условиях технологической модернизации, а также современные подходы к совершенствованию точности и быстродействия поддержки принятия решений с использованием современных технологий сбора, хранения, обработки данных на базе интеллектуальных алгоритмов.",
         ],
         hReports: false,
+        sectionbuttonId: 6,
       },
       {
         title: "Кофе - брейк",
@@ -344,6 +357,7 @@ const kek3 = async () => {
         hQuesions: false,
         questions: [],
         hReports: false,
+        sectionbuttonId: 6,
       },
     ],
     [
@@ -366,6 +380,7 @@ const kek3 = async () => {
           "Краудфандинг, цифровое кредитование, цифровая идентификация и проблемы кибербезопасности",
         ],
         hReports: false,
+        sectionbuttonId: 7,
       },
       {
         title: "Кофе - брейк",
@@ -377,6 +392,7 @@ const kek3 = async () => {
         hQuesions: false,
         questions: [],
         hReports: false,
+        sectionbuttonId: 7,
       },
     ],
     [
@@ -402,6 +418,7 @@ const kek3 = async () => {
           "Методика формирования списка критериев в системах обнаружения вторжений",
         ],
         hReports: false,
+        sectionbuttonId: 8,
       },
       {
         title: "Кофе - брейк",
@@ -413,6 +430,7 @@ const kek3 = async () => {
         hQuesions: false,
         questions: [],
         hReports: false,
+        sectionbuttonId: 8,
       },
     ],
     [],
@@ -428,6 +446,7 @@ const kek3 = async () => {
         hQuesions: false,
         questions: [],
         hReports: false,
+        sectionbuttonId: 10,
       },
       {
         title: "Кофе - брейк",
@@ -439,6 +458,7 @@ const kek3 = async () => {
         hQuesions: false,
         questions: [],
         hReports: false,
+        sectionbuttonId: 10,
       },
     ],
     [
@@ -456,6 +476,7 @@ const kek3 = async () => {
           "В ходе работы круглого стола планируется рассмотреть необходимость и возможность применения облачных технологий и создания центров обработки данных для аккумулирования и быстрого доступа к базам результатов баллистических и судебно-медицинских экспертиз.",
         ],
         hReports: false,
+        sectionbuttonId: 11,
       },
       {
         title: "Кофе - брейк",
@@ -467,6 +488,7 @@ const kek3 = async () => {
         hQuesions: false,
         questions: [],
         hReports: false,
+        sectionbuttonId: 11,
       },
     ],
 
@@ -483,6 +505,7 @@ const kek3 = async () => {
         hQuesions: false,
         questions: [],
         hReports: false,
+        sectionbuttonId: 12,
       },
     ],
     [
@@ -502,6 +525,7 @@ const kek3 = async () => {
           "Этические нормы и искусственный интеллект; этика искусственного интеллекта",
         ],
         hReports: false,
+        sectionbuttonId: 13,
       },
       {
         title: "Кофе - брейк",
@@ -513,13 +537,19 @@ const kek3 = async () => {
         hQuesions: false,
         questions: [],
         hReports: false,
+        sectionbuttonId: 13,
       },
     ],
   ];
+  let state = 0;
+  console.log(a.length);
   a.map(async (b, i) => {
     let sectionbuttonId = i + 1;
-    b.map(async (c) => {
-      await SectionListModel.create({ ...c, sectionbuttonId });
+    b.map((c, i) => {
+      state++;
+      setTimeout(async () => {
+        await SectionListModel.create(c);
+      }, 1000);
     });
   });
 };

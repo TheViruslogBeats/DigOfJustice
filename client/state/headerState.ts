@@ -75,7 +75,9 @@ class HeaderState {
 
   setCurrentButtonAndList(id: number, list: SectionListType[]) {
     this.currentButton = id;
-    this.currentList = list;
+    this.currentList = list.sort((a, b) => {
+      return a.id - b.id;
+    });
   }
 
   openProgram(id: number) {
@@ -93,7 +95,9 @@ class HeaderState {
     this.program = response.data;
     if (response.data.sections) {
       this.currentButton = response.data.sections[0].id;
-      this.currentList = response.data.sections[0].sectionList;
+      this.currentList = response.data.sections[0].sectionList.sort((a, b) => {
+        return a.id - b.id;
+      });;
     }
   }
 
