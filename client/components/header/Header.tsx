@@ -7,6 +7,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import headerState from "../../state/headerState";
+import { devMode } from "../../state/prodMode";
 
 const Header = () => {
   const [scroll, setScroll] = useState(0);
@@ -114,7 +115,7 @@ const Header = () => {
               </p>
               <HiOutlineCalendar />
             </div>
-            {/* <button>РЕГИСТРАЦИЯ</button> */}
+            {devMode && <button>РЕГИСТРАЦИЯ</button>}
           </motion.div>
         </div>
       </div>

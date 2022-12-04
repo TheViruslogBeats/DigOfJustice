@@ -5,6 +5,7 @@ const SectionListModel = require("../database/models/sectionListModel");
 
 const { validationResult } = require("express-validator");
 const ReportsModel = require("../database/models/reportsModel");
+const e = require("express");
 
 const getProgramms = async () => {
   let programsTemp = await ProgramListModel.findAll();
@@ -36,6 +37,8 @@ const getSections = async () => {
 
   let sectionButtons = [];
   let sectionList = [];
+  let reportsList = await ReportsModel.findAll({ raw: true, where: {moderated: true} });
+  console.log(reportsList);
 
   sectionButtonsTemp.map((a) => sectionButtons.push(a.dataValues));
   sectionListTemp.map((a) => sectionList.push(a.dataValues));
@@ -45,7 +48,7 @@ const getSections = async () => {
       a.showArrow = true;
       a.hQuesions = true;
     }
-    a.reports = [];
+    a.reports = reportsList.filter((rep) => a.id === rep.sectionlistId);
     if (a.reports.length > 0) {
       a.showArrow = true;
       a.hReports = true;
@@ -87,19 +90,17 @@ class mainContorller {
       let sections = await SectionListModel.findAll({
         where: { isSection: true, canRegister: true },
       });
-      res.json(sections)
-    } catch (error) {
-
-    }
+      res.json(sections);
+    } catch (error) {}
   }
 
   async sendReport(req, res) {
     try {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
-        res.status(500).json({ message: "Ошибка сервера", errors });
+        return res.status(403).json({ message: "Ошибка сервера", errors });
       }
-      const {
+      let {
         fullName,
         email,
         activityType,
@@ -111,13 +112,26 @@ class mainContorller {
         rankSupervisor,
         positionSupervisor,
         formOfParticipation,
-        sectionlistId,
+        acDegree,
       } = req.body;
-      let candidate = ReportsModel.findOne({ where: email });
+      let candidate = await ReportsModel.findOne({ where: { email: email } });
       if (candidate) {
-        res.status(400).json("Пользователь с таким email уже зарегистрирован");
+        return res
+          .status(400)
+          .json("Пользователь с таким email уже зарегистрирован");
       }
-      const user = ReportsModel.create({
+      let list = await SectionListModel.findOne({ where: { title: section } });
+      if (activityType === 0) {
+        activityType = "Учится";
+      } else {
+        activityType = "Работает";
+      }
+      if (formOfParticipation === 0) {
+        formOfParticipation = "Очно";
+      } else {
+        formOfParticipation = "Онлайн";
+      }
+      await ReportsModel.create({
         fullName,
         email,
         activityType,
@@ -129,8 +143,10 @@ class mainContorller {
         rankSupervisor,
         positionSupervisor,
         formOfParticipation,
-        sectionlistId,
+        acDegree,
+        sectionlistId: list.dataValues.id,
       });
+      return res.status(200).json("Успех");
     } catch (error) {
       console.log(error);
       res.status(500).json("Ошибка сервера");

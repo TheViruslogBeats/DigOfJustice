@@ -13,7 +13,7 @@
   display: flex;
   gap: 64px;
   margin: 0 auto;
-  
+  align-items: center;
   margin-bottom: 32px;
 }
 .registerContainerRight,
@@ -54,6 +54,10 @@
   border-radius: 10px;
   width: 410px;
   height: 64px;
+  transition: 0.15s ease-in-out background-color;
+  &:disabled {
+    background-color: #9c9c9c;
+  }
 }
 
 .checkboxWrapper {
@@ -88,6 +92,7 @@
 .CheckboxLabel {
   display: flex;
   align-items: center;
+  margin: 0 auto;
 }
 
 .FakeCheckbox {

@@ -11,9 +11,9 @@ import Register from "../components/register/Register";
 import Speakers from "../components/speakers/Speakers";
 import Programm from "../components/programm/Programm";
 
-export default function Home() {
-  const [devMode, setDevMode] = useState(false);
+import { devMode } from "../state/prodMode";
 
+export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
@@ -27,6 +27,19 @@ export default function Home() {
       </Head>
       <Header />
       {devMode || (
+        <h1
+          className="titleH1"
+          style={{
+            margin: "64px auto",
+            letterSpacing: "0.25em",
+            whiteSpace: "nowrap",
+            width: "978px",
+          }}
+        >
+          Начало конференции скоро!
+        </h1>
+      )}
+      {devMode && (
         <h1
           className="titleH1"
           style={{

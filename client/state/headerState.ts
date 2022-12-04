@@ -22,7 +22,7 @@ export interface SectionListReportType {
   fullName: string;
   studyPlaceAndSpecialy: string;
   workPlaceAndPosition: string;
-  activityType: string;
+  formOfParticipation: string;
   topic: string;
 }
 

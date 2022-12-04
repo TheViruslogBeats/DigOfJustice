@@ -21,9 +21,31 @@ const Register = (props: Props) => {
   const positionSupervisor = useRef<HTMLInputElement | null>(null);
   const email = useRef<HTMLInputElement | null>(null);
   const [formOfParticipation, setFormOfParticipation] = useState(0);
+  const [accept, setAccept] = useState(false);
 
-  const click = () => {
-    console.log(section.current?.value);
+  const click = async () => {
+    if (!accept) {
+      return;
+    }
+    if(activityType == 0 && workPlaceAndPosition.current){
+      workPlaceAndPosition.current.value = ""
+    } else if(activityType == 1 && studyPlaceAndSpecialy.current){
+      studyPlaceAndSpecialy.current.value = ""
+    }
+    await registerState.sendReport({
+      activityType,
+      fullName: fullName.current?.value,
+      workPlaceAndPosition: workPlaceAndPosition.current?.value,
+      studyPlaceAndSpecialy: studyPlaceAndSpecialy.current?.value,
+      acDegree: acDegree.current?.value,
+      topic: topic.current?.value,
+      section: section.current?.value,
+      fullNameSupervisor: fullNameSupervisor.current?.value,
+      rankSupervisor: rankSupervisor.current?.value,
+      positionSupervisor: positionSupervisor.current?.value,
+      email: email.current?.value,
+      formOfParticipation,
+    });
   };
 
   return (
@@ -37,7 +59,6 @@ const Register = (props: Props) => {
               type="radio"
               name="vidDe"
               className={styles.hiddenCheckbox}
-              value={0}
               checked={activityType === 0}
               onClick={() => {
                 setActivityType(0);
@@ -51,7 +72,6 @@ const Register = (props: Props) => {
               type="radio"
               name="vidDe"
               className={styles.hiddenCheckbox}
-              value={1}
               checked={activityType === 1}
               onClick={() => {
                 setActivityType(1);
@@ -146,7 +166,6 @@ const Register = (props: Props) => {
                     type="radio"
                     name="formaUhc"
                     className={styles.hiddenCheckbox}
-                    value={0}
                     checked={formOfParticipation === 0}
                     onClick={() => {
                       setFormOfParticipation(0);
@@ -160,7 +179,6 @@ const Register = (props: Props) => {
                     type="radio"
                     name="formaUhc"
                     className={styles.hiddenCheckbox}
-                    value={1}
                     checked={formOfParticipation === 1}
                     onClick={() => {
                       setFormOfParticipation(1);
@@ -173,11 +191,30 @@ const Register = (props: Props) => {
             </div>
           </div>
         </div>
-
-        <button className={styles.registerButton} onClick={(e) => {
-          event?.preventDefault()
-          click()
-        }}>РЕГИСТРАЦИЯ</button>
+        <label className={styles.CheckboxLabel}>
+          <input
+            type="checkbox"
+            className={styles.hiddenCheckbox}
+            checked={accept}
+            onClick={() => {
+              setAccept(!accept);
+            }}
+          />
+          <span className={styles.FakeCheckbox}></span>
+          <span className={styles.CheckboxText}>
+            Согласие на обработку персональный данных
+          </span>
+        </label>
+        <button
+          className={styles.registerButton}
+          disabled={!accept}
+          onClick={(e) => {
+            event?.preventDefault();
+            click();
+          }}
+        >
+          РЕГИСТРАЦИЯ
+        </button>
       </form>
     </div>
   );

@@ -22,7 +22,7 @@ const SectionReportItem = (props: Props) => {
           </p>
         </div>
         <div>
-          <p>{props.report.activityType}</p>
+          <p>{props.report.formOfParticipation}</p>
         </div>
       </div>
     </li>

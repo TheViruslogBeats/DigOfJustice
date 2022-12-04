@@ -44,10 +44,10 @@ app.use("/api", mainRouter);
 const startServer = async () => {
   try {
     await dataBase.authenticate().then(async () => {
-      await dataBase.sync({force: true});
-      await kek();
-      await kek2();
-      await kek3();
+      await dataBase.sync();
+      // await kek();
+      // await kek2();
+      // await kek3();
       console.log(
         "Connection with Data Base has been established successfully."
       );
