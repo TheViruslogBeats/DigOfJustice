@@ -104,13 +104,13 @@ const Header = () => {
             <div>
               <HiOutlineLocationMarker />
               <p style={{ width: "228px" }}>
-                <b>МЕСТО ВСТРЕЧИ:</b> МОСКВА, СТРОМЫНКА, 20 ПРОСПЕКТ
+                <b>МЕСТО ВСТРЕЧИ:</b> <br /> МОСКВА, СТРОМЫНКА, 20 <br /> ПРОСПЕКТ
                 ВЕРНАДСКОГО, 78 КОРПУС Е
               </p>
             </div>
             <div style={{ alignSelf: "end" }}>
               <p style={{ width: "220px", textAlign: "right" }}>
-                <b>ДАТА ПРОВЕДЕНИЯ:</b> ДЕКАБРЬ 9/12/13/14/15/16 2022
+                <b>ДАТЫ ПРОВЕДЕНИЯ:</b> <br /> ДЕКАБРЬ 9/12/13/14/15/16 2022
               </p>
               <HiOutlineCalendar />
             </div>

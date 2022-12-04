@@ -1,20 +1,30 @@
-import { useRef, useState } from "react";
+import { observer } from "mobx-react-lite";
+import { useEffect, useRef, useState } from "react";
+import registerState from "../../state/registerState";
 import styles from "./styles.module.scss";
 
 interface Props {}
 
 const Register = (props: Props) => {
+  useEffect(() => {
+    registerState.getRegisterList();
+  }, []);
   const [activityType, setActivityType] = useState(0);
   const fullName = useRef<HTMLInputElement | null>(null);
   const workPlaceAndPosition = useRef<HTMLInputElement | null>(null);
   const studyPlaceAndSpecialy = useRef<HTMLInputElement | null>(null);
   const acDegree = useRef<HTMLInputElement | null>(null);
   const topic = useRef<HTMLInputElement | null>(null);
+  const section = useRef<HTMLSelectElement | null>(null);
   const fullNameSupervisor = useRef<HTMLInputElement | null>(null);
   const rankSupervisor = useRef<HTMLInputElement | null>(null);
   const positionSupervisor = useRef<HTMLInputElement | null>(null);
   const email = useRef<HTMLInputElement | null>(null);
   const [formOfParticipation, setFormOfParticipation] = useState(0);
+
+  const click = () => {
+    console.log(section.current?.value);
+  };
 
   return (
     <div className={styles.register}>
@@ -87,6 +97,15 @@ const Register = (props: Props) => {
               className={styles.registerInput}
               ref={acDegree}
             />
+            <select className={styles.registerInput} ref={section}>
+              {registerState.regList.map((reg) => {
+                return (
+                  <option key={reg.id} value={reg.title}>
+                    {reg.title}
+                  </option>
+                );
+              })}
+            </select>
             <input
               type="text"
               placeholder="Тема доклада"
@@ -155,10 +174,13 @@ const Register = (props: Props) => {
           </div>
         </div>
 
-        <button className={styles.registerButton}>РЕГИСТРАЦИЯ</button>
+        <button className={styles.registerButton} onClick={(e) => {
+          event?.preventDefault()
+          click()
+        }}>РЕГИСТРАЦИЯ</button>
       </form>
     </div>
   );
 };
 
-export default Register;
+export default observer(Register);

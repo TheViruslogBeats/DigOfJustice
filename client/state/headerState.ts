@@ -11,6 +11,7 @@ export interface SectionListType {
   showArrow: boolean;
   opened: boolean;
   hQuesions: boolean;
+  canRegister: boolean;
   questions: string[];
   hReports: boolean;
   reports: SectionListReportType[];
@@ -97,7 +98,7 @@ class HeaderState {
       this.currentButton = response.data.sections[0].id;
       this.currentList = response.data.sections[0].sectionList.sort((a, b) => {
         return a.id - b.id;
-      });;
+      });
     }
   }
 
