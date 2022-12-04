@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { observer } from "mobx-react-lite";
 import { useEffect, useRef, useState } from "react";
-import { setModelName } from "sequelize-typescript";
 import registerState from "../../state/registerState";
 import styles from "./styles.module.scss";
 import bgModal from "../../public/img/bgModal.svg";
