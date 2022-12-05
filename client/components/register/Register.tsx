@@ -181,35 +181,6 @@ const Register = (props: Props) => {
             />
           </div>
         </div>
-        <div className={styles.checkboxWrapper + " mx-auto"}>
-          <p>ФОРМА УЧАСТИЯ</p>
-          <div className={styles.checkboxContainer}>
-            <label className={styles.CheckboxLabel + " mx-auto"}>
-              <input
-                type="radio"
-                name="formaUhc"
-                className={styles.hiddenCheckbox}
-                onClick={() => {
-                  setFormOfParticipation(0);
-                }}
-              />
-              <span className={styles.FakeCheckbox}></span>
-              <span className={styles.CheckboxText}>Очно</span>
-            </label>
-            <label className={styles.CheckboxLabel + " mx-auto"}>
-              <input
-                type="radio"
-                name="formaUhc"
-                className={styles.hiddenCheckbox}
-                onClick={() => {
-                  setFormOfParticipation(1);
-                }}
-              />
-              <span className={styles.FakeCheckbox}></span>
-              <span className={styles.CheckboxText}>Онлайн</span>
-            </label>
-          </div>
-        </div>
         <label className={styles.CheckboxLabel + " mx-auto"}>
           <input
             type="checkbox"
