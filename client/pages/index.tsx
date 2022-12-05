@@ -14,7 +14,7 @@ import Programm from "../components/programm/Programm";
 export default function Home() {
   const [devMode, setDevMode] = useState(false);
   return (
-    <div className={styles.container}>
+    <div className={styles.container + " mx-auto"}>
       <Head>
         <title>ЦИФРОВИЗАЦИЯ ПРАВОСУДИЯ</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

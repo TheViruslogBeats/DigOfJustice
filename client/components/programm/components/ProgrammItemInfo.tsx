@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import { programInform } from "../../../state/headerState";
 import styles from "../styles.module.scss";
@@ -7,9 +8,9 @@ interface Props {
 
 const ProgrammItemInfo = (props: Props) => {
   return (
-    <div key={props.progInform.id} className={styles.programmInfoContainer}>
+    <div key={props.progInform.id} className={styles.programmInfoContainer + " gap16"}>
       <div className={styles.programmInformation + " flex-column"}>
-        <img src={props.progInform.img} alt={props.progInform.img} />
+        <Image width={72} height={72} src={props.progInform.img} alt={props.progInform.img} />
         <p>{props.progInform.fio}</p>
       </div>
       <p className={styles.programmInfoText}>{props.progInform.text}</p>

@@ -20,7 +20,7 @@ const ConfInfo = () => {
       className={styles.confInfo}
       ref={confRef}
     >
-      <h1 className="titleH1">О КОНФЕРЕНЦИИ</h1>
+      <h1 className="titleH1 mx-auto">О КОНФЕРЕНЦИИ</h1>
       <p>
         I Национальная научно-практическая конференция «Цифровизация правосудия:
         проблемы и перспективы» - уникальная площадка для диалога ученых и

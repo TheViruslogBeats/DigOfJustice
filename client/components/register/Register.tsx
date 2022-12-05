@@ -73,12 +73,12 @@ const Register = (props: Props) => {
     }
   }, []);
   return (
-    <div ref={regRef} className={styles.register}>
-      <h1 className="titleH1">РЕГИСТРАЦИЯ</h1>
-      <div className={styles.checkboxWrapper}>
+    <div ref={regRef} className={styles.register + " mx-auto"}>
+      <h1 className="titleH1 mx-auto">РЕГИСТРАЦИЯ</h1>
+      <div className={styles.checkboxWrapper + " mx-auto"}>
         <p>ВИД ДЕЯТЕЛЬНОСТИ</p>
         <div className={styles.checkboxContainer}>
-          <label className={styles.CheckboxLabel}>
+          <label className={styles.CheckboxLabel + " mx-auto"}>
             <input
               type="radio"
               name="vidDe"
@@ -90,7 +90,7 @@ const Register = (props: Props) => {
             <span className={styles.FakeCheckbox}></span>
             <span className={styles.CheckboxText}>Учусь</span>
           </label>
-          <label className={styles.CheckboxLabel}>
+          <label className={styles.CheckboxLabel + " mx-auto"}>
             <input
               type="radio"
               name="vidDe"
@@ -104,9 +104,9 @@ const Register = (props: Props) => {
           </label>
         </div>
       </div>
-      <form className={styles.registerForm + " flex-column"}>
-        <div className={styles.registerContainer}>
-          <div className={styles.registerContainerLeft + " flex-column"}>
+      <form className="flex-column gap16 mx-auto">
+        <div className={styles.registerContainer + " mx-auto"}>
+          <div className="flex-column gap16">
             <input
               type="text"
               placeholder="ФИО"
@@ -145,7 +145,7 @@ const Register = (props: Props) => {
               ref={acDegree}
             />
           </div>
-          <div className={styles.registerContainerRight + " flex-column"}>
+          <div className="flex-column gap16">
             <select className={styles.registerInputSelect} ref={section}>
               {registerState.regList.map((reg) => {
                 return (
@@ -181,10 +181,10 @@ const Register = (props: Props) => {
             />
           </div>
         </div>
-        <div className={styles.checkboxWrapper}>
+        <div className={styles.checkboxWrapper + " mx-auto"}>
           <p>ФОРМА УЧАСТИЯ</p>
           <div className={styles.checkboxContainer}>
-            <label className={styles.CheckboxLabel}>
+            <label className={styles.CheckboxLabel + " mx-auto"}>
               <input
                 type="radio"
                 name="formaUhc"
@@ -196,7 +196,7 @@ const Register = (props: Props) => {
               <span className={styles.FakeCheckbox}></span>
               <span className={styles.CheckboxText}>Очно</span>
             </label>
-            <label className={styles.CheckboxLabel}>
+            <label className={styles.CheckboxLabel + " mx-auto"}>
               <input
                 type="radio"
                 name="formaUhc"
@@ -210,7 +210,7 @@ const Register = (props: Props) => {
             </label>
           </div>
         </div>
-        <label className={styles.CheckboxLabel}>
+        <label className={styles.CheckboxLabel + " mx-auto"}>
           <input
             type="checkbox"
             className={styles.hiddenCheckbox}
@@ -232,7 +232,7 @@ const Register = (props: Props) => {
           </span>
         </label>
         <button
-          className={styles.registerButton}
+          className={styles.registerButton + " mx-auto"}
           disabled={!accept}
           onClick={async (e) => {
             event?.preventDefault();

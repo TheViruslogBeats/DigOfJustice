@@ -214,7 +214,7 @@ const Speakers = () => {
   const [expertModal, setExpertModal] = useState(false);
 
   return (
-    <div className={styles.speakers}>
+    <div className={styles.speakers + " mx-auto"}>
       <h1 className="titleH1">ЭКСПЕРТЫ</h1>
       <div className={styles.speakersContainer}>
         {speakers
@@ -229,7 +229,7 @@ const Speakers = () => {
                   setExpertModal(true);
                 }}
               >
-                <img src={speaker.src} alt={speaker.alt} />
+                <Image width={340} height={457} src={speaker.src} alt={speaker.alt} />
                 <div>
                   <p>{speaker.firstName}</p>
                   <p>{speaker.middleName}</p>

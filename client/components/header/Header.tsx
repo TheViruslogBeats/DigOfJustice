@@ -98,7 +98,7 @@ const Header = () => {
             </button>
           </div>
         </motion.div>
-        <div className={styles.headerInfo}>
+        <div className={styles.headerInfo + " mx-auto"}>
           <motion.p
             initial={{ translateX: "-20%", opacity: 0 }}
             animate={{ translateX: "0%", opacity: 1 }}

@@ -16,15 +16,15 @@ const Programm = () => {
 
   useEffect(() => {
     headerState.getProgramm();
-    if(progRef.current?.offsetTop) {
-      headerState.setProgOffsetTop(progRef.current?.offsetTop)
+    if (progRef.current?.offsetTop) {
+      headerState.setProgOffsetTop(progRef.current?.offsetTop);
     }
   }, []);
 
   return (
-    <div ref={progRef} className={styles.programm}>
-      <h2 className="titleH1">ПРОГРАММА</h2>
-      <div className={styles.programmContainer}>
+    <div ref={progRef} className={styles.programm + " mx-auto"}>
+      <h2 className="titleH1 mx-auto">ПРОГРАММА</h2>
+      <div>
         {headerState.program.programs?.map((program) => {
           return <ProgrammItem key={program.id} prog={program} />;
         })}
