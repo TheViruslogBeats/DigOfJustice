@@ -21,9 +21,6 @@ const SectionReportItem = (props: Props) => {
               props.report.workPlaceAndPosition}
           </p>
         </div>
-        <div>
-          <p>{props.report.formOfParticipation}</p>
-        </div>
       </div>
     </li>
   );

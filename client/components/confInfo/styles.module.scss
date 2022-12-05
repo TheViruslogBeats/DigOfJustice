@@ -19,6 +19,29 @@
       bottom: -100%;
     }
   }
+  & h2 {
+    letter-spacing: 0.25em;
+    font-weight: 800;
+    font-size: 32px;
+    margin: 64px 0;
+  }
+  & div {
+    display: flex;
+    gap: 64px;
+    width: calc(900px + (64px * 4));
+    & div {
+      display: block;
+      & img {
+        margin-bottom: 16px;
+      }
+      & h3 {
+        width: 180px;
+        font-weight: 300;
+        font-size: 14px;
+        color: #000000;
+      }
+    }
+  }
   & p {
     font-weight: 300;
     font-size: 20px;

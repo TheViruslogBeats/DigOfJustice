@@ -110,8 +110,8 @@ let speakers = [
     src: "https://api.virusbeats.ru/img/speakers/(8).png",
     alt: "speaker",
     firstName: "Сибирская",
-    middleName: "Е",
-    lastName: "В",
+    middleName: "Елена",
+    lastName: "Викторовна",
     acDegree: "",
     acTitle: "",
     honorTitle: "",
@@ -251,7 +251,7 @@ const Speakers = () => {
         onClick={() => {
           setExpertModal(false);
         }}
-        className={styles.speakersBlackBG}
+        className="posFix blackBG"
       ></motion.div>
       <motion.div
         style={{
@@ -264,7 +264,7 @@ const Speakers = () => {
         }}
         exit={{ clipPath: expertModal ? "circle(0%)" : "circle(100%)" }}
         transition={{ duration: 2, type: "spring" }}
-        className={styles.speakersModal}
+        className={styles.speakersModal + " posFix"}
       >
         <div>
           <Image

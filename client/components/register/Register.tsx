@@ -238,7 +238,7 @@ const Register = (props: Props) => {
           clipPath: modal || success || error ? "circle(100%)" : "circle(0%)",
         }}
         transition={{ duration: 2, type: "spring" }}
-        className={styles.blackBG}
+        className="posFix blackBG"
       ></motion.div>
       <motion.div
         initial={{ opacity: 0, clipPath: "circle(0%)" }}
@@ -247,7 +247,7 @@ const Register = (props: Props) => {
           clipPath: success ? "circle(100%)" : "circle(0%)",
         }}
         transition={{ duration: 2, type: "spring" }}
-        className={styles.registerModal}
+        className={styles.registerModal + " posFix"}
       >
         <p>РЕГИСТРАЦИЯ ПРОШЛА УСПЕШНО</p>
       </motion.div>
@@ -258,7 +258,7 @@ const Register = (props: Props) => {
           clipPath: error ? "circle(100%)" : "circle(0%)",
         }}
         transition={{ duration: 2, type: "spring" }}
-        className={styles.registerModal}
+        className={styles.registerModal + " posFix"}
       >
         <p>ОШИБКА!</p>
       </motion.div>
@@ -269,7 +269,7 @@ const Register = (props: Props) => {
           clipPath: modal ? "circle(100%)" : "circle(0%)",
         }}
         transition={{ duration: 2, type: "spring" }}
-        className={styles.modal}
+        className={styles.modal + " posFix"}
         style={{
           background: `url(${bgModal.src}) no-repeat #fff`,
         }}

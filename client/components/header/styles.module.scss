@@ -71,6 +71,11 @@
   }
 }
 
+.topBarButtonPartner {
+  font-weight: 700;
+  margin: 0 16px;
+}
+
 .Vline {
   background-color: #fff;
   width: 2px;
@@ -140,6 +145,13 @@
       }
     }
   }
+}
+
+.PartnerModal {
+  background-color: #fff;
+  z-index: 501;
+  padding: 64px 64px;
+  border-radius: 10px;
 }
 
 @media (max-width: 800px) {

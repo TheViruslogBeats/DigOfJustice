@@ -10,6 +10,7 @@ import ConfInfo from "../components/confInfo/ConfInfo";
 import Register from "../components/register/Register";
 import Speakers from "../components/speakers/Speakers";
 import Programm from "../components/programm/Programm";
+import PartnerBlock from "../components/header/components/PartnerBlock";
 
 export default function Home() {
   const [devMode, setDevMode] = useState(false);
@@ -27,8 +28,11 @@ export default function Home() {
       <Header />
       <ConfInfo />
       <Programm />
-      {/* <Speakers /> */}
+      <Speakers />
       <Register />
+      <div style={{ margin: "128px auto", width: "1240px" }}>
+        <PartnerBlock />
+      </div>
     </div>
   );
 }

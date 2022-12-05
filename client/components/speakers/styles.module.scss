@@ -69,23 +69,10 @@
   }
 }
 
-.speakersBlackBG {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #00000033;
-}
-
 .speakersModal {
   width: 928px;
   height: 700px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  z-index: 501;
   border-radius: 10px;
   padding: 16px;
   display: flex;

@@ -7,8 +7,10 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import headerState from "../../state/headerState";
+import PartnerBlock from "./components/PartnerBlock";
 
 const Header = () => {
+  const [modal, setModal] = useState(false);
   const [scroll, setScroll] = useState(0);
   const [colorOpacity, setColorOpacity] = useState(0);
   const [backdropBlur, setBackdropBlur] = useState(0);
@@ -34,6 +36,7 @@ const Header = () => {
     }, 0);
     return () => clearTimeout(timeout);
   }, [scroll]);
+
   return (
     <header
       className={styles.header}
@@ -72,6 +75,14 @@ const Header = () => {
                 ИНСТИТУТ КИБЕРБЕЗОПАСНОСТИ И ЦИФРОВЫХ ТЕХНОЛОГИЙ
               </p>
             </div>
+            <button
+              className={styles.topBarButton + " " + styles.topBarButtonPartner}
+              onClick={() => {
+                setModal(true);
+              }}
+            >
+              ПАРТНЕРЫ
+            </button>
           </div>
           <div className={styles.topBarRight}>
             <button
@@ -83,9 +94,14 @@ const Header = () => {
               О КОНФЕРЕНЦИИ
             </button>
             {/* <button className={styles.topBarButton}>ЗАДАЧИ КОНФЕРЕНЦИИ</button> */}
-            <button onClick={() => {
-              headerState.goToElement(headerState.progoffsetTop)
-            }} className={styles.topBarButton}>ПРОГРАММА</button>
+            <button
+              onClick={() => {
+                headerState.goToElement(headerState.progoffsetTop);
+              }}
+              className={styles.topBarButton}
+            >
+              ПРОГРАММА
+            </button>
             {/* <button className={styles.topBarButton}>СПИКЕРЫ</button> */}
             {/* <button className={styles.topBarButton}>ОРГАНИЗАТОРЫ</button> */}
             <button
@@ -128,12 +144,39 @@ const Header = () => {
               </p>
               <HiOutlineCalendar />
             </div>
-            <button onClick={()=> {
-              headerState.goToElement(headerState.regoffsetTop)
-            }}>РЕГИСТРАЦИЯ</button>
+            <button
+              onClick={() => {
+                headerState.goToElement(headerState.regoffsetTop);
+              }}
+            >
+              РЕГИСТРАЦИЯ
+            </button>
           </motion.div>
         </div>
       </div>
+      <motion.div
+        onClick={() => {
+          setModal(false);
+        }}
+        initial={{ opacity: 0, clipPath: "circle(0%)" }}
+        animate={{
+          opacity: modal ? 1 : 0,
+          clipPath: modal ? "circle(100%)" : "circle(0%)",
+        }}
+        transition={{ duration: 2, type: "spring" }}
+        className="posFix blackBG"
+      ></motion.div>
+      <motion.div
+        initial={{ opacity: 0, clipPath: "circle(0%)" }}
+        animate={{
+          opacity: modal ? 1 : 0,
+          clipPath: modal ? "circle(100%)" : "circle(0%)",
+        }}
+        transition={{ duration: 2, type: "spring" }}
+        className={styles.PartnerModal + " posFix"}
+      >
+        <PartnerBlock />
+      </motion.div>
     </header>
   );
 };
