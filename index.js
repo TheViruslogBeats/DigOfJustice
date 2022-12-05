@@ -45,10 +45,12 @@ app.use("/img", express.static("./files/images"));
 const startServer = async () => {
   try {
     await dataBase.authenticate().then(async () => {
-      await dataBase.sync({ force: true });
-      await kek();
-      await kek2();
-      await kek3();
+      //НЕ ВКЛЮЧАЙ БЛЯТЬ ФОРС ТРУ, ИНАЧЕ ТЕБЕ ПИЗДА!!!!!!
+      //ЕСЛИ ВКЛЮЧИТЬ ВСЯ БД УЛЕТИТ В ТАРТАРАРЫ, ОНО ТЕБЕ НАДО?
+      await dataBase.sync();
+      // await kek();
+      // await kek2();
+      // await kek3();
       console.log(
         "Connection with Data Base has been established successfully."
       );

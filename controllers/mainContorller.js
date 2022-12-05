@@ -5,7 +5,6 @@ const SectionListModel = require("../database/models/sectionListModel");
 
 const { validationResult } = require("express-validator");
 const ReportsModel = require("../database/models/reportsModel");
-const e = require("express");
 
 const getProgramms = async () => {
   let programsTemp = await ProgramListModel.findAll();
@@ -37,7 +36,10 @@ const getSections = async () => {
 
   let sectionButtons = [];
   let sectionList = [];
-  let reportsList = await ReportsModel.findAll({ raw: true, where: {moderated: true} });
+  let reportsList = await ReportsModel.findAll({
+    raw: true,
+    where: { moderated: true },
+  });
   sectionButtonsTemp.map((a) => sectionButtons.push(a.dataValues));
   sectionListTemp.map((a) => sectionList.push(a.dataValues));
 
@@ -67,10 +69,10 @@ class mainContorller {
     try {
       let programs = await getProgramms();
       let sections = await getSections();
-      res.json({ programs, sections });
+      return res.json({ programs, sections });
     } catch (error) {
       console.log(error);
-      res.status(500).json("Ошибка сервера");
+      return res.status(500).json("Ошибка сервера");
     }
   }
 
@@ -88,8 +90,11 @@ class mainContorller {
       let sections = await SectionListModel.findAll({
         where: { isSection: true, canRegister: true },
       });
-      res.json(sections);
-    } catch (error) {}
+      return res.json(sections);
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json("Ошибка сервера")
+    }
   }
 
   async sendReport(req, res) {
@@ -112,12 +117,6 @@ class mainContorller {
         formOfParticipation,
         acDegree,
       } = req.body;
-      let candidate = await ReportsModel.findOne({ where: { email: email } });
-      if (candidate) {
-        return res
-          .status(400)
-          .json("Пользователь с таким email уже зарегистрирован");
-      }
       let list = await SectionListModel.findOne({ where: { title: section } });
       if (activityType === 0) {
         activityType = "Учится";
@@ -147,7 +146,7 @@ class mainContorller {
       return res.status(200).json("Успех");
     } catch (error) {
       console.log(error);
-      res.status(500).json("Ошибка сервера");
+      return res.status(500).json("Ошибка сервера");
     }
   }
 }
