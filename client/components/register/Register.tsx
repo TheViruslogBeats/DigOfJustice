@@ -104,9 +104,9 @@ const Register = (props: Props) => {
           </label>
         </div>
       </div>
-      <form className={styles.registerForm}>
+      <form className={styles.registerForm + " flex-column"}>
         <div className={styles.registerContainer}>
-          <div className={styles.registerContainerLeft}>
+          <div className={styles.registerContainerLeft + " flex-column"}>
             <input
               type="text"
               placeholder="ФИО"
@@ -145,7 +145,7 @@ const Register = (props: Props) => {
               ref={acDegree}
             />
           </div>
-          <div className={styles.registerContainerRight}>
+          <div className={styles.registerContainerRight + " flex-column"}>
             <select className={styles.registerInputSelect} ref={section}>
               {registerState.regList.map((reg) => {
                 return (
@@ -304,7 +304,7 @@ const Register = (props: Props) => {
         }}
       >
         <h2>политика обработки персональных данных</h2>
-        <div>
+        <div className="flex-column">
           <p>
             СОГЛАСИЕ на обработку персональных данных участника I национальной
             научно - практической конференции «Цифровизация правосудия: проблемы
@@ -363,12 +363,11 @@ const Register = (props: Props) => {
             конференции и может быть отозвано Субъектом в установленном порядке.
             Для участия в мероприятии необходимо в срок до *** г. включительно
             зарегистрироваться на мероприятие. Факт регистрации означает:
-            согласие на обработку персональных данных см. СОГЛАСИЕ на
-            обработку персональных данных участника I национальной научно -
-            практической конференции «Цифровизация правосудия: проблемы и
-            перспективы» , а также ознакомление с локальными
-            нормативно-правовыми актами Университета в области обработки
-            персональных данных
+            согласие на обработку персональных данных см. СОГЛАСИЕ на обработку
+            персональных данных участника I национальной научно - практической
+            конференции «Цифровизация правосудия: проблемы и перспективы» , а
+            также ознакомление с локальными нормативно-правовыми актами
+            Университета в области обработки персональных данных
           </p>
         </div>
       </motion.div>

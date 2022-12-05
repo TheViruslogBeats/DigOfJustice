@@ -20,14 +20,14 @@ const SectionItem = (props: Props) => {
         className={styles.programmSectionListMainContainer}
         transition={{ duration: 1, type: "spring" }}
       >
-        <div className={styles.programmSectionListMainContainer1}>
+        <div className={styles.programmSectionListMainContainer1 + " flex-column gap16"}>
           <p>
             <b>{props.section.title}</b>
           </p>
           {props.section.place.length > 0 && <p>{props.section.place}</p>}
         </div>
         <div className={styles.programmSectionListMainContainer2}>
-          <div>
+          <div className="flex-column">
             {props.section.date.length > 0 && (
               <p>
                 <b>{props.section.date}</b>
@@ -65,17 +65,17 @@ const SectionItem = (props: Props) => {
             <p>
               <b>Вопросы к обсуждению:</b>
             </p>
-            <ol className={styles.programmSectionListQA}>
+            <ul className={styles.programmSectionListQA + " flex-column gap8"}>
               {props.section.questions.map((q, index) => {
                 return <SectionQItem question={q} key={index} />;
               })}
-            </ol>
+            </ul>
           </>
         )}
         {props.section.hReports && (
           <div className={styles.programmSectionListPeapCtn}>
             <p className={styles.programmSectionListPeapTitle}>Доклады</p>
-            <ul className={styles.programmSectionListPeap}>
+            <ul className="flex-column gap16">
               {props.section.reports.map((report) => {
                 return <SectionReportItem key={report.id} report={report} />;
               })}

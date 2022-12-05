@@ -113,7 +113,7 @@ const Header = () => {
             initial={{ translateX: "20%", opacity: 0 }}
             animate={{ translateX: "0%", opacity: 1 }}
             transition={{ duration: 3, type: "spring" }}
-            className={styles.rightInfo}
+            className={styles.rightInfo + " flex-column"}
           >
             <div>
               <HiOutlineLocationMarker />

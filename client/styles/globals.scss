@@ -5,14 +5,17 @@ body {
   font-family: "Raleway", sans-serif;
 }
 
+:root {
+  --main-text-color: #3a7388;
+  --second-text-color: #ffffff;
+}
+
 .titleH1 {
-  font-style: normal;
   font-weight: 800;
   font-size: 48px;
   line-height: 56px;
   text-align: center;
   letter-spacing: 1em;
-  color: #3a7388;
 }
 
 *::-webkit-scrollbar {
@@ -27,13 +30,9 @@ body {
 
 *::-webkit-scrollbar-thumb {
   width: 2px;
-  background-color: #3a7388;
+  background-color: var(--main-text-color);
   border-radius: 20px;
   border: unset;
-}
-
-a {
-  color: inherit;
 }
 
 * {
@@ -41,5 +40,19 @@ a {
   padding: 0;
   box-sizing: border-box;
   border: unset;
-  color: #fff;
+  color: var(--main-text-color);
+}
+
+//ОПТИМИЗАЦИЯ СТИЛЕЙ!
+
+.gap16 {
+  gap: 16px;
+}
+.gap8 {
+  gap: 8px;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
 }

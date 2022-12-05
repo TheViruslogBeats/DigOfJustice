@@ -27,7 +27,7 @@ export default function Home() {
       <Header />
       <ConfInfo />
       <Programm />
-      {devMode && <Speakers />}
+      <Speakers />
       <Register />
     </div>
   );

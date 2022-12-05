@@ -7,7 +7,7 @@ interface Props {
 
 const SectionReportItem = (props: Props) => {
   return (
-    <li key={props.report.id} className={styles.programmSectionListPeapLi}>
+    <li key={props.report.id} className={styles.programmSectionListPeapLi + " flex-column gap16"}>
       <p>{props.report.topic}</p>
       <div className={styles.programmSectionListPeapLiCtn}>
         <div>

@@ -8,7 +8,7 @@ interface Props {
 const ProgrammItemInfo = (props: Props) => {
   return (
     <div key={props.progInform.id} className={styles.programmInfoContainer}>
-      <div className={styles.programmInformation}>
+      <div className={styles.programmInformation + " flex-column"}>
         <img src={props.progInform.img} alt={props.progInform.img} />
         <p>{props.progInform.fio}</p>
       </div>

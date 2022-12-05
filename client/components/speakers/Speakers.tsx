@@ -283,7 +283,7 @@ const Speakers = () => {
             <br />
             {speakers[expert].lastName}
           </p>
-          <ul>
+          <ul className="flex-column">
             {speakers[expert].acDegree.length > 0 && (
               <li>
                 <h3 className={styles.speakerLiTitle}>УЧЕНАЯ СТЕПЕНЬ: </h3>

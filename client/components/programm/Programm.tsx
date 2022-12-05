@@ -29,13 +29,13 @@ const Programm = () => {
           return <ProgrammItem key={program.id} prog={program} />;
         })}
         <div className={styles.programmSections}>
-          <div className={styles.programmSectionbtns}>
+          <div className={styles.programmSectionbtns + " flex-column gap16"}>
             {headerState.program.sections?.map((button) => {
               return <SectionButtons key={button.id} button={button} />;
             })}
           </div>
 
-          <ul className={styles.programmSectionList}>
+          <ul className={styles.programmSectionList + " flex-column gap16"}>
             {headerState.currentList.map((section) => {
               return <SectionItem key={section.id} section={section} />;
             })}
