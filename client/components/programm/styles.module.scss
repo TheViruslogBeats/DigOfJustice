@@ -1,37 +1,11 @@
 .programm {
   width: 1100px;
-  height: 1345px;
-  margin: 0 auto;
+  min-height: 1345px;
   margin-bottom: 64px;
   & h2 {
-    margin: 0 auto;
     margin-bottom: 48px;
     white-space: nowrap;
     width: 688px;
-  }
-}
-
-.programmContainer {
-  color: #000;
-  & h3 {
-    margin: 0 auto;
-    margin-top: 100px;
-    font-size: 40px;
-    letter-spacing: 0.5em;
-    margin-bottom: 48px;
-    white-space: nowrap;
-    width: 272px;
-    position: relative;
-    &::before {
-      content: "";
-      position: absolute;
-      width: 1100px;
-      left: 50%;
-      transform: translateX(-50%);
-      height: 1px;
-      background-color: #3a7388;
-      top: -80%;
-    }
   }
 }
 
@@ -49,7 +23,6 @@
 .programmMainContainer1 {
   & p {
     width: 530px;
-    color: #3a7388;
     text-align: center;
     &:nth-child(1) {
       font-weight: 800;
@@ -64,7 +37,6 @@
 .programmMainContainer2 {
   & p {
     font-family: "Inter";
-    color: #3a7388;
     text-align: center;
     &:nth-child(1) {
       font-weight: 700;
@@ -87,11 +59,8 @@
   transition: 0.15s ease-in-out color, 0.15s ease-in-out background-color,
     0.2s ease-in-out transform;
   transform: rotate(0deg);
-  & path {
-    color: #3a7388;
-  }
   &:hover {
-    background-color: #3a7388;
+    background-color: var(--main-text-color);
     & path {
       color: white;
     }
@@ -110,9 +79,6 @@
 }
 
 .programmSectionbtns {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
   width: 392px;
   margin-right: 32px;
   overflow-y: scroll;
@@ -125,10 +91,10 @@
   margin-top: 100px;
   position: relative;
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     width: 100%;
-    background-color: #3a7388;
+    background-color: var(--main-text-color);
     height: 1px;
     top: -52px;
   }
@@ -138,17 +104,16 @@
   width: 382px;
   border-radius: 10px;
   background-color: #fff;
-  color: #3a7388;
   font-weight: 800;
   font-size: 14px;
   padding: 16px 32px;
   transition: 0.15s ease-in-out background-color, 0.15s ease-in-out color;
   &:hover {
-    background-color: #3a7388;
+    background-color: var(--main-text-color);
     color: #fff;
   }
   &.programmSectionbtnActive {
-    background-color: #3a7388;
+    background-color: var(--main-text-color);
     color: #fff;
   }
 }
@@ -160,12 +125,11 @@
 }
 
 .programmInfoContainer {
-  margin: 0 auto;
+  margin: 16px auto;
   display: flex;
   align-items: center;
   gap: 16px;
   justify-content: center;
-  margin: 16px 0;
   position: relative;
 }
 
@@ -177,8 +141,6 @@
 }
 
 .programmInformation {
-  display: flex;
-  flex-direction: column;
   width: 138px;
   align-items: center;
   text-align: center;
@@ -190,14 +152,12 @@
     height: 80%;
     top: 50%;
     transform: translateY(-50%);
-    background-color: #3a7388;
+    background-color: var(--main-text-color);
     width: 1px;
   }
   & p {
-    font-style: normal;
     font-weight: 800;
     font-size: 13px;
-    color: #3a7388;
   }
   & img {
     width: 72px;
@@ -214,13 +174,7 @@
   height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
   list-style-type: none;
-  & p {
-    color: #3a7388;
-  }
 }
 
 .programmSectionListMainContainer {
@@ -234,27 +188,21 @@
     position: absolute;
     content: "";
     width: 100%;
-    background-color: #3a7388;
+    background-color: var(--main-text-color);
     height: 1px;
     bottom: -10px;
   }
 }
 
 .programmSectionListMainContainer1 {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 20px;
   & p {
     width: 450px;
     font-family: "Inter";
-    font-style: normal;
     font-weight: 400;
     font-size: 20px;
     text-align: center;
     & b {
-      color: #3a7388;
-      font-style: normal;
       font-weight: 800;
       font-size: 24px;
     }
@@ -269,22 +217,16 @@
   align-items: center;
   text-align: center;
   & div {
-    display: flex;
-    flex-direction: column;
     align-items: center;
     & p {
       width: 160px;
       font-family: "Inter";
-      font-style: normal;
       font-weight: 300;
       font-size: 24px;
-      color: #3a7388;
       & b {
         font-family: "Inter";
-        font-style: normal;
         font-weight: 700;
         font-size: 24px;
-        color: #3a7388;
       }
     }
   }
@@ -302,11 +244,8 @@
   transition: 0.15s ease-in-out color, 0.15s ease-in-out background-color,
     0.2s ease-in-out transform;
   transform: rotate(0deg);
-  & path {
-    color: #3a7388;
-  }
   &:hover {
-    background-color: #3a7388;
+    background-color: var(--main-text-color);
     & path {
       color: white;
     }
@@ -323,33 +262,19 @@
   overflow: hidden;
   & p {
     & b {
-      font-family: "Raleway";
-      font-style: normal;
       font-weight: 600;
       font-size: 16px;
-      color: #3a7388;
     }
   }
 }
 
 .programmSectionListQA {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
   margin-top: 16px;
   width: 400px;
   & li {
-    margin-left: 16px;
-    width: 500px;
+    margin-left: 24px;
+    width: 600px;
     position: relative;
-    &::before {
-      position: absolute;
-      content: "●";
-      color: #3a7388;
-      left: -3%;
-      top: 50%;
-      transform: translateY(-60%);
-    }
   }
 }
 
@@ -358,8 +283,6 @@
 }
 
 .programmSectionListPeapTitle {
-  font-family: "Raleway";
-  font-style: normal;
   font-weight: 800;
   font-size: 20px;
   margin-top: 32px;
@@ -368,14 +291,10 @@
 }
 
 .programmSectionListPeapLi {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
   & p:nth-child(1) {
-    font-style: normal;
     font-weight: 600;
     font-size: 14px;
-    color: #3a7388;
+    color: var(--main-text-color);
     text-transform: uppercase;
   }
   position: relative;
@@ -384,7 +303,7 @@
     content: "";
     width: 100%;
     height: 1px;
-    background-color: #3a7388;
+    background-color: var(--main-text-color);
     bottom: 0;
   }
 }
@@ -414,17 +333,11 @@
         font-size: 14px;
         color: #fff;
         padding: 2px 8px;
-        background-color: #3a7388;
+        background-color: var(--main-text-color);
         width: 100px;
         border-radius: 8px;
         text-align: center;
       }
     }
   }
-}
-
-.programmSectionListPeap {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
 }

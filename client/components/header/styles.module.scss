@@ -16,6 +16,7 @@
   font-size: 14px;
   margin-left: 8px;
   letter-spacing: 0.03em;
+  color: var(--second-text-color);
 }
 
 .headerP1 {
@@ -49,8 +50,6 @@
   align-items: center;
 }
 
-
-
 .topBarRight {
   display: flex;
   align-items: center;
@@ -59,16 +58,16 @@
   gap: 16px;
 }
 
-
 .topBarButton {
   cursor: pointer;
   background-color: #ffffff00;
   border-radius: 10px;
   padding: 12px 16px;
+  color: var(--second-text-color);
   transition: 0.15s ease-in-out background, 0.15s ease-in-out color;
   &:hover {
     background: #ffffff;
-    color: #3a7388;
+    color: inherit;
   }
 }
 
@@ -85,25 +84,22 @@
   height: 286px;
   justify-content: space-between;
   padding: 0 32px;
-  margin: 0 auto;
   margin-top: 160px;
 }
-
-
 
 .leftInfo {
   width: 420px;
   font-weight: 400;
+  color: var(--second-text-color);
   font-size: 24px;
   & b {
     font-weight: 700;
+    color: var(--second-text-color);
     font-size: 48px;
   }
 }
 
 .rightInfo {
-  display: flex;
-  flex-direction: column;
   justify-content: space-around;
   width: 340px;
   & button {
@@ -114,7 +110,6 @@
     border-radius: 10px;
     font-weight: 700;
     font-size: 24px;
-    color: hsl(196, 40%, 38%);
     transition: 0.15s ease-in-out color, 0.15s ease-in-out transform;
     &:hover {
       color: hsl(196, 40%, 50%);
@@ -128,14 +123,18 @@
       margin: 0 8px;
       width: 46px;
       height: 46px;
+      & path {
+        color: var(--second-text-color);
+      }
     }
     & p {
       font-family: "Inter";
-      font-style: normal;
       font-weight: 400;
+      color: var(--second-text-color);
       font-size: 14px;
       & b {
         font-family: "Inter";
+        color: var(--second-text-color);
         font-weight: 700;
         font-size: 14px;
       }
@@ -157,7 +156,7 @@
       font-size: 32px;
     }
   }
-  
+
   .rightInfo {
     margin: 0 auto;
     height: 286px;
