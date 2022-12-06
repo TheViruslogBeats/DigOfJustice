@@ -17,7 +17,7 @@ interface SpeakerType {
 
 class SpeakerState {
   a: boolean = true;
-  page: number = 2;
+  page: number = 1;
   speakers: SpeakerType[] = [];
 
   constructor() {

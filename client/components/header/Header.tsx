@@ -115,7 +115,7 @@ const Header = () => {
               }}
               className={styles.topBarButton}
             >
-              ТРЕБОВАНИЯ
+              ТРЕБОВАНИЯ К ПУБЛИКАЦИИ
             </button>
           </div>
         </motion.div>
