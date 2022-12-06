@@ -16,7 +16,9 @@ const Speakers = () => {
   const ref = useRef<HTMLDivElement>(null)
   useEffect(() => {
     SpeakerState.getOnceExperts();
-    headerState.setSpeakerOffsetTop(ref.current?.offsetTop)
+    if(ref.current) {
+      headerState.setSpeakerOffsetTop(ref.current?.offsetTop)
+    }
   }, []);
 
   return (
