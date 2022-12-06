@@ -5,6 +5,8 @@ const SectionListModel = require("../database/models/sectionListModel");
 
 const { validationResult } = require("express-validator");
 const ReportsModel = require("../database/models/reportsModel");
+const SectionListMembersModel = require("../database/models/sectionListMembersModel");
+const speakersModel = require("../database/models/speakersModel");
 
 const getProgramms = async () => {
   let programsTemp = await ProgramListModel.findAll();
@@ -40,6 +42,7 @@ const getSections = async () => {
     raw: true,
     where: { moderated: true },
   });
+  let members = await SectionListMembersModel.findAll({ raw: true });
   sectionButtonsTemp.map((a) => sectionButtons.push(a.dataValues));
   sectionListTemp.map((a) => sectionList.push(a.dataValues));
 
@@ -52,6 +55,10 @@ const getSections = async () => {
     if (a.reports.length > 0) {
       a.showArrow = true;
       a.hReports = true;
+    }
+    a.members = members.filter((memb) => a.id === memb.sectionlistId);
+    if (a.members.length > 0) {
+      a.showArrow = true;
     }
   });
   sectionButtons.map((a) => {
@@ -93,7 +100,7 @@ class mainContorller {
       return res.json(sections);
     } catch (error) {
       console.log(error);
-      return res.status(500).json("Ошибка сервера")
+      return res.status(500).json("Ошибка сервера");
     }
   }
 
@@ -144,6 +151,17 @@ class mainContorller {
         sectionlistId: list.dataValues.id,
       });
       return res.status(200).json("Успех");
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json("Ошибка сервера");
+    }
+  }
+
+  async getExperts(req, res) {
+    try {
+      const { size, page } = req.body;
+      let speakers = await speakersModel.findAll({ raw: true });
+      return res.json(speakers.sort((a, b) => a.id - b.id).slice((page - 1) * size, page * size))
     } catch (error) {
       console.log(error);
       return res.status(500).json("Ошибка сервера");

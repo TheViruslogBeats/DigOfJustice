@@ -39,6 +39,7 @@ app.use(
 
 //Routers
 const mainRouter = require("./routers/mainRouter");
+const speakersModel = require("./database/models/speakersModel");
 app.use("/api", mainRouter);
 app.use("/img", express.static("./files/images"));
 
@@ -51,6 +52,7 @@ const startServer = async () => {
       // await kek();
       // await kek2();
       // await kek3();
+      // await kek4();
       console.log(
         "Connection with Data Base has been established successfully."
       );
@@ -456,6 +458,16 @@ const kek3 = async () => {
         hReports: false,
         sectionbuttonId: 8,
       },
+      {
+        title: "Мероприятие-сателлит – Презентация платформы Веримаг",
+        showArrow: false,
+        opened: false,
+        hQuesions: false,
+        hReports: false,
+        isSection: false,
+        canRegister: false,
+        sectionbuttonId: 8,
+      },
     ],
     [],
     [
@@ -582,5 +594,215 @@ const kek3 = async () => {
         await SectionListModel.create(c);
       }, 1000);
     });
+  });
+};
+
+const kek4 = async () => {
+  const a = [
+    {
+      id: 0,
+      img: "https://api.virusbeats.ru/img/speakers/(14).png",
+      alt: "speaker",
+      firstName: "Бакаев",
+      middleName: "Анатолий",
+      lastName: "Александрович",
+      acDegree: "Доктор исторических наук,  кандидат юридических наук",
+      acTitle: "ПРОФЕССОР",
+      honorTitle:
+        "Заслуженный юрист Российской Федерации, Почётный работник высшего профессионального образования",
+      position:
+        "Директор Института кибербезопасности и цифровых технологий, заведующий кафедрой «Правовое обеспечение национальной безопасности»",
+      description:
+        "Академик РАЕН, Председатель Координационного совета Института кибербезорасности и цифровых технологий и Московского городского суда",
+    },
+    {
+      id: 1,
+      img: "https://api.virusbeats.ru/img/speakers/(8).png",
+      alt: "speaker",
+      firstName: "Сибирская",
+      middleName: "Елена",
+      lastName: "Викторовна",
+      acDegree: "Доктор экономических наук",
+      acTitle: "Профессор",
+      honorTitle: "",
+      position: "",
+      description: "",
+    },
+    {
+      id: 2,
+      img: "https://api.virusbeats.ru/img/speakers/(10).png",
+      alt: "speaker",
+      firstName: "Никульчев",
+      middleName: "Евгений",
+      lastName: "Витальевич",
+      acDegree: "Доктор технических наук,  кандидат юридических наук",
+      acTitle: "ПРОФЕССОР",
+      honorTitle:
+        "Заслуженный юрист Российской Федерации, Почётный работник высшего профессионального образования",
+      position:
+        "Проректор по научной работе НОУ ВПО Московский технологический институт «ВТУ»",
+      description: "Обладатель почётного учёного звания «Профессор РАО»",
+    },
+    {
+      id: 3,
+      img: "https://api.virusbeats.ru/img/speakers/(3).png",
+      alt: "speaker",
+      firstName: "Козачок ",
+      middleName: "Александр",
+      lastName: "Васильевич",
+      acDegree: "Доктор технических наук",
+      acTitle: "",
+      honorTitle: "",
+      position:
+        "Сотрудник Академии Федеральной службы безопасности Российской Федерации»",
+      description: "",
+    },
+    {
+      id: 4,
+      img: "https://api.virusbeats.ru/img/speakers/(2).png",
+      alt: "speaker",
+      firstName: "Иванова",
+      middleName: "Ирина",
+      lastName: "Алексеевна",
+      acDegree: "Кандидат технических наук",
+      acTitle: "Доцент",
+      honorTitle: "",
+      position:
+        "заведующий кафедрой «Цифровые технологии обработки данных» Института кибербезорасности и цифровых технологий",
+      description:
+        "Специалист в области анализа данных,эксперт в области анализа данных и искусственного интеллекта,эксперт проекта «Инженеры будущего»,эксперт платформы Национальная техническая инициатива",
+    },
+    {
+      id: 5,
+      img: "https://api.virusbeats.ru/img/speakers/(11).png",
+      alt: "speaker",
+      firstName: "Плешаков",
+      middleName: "Владимир",
+      lastName: "Андреевич",
+      acDegree: "Кандидат педагогических наук",
+      acTitle: "Доцент",
+      honorTitle:
+        "Заслуженный юрист Российской Федерации, Почётный работник высшего профессионального образования",
+      position:
+        "Доцент кафедры социальной педагогики и психологии факультета педагогики и психологии ФГБОУ ВПО «Московский педагогический государственный университет»",
+      description:
+        "Ученый секретарь диссертационного совета при МПГУ, соучредитель, научный консультант и тренер компании «Искусство тренинга», лауреат именной стипендии Правительства РФ (2000), Президента РФ (2001) за научные успехи, победитель конкурса на право получения грантов Президента РФ (2010)",
+    },
+    {
+      id: 6,
+      img: "https://api.virusbeats.ru/img/speakers/(12).png",
+      alt: "speaker",
+      firstName: "Халабия",
+      middleName: "Рустам",
+      lastName: "Фарук",
+      acDegree: "Кандидат технических наук",
+      acTitle: "Доцент",
+      honorTitle:
+        "Заслуженный юрист Российской Федерации, Почётный работник высшего профессионального образования",
+      position: `Доцент - Кафедра КБ-5 «Аппаратного, программного и математического обеспечения вычислительных систем »`,
+      description: "",
+    },
+    {
+      id: 7,
+      img: "https://api.virusbeats.ru/img/speakers/(5).png",
+      alt: "speaker",
+      firstName: "Кулагин",
+      middleName: "Владимир",
+      lastName: "Петрович",
+      acDegree: "доктор технических наук,  кандидат юридических наук",
+      acTitle: "",
+      honorTitle: "",
+      position:
+        "Заведующий кафедрой «Аппаратного, программного и математического обеспечения вычислительных систем, Институт информационных технологий»",
+      description:
+        "Премия Президента Российской Федерации в области образования за 2002 год за инновационную работу для учебных заведений высшего профессионального образования и органов управления образованием субъектов Российской Федерации «Разработка и внедрение информационно-образовательного комплекса по геоинформатике и геоинформационным технологиям» (2002 год)",
+    },
+    {
+      id: 8,
+      img: "https://api.virusbeats.ru/img/speakers/(13).png",
+      alt: "speaker",
+      firstName: "Богатырев",
+      middleName: "Сергей",
+      lastName: "Индрисович",
+      acDegree: "Кандидат экономических наук",
+      acTitle: "Доцент",
+      honorTitle:
+        "Почетный сотрудник органов налоговой полиции,  почетный сотрудник органов наркоконтроля",
+      position:
+        "Заведующий кафедрой «экономической экспертизы и финансового мониторинга» (кафедра ЭЭиФМ) Института кибербезопасности и цифровых технологий",
+      description: "Генерал-майор полиции",
+    },
+    {
+      id: 9,
+      img: "https://api.virusbeats.ru/img/speakers/(4).png",
+      alt: "speaker",
+      firstName: "Сальников ",
+      middleName: "Константин ",
+      lastName: "Евгеньевич",
+      acDegree: "",
+      acTitle: "Доцент",
+      honorTitle: "",
+      position:
+        "Директор АНО Центр судебных исследований «Экспертология», доцент кафедры «экономической экспертизы и финансового мониторинга» (кафедра ЭЭиФМ) Института кибербезорасности и цифровых технологий",
+      description:
+        "Имеет медали «За безупречную службу» III степени, благодарность Председателя СК России А.И. Бастрыкина от 09.11.2015 ",
+    },
+    {
+      id: 10,
+      img: "https://api.virusbeats.ru/img/speakers/(7).png",
+      alt: "speaker",
+      firstName: "Смирнов ",
+      middleName: "Алексей ",
+      lastName: "Владимирович",
+      acDegree: "",
+      acTitle: "",
+      honorTitle: "",
+      position: "Генеральный директор «Базальт СПО»",
+      description: "Член правления «Руссофт»",
+    },
+    {
+      id: 11,
+      img: "https://api.virusbeats.ru/img/speakers/(6).png",
+      alt: "speaker",
+      firstName: "Тымбай",
+      middleName: "Сергей",
+      lastName: "Алексеевич",
+      acDegree: "",
+      acTitle: "",
+      honorTitle: "",
+      position:
+        "Директор по обеспечению цифровой трансформации, Заместитель старшего директора по цифровой трансформации НИУ ВШЭ",
+      description: "",
+    },
+    {
+      id: 12,
+      img: "https://api.virusbeats.ru/img/speakers/(9).png",
+      alt: "speaker",
+      firstName: "Степанова",
+      middleName: "И",
+      lastName: "В",
+      acDegree: "",
+      acTitle: "",
+      honorTitle: "",
+      position: "",
+      description: "",
+    },
+    {
+      id: 13,
+      img: "https://api.virusbeats.ru/img/speakers/(1).png",
+      alt: "speaker",
+      firstName: "Кашицин",
+      middleName: "Владимир",
+      lastName: "Петрович",
+      acDegree: "кандидат педагогических наук",
+      acTitle: "",
+      honorTitle: "",
+      position:
+        "Советник Генерального директора, Департамент цифровизации образования, АО «Рт Лабс»",
+      description: "",
+    },
+  ];
+  a.map(async (a) => {
+    await speakersModel.create(a);
   });
 };

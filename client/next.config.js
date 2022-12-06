@@ -7,7 +7,7 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "api.virusbeats.ru",
-        pathname: "/img/speakers/*",
+        pathname: "/img/**",
       },
     ],
   },

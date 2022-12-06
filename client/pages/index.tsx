@@ -11,9 +11,10 @@ import Register from "../components/register/Register";
 import Speakers from "../components/speakers/Speakers";
 import Programm from "../components/programm/Programm";
 import PartnerBlock from "../components/header/components/PartnerBlock";
+import Support from "../components/support/Support";
+import Footer from "../components/footer/Footer";
 
 export default function Home() {
-  const [devMode, setDevMode] = useState(false);
   return (
     <div className={styles.container + " mx-auto"}>
       <Head>
@@ -30,9 +31,11 @@ export default function Home() {
       <Programm />
       <Speakers />
       <Register />
-      <div style={{ margin: "128px auto", width: "1240px" }}>
+      <div style={{ margin: "100px auto", width: "1240px" }}>
         <PartnerBlock />
       </div>
+      <Support/>
+      <Footer/>
     </div>
   );
 }

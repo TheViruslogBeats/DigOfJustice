@@ -93,7 +93,6 @@ const Header = () => {
             >
               О КОНФЕРЕНЦИИ
             </button>
-            {/* <button className={styles.topBarButton}>ЗАДАЧИ КОНФЕРЕНЦИИ</button> */}
             <button
               onClick={() => {
                 headerState.goToElement(headerState.progoffsetTop);
@@ -102,8 +101,14 @@ const Header = () => {
             >
               ПРОГРАММА
             </button>
-            {/* <button className={styles.topBarButton}>СПИКЕРЫ</button> */}
-            {/* <button className={styles.topBarButton}>ОРГАНИЗАТОРЫ</button> */}
+            <button
+              onClick={() => {
+                headerState.goToElement(headerState.speakeroffsetTop);
+              }}
+              className={styles.topBarButton}
+            >
+              ЭКСПЕРТЫ
+            </button>
             <button
               onClick={() => {
                 headerState.downloadReq();

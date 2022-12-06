@@ -1,6 +1,7 @@
 const Sequelize = require("sequelize");
 const dataBase = require("../connectDb");
 const ReportsModel = require("./reportsModel");
+const SectionListMembersModel = require("./sectionListMembersModel");
 
 const SectionListModel = dataBase.define(
   "sectionlist",
@@ -36,6 +37,9 @@ const SectionListModel = dataBase.define(
     questions: {
       type: Sequelize.ARRAY(Sequelize.STRING(1000)),
     },
+    mainTheme: {
+      type: Sequelize.STRING,
+    },
     hReports: {
       type: Sequelize.BOOLEAN,
     },
@@ -44,11 +48,12 @@ const SectionListModel = dataBase.define(
     },
     canRegister: {
       type: Sequelize.BOOLEAN,
-    }
+    },
   },
   { timestamps: false }
 );
 
 SectionListModel.hasMany(ReportsModel);
+SectionListModel.hasMany(SectionListMembersModel);
 
 module.exports = SectionListModel;

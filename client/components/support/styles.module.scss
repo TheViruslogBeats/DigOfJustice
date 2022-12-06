@@ -1,0 +1,57 @@
+.supportContainer {
+  max-width: 600px;
+  margin-bottom: 128px;
+}
+
+.supportWrapper {
+  text-align: center;
+  & h2 {
+    font-weight: 700;
+    font-size: 32px;
+  }
+}
+
+.supportBlocks {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  margin: 32px 0;
+}
+
+.support {
+  align-items: center;
+  width: 150px;
+  & img {
+    margin-bottom: 16px;
+  }
+  & p{
+    color: #9b9b9b;
+    font-weight:600;
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+  }
+  & div {
+    & img {
+      margin-bottom: 0;
+    }
+    & a {
+      text-decoration: unset;
+      color: #9b9b9b;
+      font-weight: 600;
+      font-family: "Inter";
+      transition: .15s ease-in-out color, .15s ease-in-out transform;
+      &:hover {
+        color: inherit;
+        transform: translateY(-10%);
+      }
+    }
+  }
+}
+
+.supportContact {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}

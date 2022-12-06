@@ -6,6 +6,7 @@ import headerState, { SectionListType } from "../../../state/headerState";
 import { observer } from "mobx-react-lite";
 import SectionReportItem from "./SectionReportItem";
 import SectionQItem from "./SectionQItem";
+import Image from "next/image";
 
 interface Props {
   section: SectionListType;
@@ -20,7 +21,11 @@ const SectionItem = (props: Props) => {
         className={styles.programmSectionListMainContainer}
         transition={{ duration: 1, type: "spring" }}
       >
-        <div className={styles.programmSectionListMainContainer1 + " flex-column gap16"}>
+        <div
+          className={
+            styles.programmSectionListMainContainer1 + " flex-column gap16"
+          }
+        >
           <p>
             <b>{props.section.title}</b>
           </p>
@@ -60,6 +65,9 @@ const SectionItem = (props: Props) => {
         transition={{ duration: 1, type: "spring" }}
         className={styles.programmSectionListHiddenContainer}
       >
+        {props.section.mainTheme.length > 0 && (
+          <h3>{props.section.mainTheme}</h3>
+        )}
         {props.section.hQuesions && (
           <>
             <p>
@@ -70,6 +78,32 @@ const SectionItem = (props: Props) => {
                 return <SectionQItem question={q} key={index} />;
               })}
             </ul>
+          </>
+        )}
+        {props.section.members.length > 0 && (
+          <>
+            <h3 className={styles.membersTitle}>
+              Участники стратегической сессии
+            </h3>
+            <div className={styles.memberWrapper}>
+              {props.section.members.map((member) => {
+                return (
+                  <div className={styles.memberContainer + " flex-column"}>
+                    <Image
+                      src={member.img}
+                      alt={member.firstName}
+                      width={60}
+                      height={60}
+                    />
+                    <div className={styles.memberName}>
+                      <p>{member.firstName}</p>
+                      <p>{member.middleName}</p>
+                      <p>{member.lastName}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </>
         )}
         {props.section.hReports && (

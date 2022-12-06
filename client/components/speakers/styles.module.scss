@@ -1,5 +1,6 @@
 .speakers {
   width: 1100px;
+  min-height: 694px;
   & h1 {
     margin-bottom: 80px;
   }
@@ -69,6 +70,26 @@
   }
 }
 
+.speakerDownload {
+  margin: 0 auto;
+  cursor: pointer;
+  background-color: #fff;
+  padding: 16px;
+  width: calc(53px + 32px);
+  height: calc(53px + 32px);
+  border-radius: 50%;
+  transition: .15s ease-in-out box-shadow,.15s ease-in-out transform;
+  &:hover {
+    box-shadow: 0px 4px 5px 0 #000;
+    transform: translateY(-5%);
+  }
+}
+.speakerDownloadContainer {
+  width: calc(53px + 32px);
+  height: calc(53px + 32px);
+  margin: 16px auto;
+}
+
 .speakersModal {
   width: 928px;
   height: 700px;
@@ -81,7 +102,7 @@
     margin-top: 100px;
     margin-left: 48px;
     & ul {
-      justify-content: space-between;
+      gap: 16px;
       margin-top: 32px;
       height: 380px;
       & li {

@@ -21,7 +21,7 @@ const PartnerBlock = (props: Props) => {
         <h3>ОРГАНИЗАТОРЫ</h3>
         <div className="flex-column">
           <Image alt="kek" src={org1.src} width={274} height={62} />
-          <Image alt="kek" src={org2.src} width={198} height={61} />
+          <Image alt="kek" src={org2.src} width={207} height={61} />
         </div>
       </div>
       <div className="flex-column">

@@ -1,4 +1,3 @@
-import { AxiosResponse } from "axios";
 import { makeAutoObservable } from "mobx";
 import { SERVER_URL, $api } from "./api";
 
@@ -8,12 +7,20 @@ export interface SectionListType {
   date: string;
   time: string;
   place: string;
+  mainTheme: string;
   showArrow: boolean;
   opened: boolean;
   hQuesions: boolean;
   canRegister: boolean;
   questions: string[];
   hReports: boolean;
+  members: {
+    id: number;
+    img: string;
+    firstName: string;
+    middleName: string;
+    lastName: string;
+  }[];
   reports: SectionListReportType[];
 }
 
@@ -64,9 +71,14 @@ class HeaderState {
   confoffsetTop: number = 0;
   progoffsetTop: number = 0;
   regoffsetTop: number = 0;
+  speakeroffsetTop: number = 0;
 
   constructor() {
     makeAutoObservable(this);
+  }
+
+  setSpeakerOffsetTop(data: number) {
+    this.speakeroffsetTop = data - 100;
   }
 
   setRegOffsetTop(data: number) {
@@ -78,7 +90,7 @@ class HeaderState {
   }
 
   setConfOffsetTop(data: number) {
-    this.confoffsetTop = data - 250 / window.devicePixelRatio;
+    this.confoffsetTop = data - 100;
   }
 
   goToElement(data: number) {
