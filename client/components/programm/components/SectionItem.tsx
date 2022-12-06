@@ -88,7 +88,7 @@ const SectionItem = (props: Props) => {
             <div className={styles.memberWrapper}>
               {props.section.members.map((member) => {
                 return (
-                  <div className={styles.memberContainer + " flex-column"}>
+                  <div key={member.id} className={styles.memberContainer + " flex-column"}>
                     <Image
                       src={member.img}
                       alt={member.firstName}

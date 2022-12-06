@@ -45,16 +45,16 @@ const Support = (props: Props) => {
       <div className={styles.supportWrapper}>
         <h2>Консультанты</h2>
         <div className={styles.supportBlocks}>
-          {support.map((sup) => {
+          {support.map((sup, index) => {
             return (
-              <div className={styles.support + " flex-column"}>
+              <div key={index} className={styles.support + " flex-column"}>
                 <Image alt="support" src={sup.img} width={100} height={100} />
                 <p>{sup.firstName}</p>
                 <p>{sup.lastName}</p>
                 {sup.tg.length > 0 && (
                   <div className={styles.supportContact}>
                     <Image alt="TG" src={tgsvg.src} width={27} height={24} />
-                    <a href={"https://t.me/" + sup.tg} target="_blank">
+                    <a href={"https://t.me/" + sup.tg} target="_blank" rel="noreferrer">
                       @{sup.tg}
                     </a>
                   </div>
@@ -67,15 +67,15 @@ const Support = (props: Props) => {
       <div className={styles.supportWrapper}>
         <h2>Техническая поддержка</h2>
         <div className={styles.supportBlocks}>
-          {techSupport.map((sup) => {
+          {techSupport.map((sup, index) => {
             return (
-              <div className={styles.support + " flex-column"}>
+              <div key={index} className={styles.support + " flex-column"}>
                 <Image alt="support" src={sup.img} width={100} height={100} />
                 <p>{sup.firstName}</p>
                 <p>{sup.lastName}</p>
                 <div className={styles.supportContact}>
                   <Image alt="TG" src={tgsvg.src} width={27} height={24} />
-                  <a href={"https://t.me/" + sup.tg} target="_blank">
+                  <a href={"https://t.me/" + sup.tg} target="_blank" rel="noreferrer">
                     @{sup.tg}
                   </a>
                 </div>
