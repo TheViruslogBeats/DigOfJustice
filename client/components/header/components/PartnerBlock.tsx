@@ -1,15 +1,15 @@
 import styles from "./styles.module.scss";
 import Image from "next/image";
 
-import inf1 from "../../../public/img/partners/inf1.svg";
+import inf1 from "../../../public/img/partners/inf1.png";
 
-import org1 from "../../../public/img/partners/org1.svg";
-import org2 from "../../../public/img/partners/org2.svg";
+import org1 from "../../../public/img/partners/org1.png";
+import org2 from "../../../public/img/partners/org2.png";
 
-import str1 from "../../../public/img/partners/str1.svg";
-import str2 from "../../../public/img/partners/str2.svg";
-import str3 from "../../../public/img/partners/str3.svg";
-import str4 from "../../../public/img/partners/str4.svg";
+import str1 from "../../../public/img/partners/str1.png";
+import str2 from "../../../public/img/partners/str2.png";
+import str3 from "../../../public/img/partners/str3.png";
+import str4 from "../../../public/img/partners/str4.png";
 
 interface Props {}
 

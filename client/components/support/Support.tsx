@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./styles.module.scss";
 
-import img1 from "../../public/img/support/1.svg";
-import img2 from "../../public/img/support/2.svg";
-import img3 from "../../public/img/support/3.svg";
-import img4 from "../../public/img/support/4.svg";
-import img5 from "../../public/img/support/5.svg";
-import img6 from "../../public/img/support/6.svg";
-import img7 from "../../public/img/support/7.svg";
+import img1 from "../../public/img/support/1.png";
+import img2 from "../../public/img/support/2.png";
+import img3 from "../../public/img/support/3.png";
+import img4 from "../../public/img/support/4.png";
+import img5 from "../../public/img/support/5.png";
+import img6 from "../../public/img/support/6.png";
+import img7 from "../../public/img/support/7.png";
 import tgsvg from "../../public/img/TGSVG.svg";
 
 interface Props {}

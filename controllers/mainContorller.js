@@ -9,42 +9,25 @@ const SectionListMembersModel = require("../database/models/sectionListMembersMo
 const speakersModel = require("../database/models/speakersModel");
 
 const getProgramms = async () => {
-  let programsTemp = await ProgramListModel.findAll();
-  let programs = [];
-  programsTemp.map((prog) => {
-    prog.dataValues.inform = [];
-    programs.push(prog.dataValues);
-  });
-
-  let programsInfoTemp = await ProgramListInfoModel.findAll();
-  let programsInfo = [];
-  programsInfoTemp.map((prog) => {
-    programsInfo.push(prog.dataValues);
-  });
+  let programs = await ProgramListModel.findAll({ raw: true });
+  let programsInfo = await ProgramListInfoModel.findAll({ raw: true });
 
   programs.map((prog) => {
-    prog.inform.push(
-      ...programsInfo.filter((obj) => obj.programlistId === prog.id)
-    );
+    (prog.inform = programsInfo.filter((obj) => obj.programlistId === prog.id)),
+      prog.inform.length > 0 ? (prog.info = true) : null;
   });
 
-  programs.map((prog) => (prog.inform.length > 0 ? (prog.info = true) : null));
   return programs;
 };
 
 const getSections = async () => {
-  let sectionButtonsTemp = await SectionButtonsModel.findAll();
-  let sectionListTemp = await SectionListModel.findAll();
-
-  let sectionButtons = [];
-  let sectionList = [];
+  let sectionButtons = await SectionButtonsModel.findAll({ raw: true });
+  let sectionList = await SectionListModel.findAll({ raw: true });
   let reportsList = await ReportsModel.findAll({
     raw: true,
     where: { moderated: true },
   });
   let members = await SectionListMembersModel.findAll({ raw: true });
-  sectionButtonsTemp.map((a) => sectionButtons.push(a.dataValues));
-  sectionListTemp.map((a) => sectionList.push(a.dataValues));
 
   sectionList.map((a) => {
     if (a.questions.length > 0) {
@@ -62,10 +45,7 @@ const getSections = async () => {
     }
   });
   sectionButtons.map((a) => {
-    a.sectionList = [];
-    a.sectionList.push(
-      ...sectionList.filter((b) => b.sectionbuttonId === a.id)
-    );
+    a.sectionList = sectionList.filter((b) => b.sectionbuttonId === a.id);
   });
 
   return sectionButtons;
@@ -161,7 +141,11 @@ class mainContorller {
     try {
       const { size, page } = req.body;
       let speakers = await speakersModel.findAll({ raw: true });
-      return res.json(speakers.sort((a, b) => a.id - b.id).slice((page - 1) * size, page * size))
+      return res.json(
+        speakers
+          .sort((a, b) => a.id - b.id)
+          .slice((page - 1) * size, page * size)
+      );
     } catch (error) {
       console.log(error);
       return res.status(500).json("Ошибка сервера");
