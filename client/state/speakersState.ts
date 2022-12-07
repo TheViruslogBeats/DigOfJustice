@@ -30,18 +30,24 @@ class SpeakerState {
 
   async getOnceExperts() {
     if (this.a) {
-      this.a = false;
-      this.getExperts(1);
+      this.a = false
+      let response = await $api.post<SpeakerType[]>("/api/speakers", {
+        page: 1,
+        size: 4,
+      });
+      this.pushSpeakers(response.data);
     }
   }
 
   async getExperts(page: number) {
-    let response = await $api.post<SpeakerType[]>("/api/speakers", {
-      page,
-      size: 3,
-    });
-    this.pushSpeakers(response.data);
-    this.page++
+    for (let i = 2; i < 5; i++) {
+      let response = await $api.post<SpeakerType[]>("/api/speakers", {
+        page: i,
+        size: 4,
+      });
+      this.pushSpeakers(response.data);
+    }
+    this.page = 7
   }
 }
 

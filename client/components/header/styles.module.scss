@@ -29,7 +29,7 @@
 .topBar {
   position: fixed;
   height: 80px;
-  width: 1920px;
+  width: 100%;
   max-width: 1920px;
   display: flex;
   align-items: center;
@@ -154,64 +154,105 @@
   border-radius: 10px;
 }
 
-// @media (max-width: 800px) {
-//   .headerInfo {
-//     flex-direction: column;
-//     gap: 64px;
-//   }
-//   .leftInfo {
-//     margin: 0 auto;
-//     text-align: center;
-//     font-size: 20px;
-//     width: 100%;
-//     & b {
-//       font-size: 32px;
-//     }
-//   }
+.topBarButtonMobile {
+  display: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: unset;
+  & svg {
+    width: 32px;
+    height: 32px;
+    & path {
+      color: var(--second-text-color);
+    }
+  }
+}
 
-//   .rightInfo {
-//     margin: 0 auto;
-//     height: 286px;
-//   }
-//   .header {
-//     height: 840px;
-//   }
-// }
 
-// @media (max-width: 680px) {
-//   .topBar {
-//     height: auto;
-//   }
-//   .topBarLeft {
-//     height: auto;
-//   }
-//   .topBarLeftCtn {
-//     flex-direction: column;
-//     text-align: center;
-//     align-items: center;
-//   }
-//   .Vline {
-//     display: none;
-//   }
-//   .headerInfo {
-//     margin-top: 200px;
-//   }
-//   .headerP1 {
-//     width: 124px;
-//   }
-//   .headerP2 {
-//     width: 150px;
-//   }
-// }
+.topBarButtonSidebar {
+  width: 100%;
+  padding: 16px 0;
+  border-radius: 10px;
+  background-color: var(--second-text-color);
+  color: var(--main-text-color);
+  font-weight: 800;
+}
+.mobileSidebar {
+  & h2 {
+    color: var(--second-text-color);
+  }
+  position: fixed;
+  top: 50%;
+  right: 0;
+  z-index: 501;
+  width: 300px;
+  height: 100vh;
+  background-color: hsl(196, 40%, 38%, 0.75);
+  backdrop-filter: blur(6px);
+  align-items: center;
+  padding: 16px;
+  
+}
 
-// @media (max-width: 1124px) {
-//   .headerInfo {
-//     width: 100%;
-//   }
-// }
+//Убираем падинги у топбара
+@media (max-width: 1440px) {
+  .topBar {
+    padding: 24px 20px;
+  }
+}
 
-// @media (max-width: 1300px) {
-//   .topBarRight {
-//     display: none;
-//   }
-// }
+//Работа с основной инфой
+@media (max-width: 1124px) {
+  .headerInfo {
+    width: 100%;
+  }
+}
+
+@media (max-width: 860px) {
+  .headerInfo {
+    align-items: center;
+    height: 143px;
+    margin-top: 90px;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .leftInfo {
+    margin: 0 auto;
+    width: 300px;
+    font-size: 18px;
+    & b {
+      font-size: 36px;
+    }
+  }
+  .rightInfo {
+    margin: 0 auto;
+    width: 300px;
+    gap: 16px;
+    & button {
+      width: 300px;
+    }
+  }
+  .header {
+    height: 650px;
+  }
+}
+
+
+//Скрываем надписи у левой части топбара
+@media (max-width: 640px) {
+  .headerP1,
+  .headerP2 {
+    display: none;
+  }
+}
+
+//Скрытие кнопок и показ кнопки сайдбара
+@media (max-width: 1380px) {
+  .topBarButton {
+    display: none;
+  }
+  .topBarButtonMobile {
+    display: block;
+  }
+}

@@ -3,7 +3,7 @@ import { observer } from "mobx-react-lite";
 import { useEffect, useRef, useState } from "react";
 import registerState from "../../state/registerState";
 import styles from "./styles.module.scss";
-import bgModal from "../../public/img/bgModal.svg";
+import bgModal from "../../public/img/bgModal-min.jpg";
 import headerState from "../../state/headerState";
 
 interface Props {}
@@ -193,6 +193,7 @@ const Register = (props: Props) => {
           <span className={styles.CheckboxText}>
             Я согласен на обработку моей персональной информации, определенной{" "}
             <a
+              href="#!"
               className={styles.docReader}
               onClick={() => {
                 setModal(true);

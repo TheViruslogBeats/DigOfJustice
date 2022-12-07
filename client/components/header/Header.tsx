@@ -1,16 +1,23 @@
-import styles from "./styles.module.scss";
-import bgimg from "../../public/img/bg2.svg";
-import image1 from "../../public/img/image1.svg";
-import image2 from "../../public/img/image2.svg";
-import { HiOutlineLocationMarker, HiOutlineCalendar } from "react-icons/hi";
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+
+import styles from "./styles.module.scss";
+
+import bgimg from "../../public/img/bg2.jpg";
+import image1 from "../../public/img/image1.png";
+import image2 from "../../public/img/image2.png";
+
+import { HiMenu } from "react-icons/hi";
+import { HiOutlineLocationMarker, HiOutlineCalendar } from "react-icons/hi";
+
 import headerState from "../../state/headerState";
+
 import PartnerBlock from "./components/PartnerBlock";
 
 const Header = () => {
   const [modal, setModal] = useState(false);
+  const [sidebar, setSidebar] = useState(false);
   const [scroll, setScroll] = useState(0);
   const [colorOpacity, setColorOpacity] = useState(0);
   const [backdropBlur, setBackdropBlur] = useState(0);
@@ -38,7 +45,7 @@ const Header = () => {
   }, [scroll]);
 
   return (
-    <header
+    <div
       className={styles.header}
       style={{
         background: ` url(${bgimg.src}) no-repeat`,
@@ -47,7 +54,7 @@ const Header = () => {
       }}
     >
       <div className={styles.bgHeader}>
-        <motion.div
+        <motion.header
           className={styles.topBar}
           initial={{
             translateY: "-30%",
@@ -84,7 +91,7 @@ const Header = () => {
               ПАРТНЕРЫ
             </button>
           </div>
-          <div className={styles.topBarRight}>
+          <nav className={styles.topBarRight}>
             <button
               className={styles.topBarButton}
               onClick={() => {
@@ -117,8 +124,16 @@ const Header = () => {
             >
               ТРЕБОВАНИЯ К ПУБЛИКАЦИИ
             </button>
-          </div>
-        </motion.div>
+            <button
+              onClick={() => {
+                setSidebar(true);
+              }}
+              className={styles.topBarButtonMobile}
+            >
+              <HiMenu />
+            </button>
+          </nav>
+        </motion.header>
         <div className={styles.headerInfo + " mx-auto"}>
           <motion.p
             initial={{ translateX: "-20%", opacity: 0 }}
@@ -162,15 +177,63 @@ const Header = () => {
       <motion.div
         onClick={() => {
           setModal(false);
+          setSidebar(false);
         }}
         initial={{ opacity: 0, clipPath: "circle(0%)" }}
         animate={{
-          opacity: modal ? 1 : 0,
-          clipPath: modal ? "circle(100%)" : "circle(0%)",
+          opacity: modal || sidebar ? 1 : 0,
+          clipPath: modal || sidebar ? "circle(100%)" : "circle(0%)",
         }}
-        transition={{ duration: 2, type: "spring" }}
+        transition={{ duration: 1, type: "spring" }}
         className="posFix blackBG"
       ></motion.div>
+      <motion.div
+        className={styles.mobileSidebar + " flex-column gap16"}
+        initial={{ transform: "translate(100%, -50%)", opacity: 0 }}
+        animate={{
+          transform: sidebar ? "translate(0%, -50%)" : "translate(100%, -50%)",
+          opacity: sidebar ? 1 : 0,
+        }}
+        transition={{ duration: 0.25, type: "tween" }}
+      >
+        <h2>МЕНЮ</h2>
+        <button
+          className={styles.topBarButtonSidebar}
+          onClick={() => {
+            setSidebar(false)
+            headerState.goToElement(headerState.confoffsetTop);
+          }}
+        >
+          О КОНФЕРЕНЦИИ
+        </button>
+        <button
+          onClick={() => {
+            setSidebar(false)
+            headerState.goToElement(headerState.progoffsetTop);
+          }}
+          className={styles.topBarButtonSidebar}
+        >
+          ПРОГРАММА
+        </button>
+        <button
+          onClick={() => {
+            setSidebar(false)
+            headerState.goToElement(headerState.speakeroffsetTop);
+          }}
+          className={styles.topBarButtonSidebar}
+        >
+          ЭКСПЕРТЫ
+        </button>
+        <button
+          onClick={() => {
+            setSidebar(false)
+            headerState.downloadReq();
+          }}
+          className={styles.topBarButtonSidebar}
+        >
+          ТРЕБОВАНИЯ К ПУБЛИКАЦИИ
+        </button>
+      </motion.div>
       <motion.div
         initial={{ opacity: 0, clipPath: "circle(0%)" }}
         animate={{
@@ -182,7 +245,7 @@ const Header = () => {
       >
         <PartnerBlock />
       </motion.div>
-    </header>
+    </div>
   );
 };
 

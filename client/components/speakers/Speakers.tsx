@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
-import bgModal from "../../public/img/bgModal.svg";
+import bgModal from "../../public/img/bgModal-min.jpg";
 import downSVG from "../../public/img/speakersSvg.svg";
 import styles from "./styles.module.scss";
 import Image from "next/image";
@@ -23,7 +23,7 @@ const Speakers = () => {
 
   return (
     <div ref={ref} className={styles.speakers + " mx-auto"}>
-      <h1 className="titleH1">ЭКСПЕРТЫ</h1>
+      <h1 className="titleH1 mx-auto">ЭКСПЕРТЫ</h1>
       <div className={styles.speakersContainer}>
         {SpeakerState.speakers.length > 0 &&
           SpeakerState.speakers.map((speaker, index) => {
@@ -37,8 +37,8 @@ const Speakers = () => {
                 }}
               >
                 <Image
-                  width={340}
-                  height={457}
+                  width={250}
+                  height={350}
                   src={speaker.img}
                   alt={speaker.alt}
                 />
@@ -81,6 +81,7 @@ const Speakers = () => {
         <motion.div
           style={{
             background: `url(${bgModal.src}) no-repeat #fff`,
+            backgroundSize:"contain"
           }}
           initial={{ opacity: 0, clipPath: "circle(0%)" }}
           animate={{

@@ -2,9 +2,23 @@
   width: 1100px;
   min-height: 694px;
   & h1 {
+    width: 604px;
     margin-bottom: 80px;
+    @media (max-width: 604px) {
+      & {
+        font-size: 24px;
+        width: 302px;
+        // width: 100%;
+      }
+    }
   }
   margin-bottom: 64px;
+  @media (max-width: 1100px) {
+    & {
+      width: 100vw;
+      height: auto;
+    }
+  }
 }
 
 .speakersContainer {
@@ -12,11 +26,16 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 32px;
+  @media (max-width: 1100px) {
+    & {
+      width: 100vw;
+    }
+  }
 }
 
 .speaker {
-  width: 340px;
-  height: 457px;
+  width: 250px;
+  height: 350px;
   position: relative;
   border-radius: 10px;
   overflow: hidden;
@@ -51,6 +70,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: -1;
+    object-fit: cover;
   }
   & div {
     position: absolute;
@@ -62,10 +82,43 @@
     background-color: hsla(196, 40%, 38%, 0.5);
     & p {
       text-transform: uppercase;
-
       font-weight: 700;
-      font-size: 24px;
+      font-size: 18px;
       color: #fff;
+    }
+  }
+  @media (max-width: 1100px) {
+    & {
+      width: calc(250px / 1.5);
+      height: calc(350px / 1.5);
+      & img {
+        width: calc(250px / 1.5);
+        height: calc(350px / 1.5);
+        object-fit: cover;
+      }
+      & div {
+        & p {
+          font-size: 14px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+  @media (max-width: 764px) {
+    & {
+      width: calc(250px / 2);
+      height: calc(350px / 2);
+      & img {
+        width: calc(250px / 2);
+        height: calc(350px / 2);
+        object-fit: cover;
+      }
+      & div {
+        & p {
+          font-size: 11px;
+          font-weight: 500;
+        }
+      }
     }
   }
 }
@@ -78,7 +131,7 @@
   width: calc(53px + 32px);
   height: calc(53px + 32px);
   border-radius: 50%;
-  transition: .15s ease-in-out box-shadow,.15s ease-in-out transform;
+  transition: 0.15s ease-in-out box-shadow, 0.15s ease-in-out transform;
   &:hover {
     box-shadow: 0px 4px 5px 0 #000;
     transform: translateY(-5%);
@@ -93,11 +146,12 @@
 .speakersModal {
   width: 928px;
   height: 700px;
+  padding: 16px;
+  padding-top: 80px;
   z-index: 501;
   border-radius: 10px;
-  padding: 16px;
   display: flex;
-  padding-top: 80px;
+  background-size: contain;
   & div:last-child {
     margin-top: 100px;
     margin-left: 48px;
@@ -110,17 +164,104 @@
       }
     }
   }
+  @media (max-width: 927px) {
+    & {
+      width: calc(928px / 1.5);
+      height: calc(700px / 1.5);
+      padding: calc(16px / 1.5);
+      padding-top: calc(80px / 1.5);
+      background-size: contain;
+      & div:last-child {
+        margin-top: calc(100px / 1.5);
+        margin-left: calc(48px / 1.5);
+        & ul {
+          gap: calc(16px / 1.5);
+          margin-top: calc(32px / 1.5);
+          height: calc(380px / 1.5);
+        }
+      }
+    }
+  }
+  @media (max-width: 618px) {
+    & {
+      width: calc(928px / 2);
+      height: calc(700px / 2);
+      padding: calc(16px / 2);
+      padding-top: calc(80px / 2);
+      background-size: contain;
+      & div:last-child {
+        margin-top: calc(100px / 2);
+        margin-left: calc(48px / 2);
+        & ul {
+          gap: calc(16px / 2);
+          margin-top: calc(32px / 2);
+          height: calc(380px / 2);
+        }
+      }
+    }
+  }
+  @media (max-width: 464px) {
+    & {
+      width: calc(928px / 2.5);
+      height: calc(700px / 2.5);
+      padding: calc(16px / 2.5);
+      padding-top: calc(80px / 2.5);
+      background-size: contain;
+      & div:last-child {
+        margin-top: calc(100px / 2.5);
+        margin-left: calc(48px / 2.5);
+        & ul {
+          gap: calc(16px / 2.5);
+          margin-top: calc(32px / 2.5);
+          height: calc(380px / 2.5);
+        }
+      }
+    }
+  }
 }
 
 .speakersModalImage {
   object-fit: cover;
   border-radius: 10px;
+  @media (max-width: 927px) {
+    & {
+      width: calc(300px / 1.5);
+      height: calc(530px / 1.5);
+    }
+  }
+  @media (max-width: 618px) {
+    & {
+      width: calc(300px / 2);
+      height: calc(530px / 2);
+    }
+  }
+  @media (max-width: 464px) {
+    & {
+      width: calc(300px / 2.5);
+      height: calc(530px / 2.5);
+    }
+  }
 }
 
 .speakerFullName {
   font-weight: 700;
   font-size: 24px;
   text-transform: uppercase;
+  @media (max-width: 927px) {
+    & {
+      font-size: calc(24px / 1.5);
+    }
+  }
+  @media (max-width: 618px) {
+    & {
+      font-size: calc(24px / 2);
+    }
+  }
+  @media (max-width: 464px) {
+    & {
+      font-size: calc(24px / 2.5);
+    }
+  }
 }
 
 .speakerLiTitle {
@@ -128,6 +269,24 @@
   font-size: 15px;
   width: 200px;
   text-transform: uppercase;
+  @media (max-width: 927px) {
+    & {
+      font-size: calc(15px / 1.5);
+      width: calc(200px / 1.5);
+    }
+  }
+  @media (max-width: 618px) {
+    & {
+      font-size: calc(15px / 2);
+      width: calc(200px / 2);
+    }
+  }
+  @media (max-width: 464px) {
+    & {
+      font-size: calc(15px / 2.5);
+      width: calc(200px / 2.5);
+    }
+  }
 }
 
 .speakerLiPr {
@@ -135,4 +294,22 @@
   font-size: 15px;
   text-transform: uppercase;
   width: 350px;
+  @media (max-width: 927px) {
+    & {
+      font-size: calc(15px / 1.5);
+      width: calc(350px / 1.5);
+    }
+  }
+  @media (max-width: 618px) {
+    & {
+      font-size: calc(15px / 2);
+      width: calc(350px / 2);
+    }
+  }
+  @media (max-width: 618px) {
+    & {
+      font-size: calc(15px / 2.5);
+      width: calc(350px / 2.5);
+    }
+  }
 }
