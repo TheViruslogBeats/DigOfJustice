@@ -8,6 +8,7 @@ const SectionListModel = require("./database/models/sectionListModel");
 const cookieParser = require("cookie-parser");
 const express = require("express");
 const cors = require("cors");
+const compression = require('compression');
 
 //wares
 const dataBase = require("./database/connectDb");
@@ -21,7 +22,7 @@ const whitelist = [
   "https://conf.mirea.ru",
   // undefined,
 ];
-
+app.use(compression())
 app.use(express.json());
 app.use(cookieParser());
 app.use(
