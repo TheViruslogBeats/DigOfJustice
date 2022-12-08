@@ -22,6 +22,7 @@ const whitelist = [
   "https://conf.mirea.ru",
   // undefined,
 ];
+app.use("/img", express.static("./files/images"));
 app.use(compression())
 app.use(express.json());
 app.use(cookieParser());
@@ -40,7 +41,6 @@ app.use(
 const mainRouter = require("./routers/mainRouter");
 const speakersModel = require("./database/models/speakersModel");
 app.use("/api", mainRouter);
-app.use("/img", express.static("./files/images"));
 
 const startServer = async () => {
   try {

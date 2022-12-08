@@ -40,7 +40,7 @@ class SpeakerState {
   }
 
   async getExperts(page: number) {
-    for (let i = 2; i < 5; i++) {
+    for (let i = 2; i < 7; i++) {
       let response = await $api.post<SpeakerType[]>("/api/speakers", {
         page: i,
         size: 4,
