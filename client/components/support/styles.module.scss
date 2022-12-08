@@ -1,6 +1,11 @@
 .supportContainer {
-  max-width: 600px;
+  max-width: 700px;
   margin-bottom: 128px;
+  @media (max-width: 700px) {
+    & {
+      width: 100%;
+    }
+  }
 }
 
 .supportWrapper {
@@ -15,6 +20,7 @@
   display: flex;
   gap: 32px;
   justify-content: center;
+  flex-wrap: wrap;
   margin: 32px 0;
 }
 

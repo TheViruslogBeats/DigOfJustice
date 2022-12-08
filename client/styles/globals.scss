@@ -80,14 +80,15 @@ footer {
   text-align: center;
   & p {
     margin: 32px auto;
-    width: 473px;
+    width: 80vw;
     font-weight: 400;
     font-size: 16px;
     position: relative;
     &::before {
       position: absolute;
       content: "";
-      width: 1440px;
+      max-width: 1440px;
+      width: 80vw;
       background-color: var(--main-text-color);
       height: 1px;
       top: -12px;

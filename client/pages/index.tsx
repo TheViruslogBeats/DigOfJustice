@@ -44,7 +44,6 @@ export default function Home() {
       </Head>
       <Header />
       <ConfInfo />
-
       <Programm />
       <Speakers />
       <Register />

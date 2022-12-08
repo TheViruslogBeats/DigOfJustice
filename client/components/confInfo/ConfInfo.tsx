@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useRef, useEffect } from "react";
 import Image from "next/image";
+
 import headerState from "../../state/headerState";
 import styles from "./styles.module.scss";
 
