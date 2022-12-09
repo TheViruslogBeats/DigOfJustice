@@ -109,13 +109,13 @@ const Register = (props: Props) => {
           <div className="flex-column gap16">
             <input
               type="text"
-              placeholder="ФИО"
+              placeholder="ФИО (Обязательно)"
               className={styles.registerInput}
               ref={fullName}
             />
             <input
               type="email"
-              placeholder="Почта"
+              placeholder="Почта (Обязательно)"
               className={styles.registerInput}
               ref={email}
             />
@@ -132,7 +132,7 @@ const Register = (props: Props) => {
               <>
                 <input
                   type="text"
-                  placeholder="Место обучения и специальность"
+                  placeholder="Место обучения и специальность (Обязательно)"
                   className={styles.registerInput}
                   ref={studyPlaceAndSpecialy}
                 />
@@ -140,7 +140,7 @@ const Register = (props: Props) => {
             )}
             <input
               type="text"
-              placeholder="Учёная степень и учёное звание"
+              placeholder="Учёная степень и учёное звание (Обязательно)"
               className={styles.registerInput}
               ref={acDegree}
             />
@@ -157,25 +157,25 @@ const Register = (props: Props) => {
             </select>
             <input
               type="text"
-              placeholder="Тема доклада"
+              placeholder="Тема доклада (Обязательно)"
               className={styles.registerInput}
               ref={topic}
             />
             <input
               type="text"
-              placeholder="ФИО научного руководителя"
+              placeholder="ФИО научного руководителя (Обязательно)"
               className={styles.registerInput}
               ref={fullNameSupervisor}
             />
             <input
               type="text"
-              placeholder="Звание научного руководителя"
+              placeholder="Звание научного руководителя (Обязательно)"
               className={styles.registerInput}
               ref={rankSupervisor}
             />
             <input
               type="text"
-              placeholder="Должность научного руководителя"
+              placeholder="Должность научного руководителя (Обязательно)"
               className={styles.registerInput}
               ref={positionSupervisor}
             />
@@ -262,6 +262,7 @@ const Register = (props: Props) => {
         className={styles.registerModal + " posFix"}
       >
         <p>ОШИБКА!</p>
+        <p></p>
       </motion.div>
       <motion.div
         initial={{ opacity: 0, clipPath: "circle(0%)" }}

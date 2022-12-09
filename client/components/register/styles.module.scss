@@ -33,6 +33,24 @@
       gap: 16px;
     }
   }
+  & div:first-child {
+    & input:nth-child(2){
+      position: relative;
+      &::before {
+        display: block;
+        position: absolute;
+        content: '&#9913';
+        color: #3a7388;
+        background-color: #3a7388;
+        top: 50%;
+        right: 0%;
+        z-index: 304;
+        transform: translateY(-50%);
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
 }
 
 .registerInputSelect {

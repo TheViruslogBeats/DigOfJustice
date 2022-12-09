@@ -21,6 +21,8 @@ interface ReportType {
 
 class RegisterState {
   regList: SectionListType[] = [];
+
+  error: string = "";
   constructor() {
     makeAutoObservable(this);
   }
@@ -42,13 +44,14 @@ class RegisterState {
         data.workPlaceAndPosition = "";
       }
       let response = await $api.post("/api/report", { ...data });
-      if(response.status === 200) {
-        return true
+      if (response.status === 200) {
+        return true;
       } else {
-        return false
+        return false;
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
+      this.error = error
     }
   }
 }
