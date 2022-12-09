@@ -83,7 +83,7 @@ const SectionItem = (props: Props) => {
         {props.section.members.length > 0 && (
           <>
             <h3 className={styles.membersTitle}>
-              Участники стратегической сессии
+              Участники
             </h3>
             <div className={styles.memberWrapper}>
               {props.section.members.map((member) => {

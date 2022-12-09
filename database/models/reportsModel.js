@@ -34,6 +34,9 @@ const ReportsModel = dataBase.define("reports", {
     type: Sequelize.STRING(1000),
     allowNull: false,
   },
+  comand: {
+    type: Sequelize.ARRAY(Sequelize.JSONB)
+  },
   section: {
     type: Sequelize.STRING(1000),
     allowNull: false,
@@ -60,5 +63,7 @@ const ReportsModel = dataBase.define("reports", {
     defaultValue: false,
   },
 });
+
+ReportsModel.sync({ alert: true })
 
 module.exports = ReportsModel;

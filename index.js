@@ -44,10 +44,12 @@ const startServer = async () => {
       //НЕ ВКЛЮЧАЙ БЛЯТЬ ФОРС ТРУ, ИНАЧЕ ТЕБЕ ПИЗДА!!!!!!
       //ЕСЛИ ВКЛЮЧИТЬ ВСЯ БД УЛЕТИТ В ТАРТАРАРЫ, ОНО ТЕБЕ НАДО?
       await dataBase.sync({ alert: true });
+      await ReportsModel.sync({ alter: true });
       // await kek();
       // await kek2();
       // await kek3();
       // await kek4();
+      // await kek5()
       console.log(
         "Connection with Data Base has been established successfully."
       );
@@ -580,7 +582,6 @@ const kek3 = async () => {
     ],
   ];
   let state = 0;
-  console.log(a.length);
   a.map(async (b, i) => {
     let sectionbuttonId = i + 1;
     b.map((c, i) => {
@@ -799,5 +800,28 @@ const kek4 = async () => {
   ];
   a.map(async (a) => {
     await speakersModel.create(a);
+  });
+};
+
+const kek5 = async () => {
+  await ReportsModel.create({
+    fullName: "ROFLER KEKER KEK",
+    email: "",
+    activityType: "",
+    studyPlaceAndSpecialy: "",
+    workPlaceAndPosition: "KEKEKE",
+    acDegree: "ROFL",
+    topic: "ROFL",
+    comand: [
+      { fullName: "ROFLER ROFLANDER ROFL", description: "PIZDES TYT PRIKOL" },
+      { fullName: "ROFLER ROFLANDER ROFL", description: "PIZDES TYT PRIKOL" },
+      { fullName: "ROFLER ROFLANDER ROFL", description: "PIZDES TYT PRIKOL" },
+      { fullName: "ROFLER ROFLANDER ROFL", description: "PIZDES TYT PRIKOL" },
+    ],
+    section: "",
+    fullNameSupervisor: "",
+    rankSupervisor: "",
+    positionSupervisor: "",
+    formOfParticipation: "",
   });
 };

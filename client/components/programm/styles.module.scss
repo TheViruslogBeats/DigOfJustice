@@ -481,16 +481,22 @@
 .programmSectionListPeapLiCtn {
   margin-bottom: 8px;
   & div {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
     & p {
       color: #000;
+      font-family: "Inter";
       font-weight: 400;
       font-size: 14px;
+      text-transform: uppercase;
       &:nth-child(2) {
-        width: 300px;
+        width: 100%;
       }
       & b {
+        font-family: "Raleway";
         font-weight: 600;
-        font-size: 14px;
+        font-size: 15px;
         color: #000;
       }
     }

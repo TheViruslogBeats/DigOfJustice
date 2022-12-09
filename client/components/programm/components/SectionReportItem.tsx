@@ -7,7 +7,10 @@ interface Props {
 
 const SectionReportItem = (props: Props) => {
   return (
-    <li key={props.report.id} className={styles.programmSectionListPeapLi + " flex-column gap16"}>
+    <li
+      key={props.report.id}
+      className={styles.programmSectionListPeapLi + " flex-column gap16"}
+    >
       <p>{props.report.topic}</p>
       <div className={styles.programmSectionListPeapLiCtn}>
         <div>
@@ -20,6 +23,17 @@ const SectionReportItem = (props: Props) => {
             {props.report.workPlaceAndPosition.length > 0 &&
               props.report.workPlaceAndPosition}
           </p>
+          {props.report.comand.length > 0 &&
+            props.report.comand.map((com, i) => {
+              return (
+                <>
+                  <p key={i}>
+                    <b>{com.fullName}</b>
+                  </p>
+                  <p>{com.description}</p>
+                </>
+              );
+            })}
         </div>
       </div>
     </li>

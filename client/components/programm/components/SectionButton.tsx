@@ -13,7 +13,6 @@ const SectionButton: React.FC<Props> = (props) => {
   return (
     <button
       onClick={() => {
-        console.log("sykablyat");
         props.setMenu(false)
         headerState.setCurrentButtonAndList(
           props.button.id,

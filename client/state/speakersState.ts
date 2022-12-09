@@ -41,7 +41,6 @@ class SpeakerState {
         page: 1,
         size: 6,
       });
-      console.log(response.data)
       runInAction(() => {
         this.all = response.data
         this.first = response.data.slice(0, 3);

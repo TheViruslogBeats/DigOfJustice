@@ -15,7 +15,6 @@ const ConfInfo = () => {
   const confRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    console.log(confRef.current?.offsetTop);
     if (confRef.current?.offsetTop) {
       headerState.setConfOffsetTop(confRef.current?.offsetTop);
     }
