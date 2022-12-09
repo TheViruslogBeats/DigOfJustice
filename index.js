@@ -43,8 +43,7 @@ const startServer = async () => {
     await dataBase.authenticate().then(async () => {
       //НЕ ВКЛЮЧАЙ БЛЯТЬ ФОРС ТРУ, ИНАЧЕ ТЕБЕ ПИЗДА!!!!!!
       //ЕСЛИ ВКЛЮЧИТЬ ВСЯ БД УЛЕТИТ В ТАРТАРАРЫ, ОНО ТЕБЕ НАДО?
-      await dataBase.sync({ alert: true });
-      await ReportsModel.sync({ alter: true });
+      await dataBase.sync();
       // await kek();
       // await kek2();
       // await kek3();
