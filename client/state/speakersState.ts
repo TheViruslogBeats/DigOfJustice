@@ -1,7 +1,7 @@
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, runInAction } from "mobx";
 import { $api } from "./api";
 
-interface SpeakerType {
+export interface SpeakerType {
   id: number;
   img: string;
   alt: string;
@@ -20,6 +20,12 @@ class SpeakerState {
   page: number = 1;
   speakers: SpeakerType[] = [];
 
+  all: SpeakerType[] = [];
+
+  first: SpeakerType[] = [];
+  second: SpeakerType[] = [];
+  three: SpeakerType[] = [];
+
   constructor() {
     makeAutoObservable(this);
   }
@@ -30,24 +36,32 @@ class SpeakerState {
 
   async getOnceExperts() {
     if (this.a) {
-      this.a = false
+      this.a = false;
       let response = await $api.post<SpeakerType[]>("/api/speakers", {
         page: 1,
-        size: 4,
+        size: 6,
       });
-      this.pushSpeakers(response.data);
+      console.log(response.data)
+      runInAction(() => {
+        this.all = response.data
+        this.first = response.data.slice(0, 3);
+        this.second = response.data.slice(3, 6);
+      });
     }
   }
 
   async getExperts(page: number) {
-    for (let i = 2; i < 7; i++) {
+    let arr: SpeakerType[] = [];
+    for (let i = 1; i < 15; i++) {
       let response = await $api.post<SpeakerType[]>("/api/speakers", {
         page: i,
         size: 4,
       });
-      this.pushSpeakers(response.data);
+      arr.push(...response.data);
     }
-    this.page = 7
+    this.three = arr.sort((a,b) => a.id - b.id).slice(6, 100);
+    this.all.push(...this.three);
+    this.page = 7;
   }
 }
 

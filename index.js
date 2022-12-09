@@ -8,7 +8,7 @@ const SectionListModel = require("./database/models/sectionListModel");
 const cookieParser = require("cookie-parser");
 const express = require("express");
 const cors = require("cors");
-const compression = require('compression');
+const compression = require("compression");
 
 //wares
 const dataBase = require("./database/connectDb");
@@ -17,13 +17,9 @@ const app = express();
 
 const PORT = 5000;
 
-const whitelist = [
-  "https://virusbeats.ru",
-  "https://conf.mirea.ru",
-  // undefined,
-];
+const whitelist = ["https://virusbeats.ru", "https://conf.mirea.ru", undefined];
 app.use("/img", express.static("./files/images"));
-app.use(compression())
+app.use(compression());
 app.use(express.json());
 app.use(cookieParser());
 app.use(
@@ -47,7 +43,7 @@ const startServer = async () => {
     await dataBase.authenticate().then(async () => {
       //НЕ ВКЛЮЧАЙ БЛЯТЬ ФОРС ТРУ, ИНАЧЕ ТЕБЕ ПИЗДА!!!!!!
       //ЕСЛИ ВКЛЮЧИТЬ ВСЯ БД УЛЕТИТ В ТАРТАРАРЫ, ОНО ТЕБЕ НАДО?
-      await dataBase.sync();
+      await dataBase.sync({ alert: true });
       // await kek();
       // await kek2();
       // await kek3();

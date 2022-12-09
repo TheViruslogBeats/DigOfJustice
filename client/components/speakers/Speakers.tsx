@@ -5,19 +5,18 @@ import downSVG from "../../public/img/speakersSvg.svg";
 import styles from "./styles.module.scss";
 import Image from "next/image";
 
-import SpeakerState from "../../state/speakersState";
+import SpeakerState, { SpeakerType } from "../../state/speakersState";
 import { observer } from "mobx-react-lite";
 import headerState from "../../state/headerState";
 
 const Speakers = () => {
   const [expert, setExpert] = useState(0);
   const [expertModal, setExpertModal] = useState(false);
-
-  const ref = useRef<HTMLDivElement>(null)
+  const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     SpeakerState.getOnceExperts();
-    if(ref.current) {
-      headerState.setSpeakerOffsetTop(ref.current?.offsetTop)
+    if (ref.current) {
+      headerState.setSpeakerOffsetTop(ref.current?.offsetTop);
     }
   }, []);
 
@@ -25,14 +24,14 @@ const Speakers = () => {
     <div ref={ref} className={styles.speakers + " mx-auto"}>
       <h1 className="titleH1 mx-auto">ЭКСПЕРТЫ</h1>
       <div className={styles.speakersContainer}>
-        {SpeakerState.speakers.length > 0 &&
-          SpeakerState.speakers.map((speaker, index) => {
+        <div className="flexx gap32 w100">
+          {SpeakerState.first.map((speaker, index) => {
             return (
               <div
                 className={styles.speaker}
                 key={speaker.id}
                 onClick={() => {
-                  setExpert(index);
+                  setExpert(speaker.id);
                   setExpertModal(true);
                 }}
               >
@@ -50,6 +49,57 @@ const Speakers = () => {
               </div>
             );
           })}
+        </div>
+        <div className="flexx gap32 w100">
+          {SpeakerState.second.map((speaker, index) => {
+            return (
+              <div
+                className={styles.speaker}
+                key={speaker.id}
+                onClick={() => {
+                  setExpert(speaker.id);
+                  setExpertModal(true);
+                }}
+              >
+                <Image
+                  width={250}
+                  height={350}
+                  src={speaker.img}
+                  alt={speaker.alt}
+                />
+                <div>
+                  <p>{speaker.firstName}</p>
+                  <p>{speaker.middleName}</p>
+                  <p>{speaker.lastName}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        {SpeakerState.three.map((speaker, index) => {
+          return (
+            <div
+              className={styles.speaker}
+              key={speaker.id}
+              onClick={() => {
+                setExpert(speaker.id);
+                setExpertModal(true);
+              }}
+            >
+              <Image
+                width={250}
+                height={350}
+                src={speaker.img}
+                alt={speaker.alt}
+              />
+              <div>
+                <p>{speaker.firstName}</p>
+                <p>{speaker.middleName}</p>
+                <p>{speaker.lastName}</p>
+              </div>
+            </div>
+          );
+        })}
       </div>
       {SpeakerState.page < 6 && (
         <div className={styles.speakerDownloadContainer}>
@@ -77,11 +127,11 @@ const Speakers = () => {
         }}
         className="posFix blackBG"
       ></motion.div>
-      {SpeakerState.speakers.length > 0 && (
+      {SpeakerState.all.length > 0 && (
         <motion.div
           style={{
             background: `url(${bgModal.src}) no-repeat #fff`,
-            backgroundSize:"contain"
+            backgroundSize: "contain",
           }}
           initial={{ opacity: 0, clipPath: "circle(0%)" }}
           animate={{
@@ -96,57 +146,57 @@ const Speakers = () => {
             <Image
               width={300}
               height={530}
-              src={SpeakerState.speakers[expert].img}
-              alt={SpeakerState.speakers[expert].alt}
+              src={SpeakerState.all[expert].img}
+              alt={SpeakerState.all[expert].alt}
               className={styles.speakersModalImage}
             />
           </div>
           <div>
             <p className={styles.speakerFullName}>
-              {SpeakerState.speakers[expert].firstName}
+              {SpeakerState.all[expert].firstName}
               <br />
-              {SpeakerState.speakers[expert].middleName}
+              {SpeakerState.all[expert].middleName}
               <br />
-              {SpeakerState.speakers[expert].lastName}
+              {SpeakerState.all[expert].lastName}
             </p>
             <ul className="flex-column">
-              {SpeakerState.speakers[expert].acDegree.length > 0 && (
+              {SpeakerState.all[expert].acDegree.length > 0 && (
                 <li>
                   <h3 className={styles.speakerLiTitle}>УЧЕНАЯ СТЕПЕНЬ: </h3>
                   <p className={styles.speakerLiPr}>
-                    {SpeakerState.speakers[expert].acDegree}
+                    {SpeakerState.all[expert].acDegree}
                   </p>
                 </li>
               )}
-              {SpeakerState.speakers[expert].acTitle.length > 0 && (
+              {SpeakerState.all[expert].acTitle.length > 0 && (
                 <li>
                   <h3 className={styles.speakerLiTitle}>УЧЕНОЕ ЗВАНИЕ:</h3>
                   <p className={styles.speakerLiPr}>
-                    {SpeakerState.speakers[expert].acTitle}
+                    {SpeakerState.all[expert].acTitle}
                   </p>
                 </li>
               )}
-              {SpeakerState.speakers[expert].honorTitle.length > 0 && (
+              {SpeakerState.all[expert].honorTitle.length > 0 && (
                 <li>
                   <h3 className={styles.speakerLiTitle}>ПОЧЕТНОЕ ЗВАНИЕ:</h3>
                   <p className={styles.speakerLiPr}>
-                    {SpeakerState.speakers[expert].honorTitle}
+                    {SpeakerState.all[expert].honorTitle}
                   </p>
                 </li>
               )}
-              {SpeakerState.speakers[expert].position.length > 0 && (
+              {SpeakerState.all[expert].position.length > 0 && (
                 <li>
                   <h3 className={styles.speakerLiTitle}>ДОЛЖНОСТЬ:</h3>
                   <p className={styles.speakerLiPr}>
-                    {SpeakerState.speakers[expert].position}
+                    {SpeakerState.all[expert].position}
                   </p>
                 </li>
               )}
-              {SpeakerState.speakers[expert].description.length > 0 && (
+              {SpeakerState.all[expert].description.length > 0 && (
                 <li>
                   <h3 className={styles.speakerLiTitle}>ДОПОЛНИТЕЛЬНО:</h3>
                   <p className={styles.speakerLiPr}>
-                    {SpeakerState.speakers[expert].description}
+                    {SpeakerState.all[expert].description}
                   </p>
                 </li>
               )}

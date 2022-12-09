@@ -13,7 +13,7 @@ const getProgramms = async () => {
   let programsInfo = await ProgramListInfoModel.findAll({ raw: true });
 
   programs.map((prog) => {
-    (prog.inform = programsInfo.filter((obj) => obj.programlistId === prog.id)),
+    (prog.inform = programsInfo.filter((obj) => obj.programlistId === prog.id)).sort((a, b) => a.id - b.id),
       prog.inform.length > 0 ? (prog.info = true) : null;
   });
 
@@ -30,16 +30,19 @@ const getSections = async () => {
   let members = await SectionListMembersModel.findAll({ raw: true });
 
   sectionList.map((a) => {
+    if(a.mainTheme.length > 0) {
+      a.showArrow = true;
+    }
     if (a.questions.length > 0) {
       a.showArrow = true;
       a.hQuesions = true;
     }
-    a.reports = reportsList.filter((rep) => a.id === rep.sectionlistId);
+    a.reports = reportsList.filter((rep) => a.id === rep.sectionlistId).sort((a, b) => a.id - b.id);
     if (a.reports.length > 0) {
       a.showArrow = true;
       a.hReports = true;
     }
-    a.members = members.filter((memb) => a.id === memb.sectionlistId);
+    a.members = members.filter((memb) => a.id === memb.sectionlistId).sort((a, b) => a.id - b.id);
     if (a.members.length > 0) {
       a.showArrow = true;
     }

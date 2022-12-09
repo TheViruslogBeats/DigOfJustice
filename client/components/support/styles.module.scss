@@ -30,9 +30,9 @@
   & img {
     margin-bottom: 16px;
   }
-  & p{
+  & p {
     color: #737373;
-    font-weight:600;
+    font-weight: 600;
     font-size: 20px;
     text-align: center;
     width: 100%;
@@ -46,7 +46,7 @@
       color: #737373;
       font-weight: 600;
       font-family: "Inter";
-      transition: .15s ease-in-out color, .15s ease-in-out transform;
+      transition: 0.15s ease-in-out color, 0.15s ease-in-out transform;
       &:hover {
         color: inherit;
         transform: translateY(-10%);
@@ -61,3 +61,4 @@
   align-items: center;
   gap: 4px;
 }
+
