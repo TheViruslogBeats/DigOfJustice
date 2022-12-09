@@ -51,7 +51,6 @@ class RegisterState {
       }
     } catch (error) {
       console.log(error);
-      this.error = error
     }
   }
 }
