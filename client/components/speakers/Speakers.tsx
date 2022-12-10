@@ -18,6 +18,15 @@ const Speakers = () => {
     if (ref.current) {
       headerState.setSpeakerOffsetTop(ref.current?.offsetTop);
     }
+    let interval: any = null;
+    interval = setInterval(() => {
+      if (ref.current) {
+        headerState.setSpeakerOffsetTop(ref.current?.offsetTop);
+      }
+    }, 3000);
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
 
   return (

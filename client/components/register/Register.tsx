@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { observer } from "mobx-react-lite";
-import { useEffect, useRef, useState } from "react";
+import { MutableRefObject, useEffect, useRef, useState } from "react";
 import registerState from "../../state/registerState";
 import styles from "./styles.module.scss";
 import bgModal from "../../public/img/bgModal-min.jpg";
@@ -67,11 +67,49 @@ const Register = (props: Props) => {
     return response;
   };
 
+  const validateEmail = (email: string) => {
+    return String(email)
+      .toLowerCase()
+      .match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
+  };
+
+  const validationEmail = () => {
+    if (email.current) {
+      if (!validateEmail(email.current?.value)) {
+        email.current.className =
+          styles.registerInput + " " + styles.registerInputError;
+      } else {
+        email.current.className = styles.registerInput;
+      }
+    }
+  };
+
+  const validator = (ref: MutableRefObject<HTMLInputElement | null>) => {
+    if (ref.current) {
+      if (ref.current.value.length > 0) {
+        ref.current.className = styles.registerInput;
+      } else {
+        ref.current.className =
+          styles.registerInput + " " + styles.registerInputError;
+      }
+    }
+  };
+
   useEffect(() => {
+    let interval: any = null;
     if (regRef?.current?.offsetTop) {
       headerState.setRegOffsetTop(regRef.current?.offsetTop);
     }
+    interval = setInterval(() => {
+      if (regRef?.current?.offsetTop) {
+        headerState.setRegOffsetTop(regRef.current?.offsetTop);
+      }
+    }, 3000);
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
+
   return (
     <div ref={regRef} className={styles.register + " mx-auto"}>
       <h1 className="titleH1 mx-auto">РЕГИСТРАЦИЯ</h1>
@@ -111,12 +149,18 @@ const Register = (props: Props) => {
               type="text"
               placeholder="ФИО (Обязательно)"
               className={styles.registerInput}
+              onChange={() => {
+                validator(fullName);
+              }}
               ref={fullName}
             />
             <input
               type="email"
               placeholder="Почта (Обязательно)"
               className={styles.registerInput}
+              onChange={() => {
+                validationEmail();
+              }}
               ref={email}
             />
             {activityType === 1 ? (
@@ -125,6 +169,9 @@ const Register = (props: Props) => {
                   type="text"
                   placeholder="Место работы и должность"
                   className={styles.registerInput}
+                  onChange={() => {
+                    validator(workPlaceAndPosition);
+                  }}
                   ref={workPlaceAndPosition}
                 />
               </>
@@ -134,6 +181,9 @@ const Register = (props: Props) => {
                   type="text"
                   placeholder="Место обучения и специальность (Обязательно)"
                   className={styles.registerInput}
+                  onChange={() => {
+                    validator(studyPlaceAndSpecialy);
+                  }}
                   ref={studyPlaceAndSpecialy}
                 />
               </>
@@ -142,6 +192,9 @@ const Register = (props: Props) => {
               type="text"
               placeholder="Учёная степень и учёное звание (Обязательно)"
               className={styles.registerInput}
+              onChange={() => {
+                validator(acDegree);
+              }}
               ref={acDegree}
             />
           </div>
@@ -159,24 +212,36 @@ const Register = (props: Props) => {
               type="text"
               placeholder="Тема доклада (Обязательно)"
               className={styles.registerInput}
+              onChange={() => {
+                validator(topic);
+              }}
               ref={topic}
             />
             <input
               type="text"
               placeholder="ФИО научного руководителя (Обязательно)"
               className={styles.registerInput}
+              onChange={() => {
+                validator(fullNameSupervisor);
+              }}
               ref={fullNameSupervisor}
             />
             <input
               type="text"
               placeholder="Звание научного руководителя (Обязательно)"
               className={styles.registerInput}
+              onChange={() => {
+                validator(rankSupervisor);
+              }}
               ref={rankSupervisor}
             />
             <input
               type="text"
               placeholder="Должность научного руководителя (Обязательно)"
               className={styles.registerInput}
+              onChange={() => {
+                validator(positionSupervisor);
+              }}
               ref={positionSupervisor}
             />
           </div>

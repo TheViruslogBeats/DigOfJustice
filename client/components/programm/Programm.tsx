@@ -20,8 +20,17 @@ const Programm = () => {
 
   useEffect(() => {
     headerState.getProgramm();
+    let interval: any = null;
     if (progRef.current?.offsetTop) {
       headerState.setProgOffsetTop(progRef.current?.offsetTop);
+    }
+    interval = setInterval(() => {
+      if (progRef.current?.offsetTop) {
+        headerState.setProgOffsetTop(progRef.current?.offsetTop);
+      }
+    }, 3000);
+    return ()=> {
+      clearInterval(interval)
     }
   }, []);
 

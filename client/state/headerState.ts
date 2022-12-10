@@ -90,7 +90,7 @@ class HeaderState {
   }
 
   setProgOffsetTop(data: number) {
-    this.progoffsetTop = data - 125 / window.devicePixelRatio;
+    this.progoffsetTop = data - 125;
   }
 
   setConfOffsetTop(data: number) {

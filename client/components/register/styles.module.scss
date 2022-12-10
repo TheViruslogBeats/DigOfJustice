@@ -7,7 +7,7 @@
   }
   @media (max-width: 830px) {
     & {
-      & h1{
+      & h1 {
         width: 418px;
         font-size: 24px;
       }
@@ -15,9 +15,9 @@
   }
   @media (max-width: 418px) {
     & {
-      & h1{
+      & h1 {
         width: 100%;
-        letter-spacing: .5em;
+        letter-spacing: 0.5em;
       }
     }
   }
@@ -34,12 +34,12 @@
     }
   }
   & div:first-child {
-    & input:nth-child(2){
+    & input:nth-child(2) {
       position: relative;
       &::before {
         display: block;
         position: absolute;
-        content: '&#9913';
+        content: "&#9913";
         color: #3a7388;
         background-color: #3a7388;
         top: 50%;
@@ -87,6 +87,8 @@
   border-radius: 10px;
   padding: 14px 18px;
   width: 410px;
+  transition: 0.15s ease-in-out box-shadow, 0.15s ease-in-out transform;
+
   &::placeholder {
     color: #9c9c9c;
   }
@@ -95,6 +97,17 @@
       width: 100%;
     }
   }
+  &:focus-visible {
+    outline: unset;
+  }
+  &:focus {
+    transform: translateY(-2px);
+    box-shadow: 0px 2px 0 0 #3a7388;
+  }
+}
+
+.registerInputError {
+  box-shadow: 0px 2px 0 0 #883a3a;
 }
 
 .registerButton {
@@ -107,7 +120,7 @@
   height: 64px;
   transition: 0.15s ease-in-out background-color, 0.15s ease-in-out box-shadow,
     0.15s ease-in-out transform;
-    color: var(--second-text-color);
+  color: var(--second-text-color);
   &:hover {
     box-shadow: 0px 2px 10px 0px hsla(0, 0%, 0%, 0.5);
     transform: translateY(-4%);
