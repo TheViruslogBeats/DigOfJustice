@@ -34,7 +34,10 @@ export interface SectionListReportType {
   comand: {
     fullName: string;
     description: string;
-  }[];
+  }[] | null;
+  positionSupervisor: string;
+  rankSupervisor: string;
+  fullNameSupervisor: string;
 }
 
 export interface SectionButtonsType {
@@ -131,6 +134,8 @@ class HeaderState {
 
   async getProgramm() {
     let response = await $api.get<ProgramTypes>("/api/program");
+    console.log(response.data);
+    
     this.program = response.data;
     if (response.data.sections) {
       this.currentButton = response.data.sections[0].id;

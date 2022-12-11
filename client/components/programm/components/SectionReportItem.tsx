@@ -23,7 +23,15 @@ const SectionReportItem = (props: Props) => {
             {props.report.workPlaceAndPosition.length > 0 &&
               props.report.workPlaceAndPosition}
           </p>
-          {props.report.comand.length > 0 &&
+          <>
+            <p>
+              <b>{props.report.fullNameSupervisor}</b>
+            </p>
+            <p>{props.report.rankSupervisor}</p>
+            <p>{props.report.positionSupervisor}</p>
+          </>
+          {props.report.comand &&
+            props.report.comand.length > 0 &&
             props.report.comand.map((com, i) => {
               return (
                 <>
