@@ -1,12 +1,12 @@
+const SectionListMembersModel = require("../database/models/sectionListMembersModel");
 const ProgramListInfoModel = require("../database/models/programListInfoModel");
-const ProgramListModel = require("../database/models/programListModel");
 const SectionButtonsModel = require("../database/models/sectionButtonsModel");
+const ProgramListModel = require("../database/models/programListModel");
 const SectionListModel = require("../database/models/sectionListModel");
+const speakersModel = require("../database/models/speakersModel");
+const ReportsModel = require("../database/models/reportsModel");
 
 const { validationResult } = require("express-validator");
-const ReportsModel = require("../database/models/reportsModel");
-const SectionListMembersModel = require("../database/models/sectionListMembersModel");
-const speakersModel = require("../database/models/speakersModel");
 
 const getProgramms = async () => {
   let programs = await ProgramListModel.findAll({ raw: true });

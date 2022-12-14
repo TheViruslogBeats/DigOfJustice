@@ -14,11 +14,13 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
-import { useState, Fragment } from "react";
+import { useState, Fragment, useEffect } from "react";
 import { useRouter } from "next/router";
 
 import NewspaperIcon from "@mui/icons-material/Newspaper";
-import GroupIcon from '@mui/icons-material/Group';
+import GroupIcon from "@mui/icons-material/Group";
+import StarIcon from "@mui/icons-material/Star";
+import DeviceHubIcon from '@mui/icons-material/DeviceHub';
 
 import { OverridableComponent } from "@mui/material/OverridableComponent";
 import { SvgIconTypeMap } from "@mui/material/SvgIcon";
@@ -26,7 +28,20 @@ import { SvgIconTypeMap } from "@mui/material/SvgIcon";
 type Anchor = "top" | "left" | "bottom" | "right";
 
 const TopBar = () => {
+  const titles = [
+    { path: "/", title: "Главная страница" },
+    { path: "/news", title: "Настройка новостей" },
+    { path: "/experts", title: "Настройка экспертов" },
+    { path: "/program", title: "Настройка программы" },
+  ];
+
   const router = useRouter();
+  const [title, setTitle] = useState("Главная страница");
+  useEffect(() => {
+    titles.map(
+      (title) => title.path === router.pathname && setTitle(title.title)
+    );
+  }, [router.pathname]);
   const [state, setState] = useState({
     top: false,
     left: false,
@@ -42,8 +57,10 @@ const TopBar = () => {
     text: string;
     path: string;
   }[] = [
-    { id: 1, svg: NewspaperIcon, text: "Новости", path: "/news" },
-    { id: 2, svg: GroupIcon, text: "Эксперты", path: "/experts" },
+    { id: 1, svg: StarIcon, text: "Главная", path: "/" },
+    { id: 2, svg: NewspaperIcon, text: "Новости", path: "/news" },
+    { id: 3, svg: GroupIcon, text: "Эксперты", path: "/experts" },
+    { id: 4, svg: DeviceHubIcon, text: "Программа", path: "/program" },
   ];
 
   const toggleDrawer =
@@ -78,15 +95,15 @@ const TopBar = () => {
           >
             <ListItemButton>
               <ListItemIcon>
-                <button.svg />
+                <button.svg sx={{ color: "primary.main" }} />
               </ListItemIcon>
               <ListItemText primary={button.text} />
             </ListItemButton>
           </ListItem>
         ))}
       </List>
-      <Divider />
-      <List>
+      {/* <Divider /> */}
+      {/* <List>
         {["All mail", "Trash", "Spam"].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
@@ -97,7 +114,7 @@ const TopBar = () => {
             </ListItemButton>
           </ListItem>
         ))}
-      </List>
+      </List> */}
     </Box>
   );
   return (
@@ -115,7 +132,7 @@ const TopBar = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
+            {title}
           </Typography>
           <Button color="inherit">Login</Button>
           <Fragment key={"left"}>

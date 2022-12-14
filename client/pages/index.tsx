@@ -17,15 +17,25 @@ import Footer from "../components/footer/Footer";
 import dynamic from "next/dynamic";
 
 export default function Home() {
-  const Header = dynamic(() => import("../components/header/Header"))
+  const [techWorks, setTechWorks] = useState(true);
+  const Header = dynamic(() => import("../components/header/Header"));
   const ConfInfo = dynamic(() => import("../components/confInfo/ConfInfo"));
   const Programm = dynamic(() => import("../components/programm/Programm"));
   const Speakers = dynamic(() => import("../components/speakers/Speakers"));
   const Register = dynamic(() => import("../components/register/Register"));
-  const PartnerBlock = dynamic(() => import("../components/header/components/PartnerBlock"));
+  const PartnerBlock = dynamic(
+    () => import("../components/header/components/PartnerBlock")
+  );
   const Support = dynamic(() => import("../components/support/Support"));
   const Footer = dynamic(() => import("../components/footer/Footer"));
-  return (
+  return techWorks ? (
+    <>
+      <div className="modalTechWorks">
+        <h1>Ведутся временные технические работы</h1>
+        <p>Сайт продолжит свою работу в 00:00</p>
+      </div>
+    </>
+  ) : (
     <div className={styles.container + " mx-auto"}>
       <Head>
         <title>ЦИФРОВИЗАЦИЯ ПРАВОСУДИЯ</title>

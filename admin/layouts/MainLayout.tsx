@@ -8,8 +8,6 @@ type Props = {
 };
 
 const MainLayout: React.FC<Props> = ({ children }) => {
-  console.log(children);
-  
   const theme = createTheme({
     palette: {
       primary: {
