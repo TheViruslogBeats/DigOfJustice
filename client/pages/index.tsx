@@ -17,7 +17,7 @@ import Footer from "../components/footer/Footer";
 import dynamic from "next/dynamic";
 
 export default function Home() {
-  const [techWorks, setTechWorks] = useState(true);
+  const [techWorks, setTechWorks] = useState(false);
   const Header = dynamic(() => import("../components/header/Header"));
   const ConfInfo = dynamic(() => import("../components/confInfo/ConfInfo"));
   const Programm = dynamic(() => import("../components/programm/Programm"));
