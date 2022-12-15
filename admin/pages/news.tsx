@@ -1,8 +1,15 @@
 import { useEffect } from "react";
 import MainLayout from "../layouts/MainLayout";
+import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+
 import newsState, { NewsType } from "../state/newsState";
-import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
+
 import { observer } from "mobx-react-lite";
+
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 
 interface Props {}
 
@@ -26,12 +33,20 @@ const columns: GridColDef[] = [
   {
     field: "settings",
     headerName: "Управление",
+    width: 130,
     renderCell: (cell) => {
-      console.log(cell)
+      console.log(cell);
       return (
-        <h1>SYKA</h1>
-      )
-    }
+        <Box sx={{ display: "flex", gap: "8px", justifyContent: "center", width: "100%" }}>
+          <Button sx={{width: "36px", minWidth: "36px"}}>
+            <EditIcon />
+          </Button>
+          <Button sx={{width: "36px", minWidth: "36px"}}>
+            <DeleteIcon />
+          </Button>
+        </Box>
+      );
+    },
   },
 ];
 
@@ -42,6 +57,7 @@ const news = (props: Props) => {
 
   return (
     <MainLayout>
+      
       <div style={{ height: 400, width: "100%" }}>
         <DataGrid
           rows={newsState.news}

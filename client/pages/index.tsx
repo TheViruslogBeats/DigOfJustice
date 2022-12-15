@@ -56,7 +56,7 @@ export default function Home() {
       <ConfInfo />
       <Programm />
       <Speakers />
-      <Register />
+      {/* <Register /> */}
       <div style={{ margin: "100px auto", width: "1240px" }}>
         <PartnerBlock />
       </div>

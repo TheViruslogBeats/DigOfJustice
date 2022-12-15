@@ -5,11 +5,13 @@
   "main": "index.js",
   "scripts": {
     "clientDev": "cd client && npm run dev",
+    "adminDev": "cd admin && npm run dev",
     "serverDev": "nodemon index.js",
-    "dev": "concurrently \"npm run serverDev\" \"npm run clientDev\"",
-    "client": "cd client && npm run dev",
+    "dev": "concurrently \"npm run serverDev\" \"npm run clientDev\" \"npm run adminDev\"",
+    "client": "cd client && npm run build && npm run start",
+    "admin": "cd admin && npm run build && npm run start",
     "server": "nodemon index.js",
-    "start": "concurrently \"npm run server\" \"npm run client\""
+    "start": "concurrently \"npm run server\" \"npm run client\" \"npm run admin\""
   },
   "keywords": [],
   "author": "",
