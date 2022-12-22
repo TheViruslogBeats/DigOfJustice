@@ -7,4 +7,4 @@ RUN npm i
 
 EXPOSE 5000
 
-CMD ["npm","run","serverDev"]
+CMD ["npm","run","server"]
