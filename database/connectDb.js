@@ -10,9 +10,9 @@ const Sequelize = require("sequelize");
 const sequelize = new Sequelize(
   "DigitalJustice",
   "DigitalJustice",
-  "confmireamegapassword",
+  "CONFMIREAMEGAPASSWORD",
   {
-    host: "ConfMirea-Postgres",
+    host: "172.17.0.5",
     port: 5432,
     dialect: "postgres",
     logging: false,
