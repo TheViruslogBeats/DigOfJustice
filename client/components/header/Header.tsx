@@ -166,10 +166,11 @@ const Header = () => {
             </div>
             <button
               onClick={() => {
-                headerState.goToElement(headerState.regoffsetTop);
+                //headerState.goToElement(headerState.regoffsetTop);
               }}
+              disabled
             >
-              РЕГИСТРАЦИЯ
+              РЕГИСТРАЦИЯ ЗАКРЫТА
             </button>
           </motion.div>
         </div>

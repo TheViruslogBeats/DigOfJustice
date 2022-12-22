@@ -114,11 +114,18 @@
     background: #fffdfd;
     border-radius: 10px;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 18px;
     transition: 0.15s ease-in-out color, 0.15s ease-in-out transform;
     &:hover {
       color: hsl(196, 40%, 50%);
       transform: translateY(-4%);
+    }
+    &:disabled {
+      cursor: unset;
+      color: gray;
+      &:hover {
+        transform: translate(0);
+      }
     }
   }
   & div {

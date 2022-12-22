@@ -16,6 +16,7 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import { useState, Fragment, useEffect } from "react";
 import { useRouter } from "next/router";
+import Head from 'next/head'
 
 import NewspaperIcon from "@mui/icons-material/Newspaper";
 import GroupIcon from "@mui/icons-material/Group";
@@ -84,6 +85,7 @@ const TopBar = () => {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
+      
       <List>
         {buttons.map((button) => (
           <ListItem
@@ -119,6 +121,9 @@ const TopBar = () => {
   );
   return (
     <Box sx={{ flexGrow: 1 }}>
+      <Head>
+        <title>{title + " | conf.mirea.ru"}</title>
+      </Head>
       <AppBar position="static">
         <Toolbar>
           <IconButton
