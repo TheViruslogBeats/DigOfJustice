@@ -6,6 +6,8 @@ import { observer } from "mobx-react-lite";
 
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
+import Box from "@mui/material/Box/Box";
+import Button from "@mui/material/Button/Button";
 
 interface Props {}
 
@@ -33,11 +35,18 @@ const columns: GridColDef[] = [
     renderCell: (cell) => {
       console.log(cell);
       return (
-        <Box sx={{ display: "flex", gap: "8px", justifyContent: "center", width: "100%" }}>
-          <Button sx={{width: "36px", minWidth: "36px"}}>
+        <Box
+          sx={{
+            display: "flex",
+            gap: "8px",
+            justifyContent: "center",
+            width: "100%",
+          }}
+        >
+          <Button sx={{ width: "36px", minWidth: "36px" }}>
             <EditIcon />
           </Button>
-          <Button sx={{width: "36px", minWidth: "36px"}}>
+          <Button sx={{ width: "36px", minWidth: "36px" }}>
             <DeleteIcon />
           </Button>
         </Box>
@@ -53,7 +62,6 @@ const news = (props: Props) => {
 
   return (
     <MainLayout>
-      
       <div style={{ height: 400, width: "100%" }}>
         <DataGrid
           rows={newsState.news}
