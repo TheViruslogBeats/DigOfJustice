@@ -10,7 +10,7 @@
     "dev": "concurrently \"npm run serverDev\" \"npm run clientDev\" \"npm run adminDev\"",
     "client": "cd client && npm run build && npm run start",
     "admin": "cd admin && npm run build && npm run start",
-    "server": "nodemon index.js",
+    "server": "node index.js",
     "start": "concurrently \"npm run server\" \"npm run client\" \"npm run admin\""
   },
   "keywords": [],
