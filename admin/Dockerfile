@@ -4,7 +4,8 @@ COPY ./package.json .
 COPY . .
 
 RUN npm i
+RUN npm run build
 
-EXPOSE 5000
+EXPOSE 4000
 
-CMD ["npm","run","serverDev"]
+CMD ["npm","run","start"]

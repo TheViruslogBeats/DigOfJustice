@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import MainLayout from "../layouts/MainLayout";
-import newsState, { NewsType } from "../state/newsState";
-import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
+import newsState from "../state/newsState";
+import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { observer } from "mobx-react-lite";
 
 interface Props {}
