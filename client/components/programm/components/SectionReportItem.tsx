@@ -17,28 +17,39 @@ const SectionReportItem = (props: Props) => {
           <p>
             <b>{props.report.fullName}</b>
           </p>
-          <p>
-            {props.report.studyPlaceAndSpecialy.length > 0 &&
-              props.report.studyPlaceAndSpecialy}
-            {props.report.workPlaceAndPosition.length > 0 &&
-              props.report.workPlaceAndPosition}
-          </p>
+          {props.report.studyPlaceAndSpecialy.length > 0 ||
+            (props.report.workPlaceAndPosition.length > 0 && (
+              <p>
+                {props.report.studyPlaceAndSpecialy.length > 0 &&
+                  props.report.studyPlaceAndSpecialy}
+                {props.report.workPlaceAndPosition.length > 0 &&
+                  props.report.workPlaceAndPosition}
+              </p>
+            ))}
           <>
-            <p>
-              <b>{props.report.fullNameSupervisor}</b>
-            </p>
-            <p>{props.report.rankSupervisor}</p>
-            <p>{props.report.positionSupervisor}</p>
+            {props.report.fullNameSupervisor.length > 0 && (
+              <p>
+                <b>{props.report.fullNameSupervisor}</b>
+              </p>
+            )}
+            {props.report.rankSupervisor.length > 0 && (
+              <p>{props.report.rankSupervisor}</p>
+            )}
+            {props.report.positionSupervisor.length > 0 && (
+              <p>{props.report.positionSupervisor}</p>
+            )}
           </>
           {props.report.comand &&
             props.report.comand.length > 0 &&
             props.report.comand.map((com, i) => {
               return (
                 <>
-                  <p key={i}>
-                    <b>{com.fullName}</b>
-                  </p>
-                  <p>{com.description}</p>
+                  {com.fullName.length > 0 && (
+                    <p key={i}>
+                      <b>{com.fullName}</b>
+                    </p>
+                  )}
+                  {com.description.length > 0 && <p>{com.description}</p>}
                 </>
               );
             })}

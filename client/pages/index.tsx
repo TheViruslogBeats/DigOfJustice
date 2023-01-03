@@ -1,18 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Head from "next/head";
 import styles from "../styles/Home.module.scss";
-
-import { motion } from "framer-motion";
-
-//components
-// import Header from "../components/header/Header";
-// import ConfInfo from "../components/confInfo/ConfInfo";
-// import Programm from "../components/programm/Programm";
-// import Speakers from "../components/speakers/Speakers";
-// import Register from "../components/register/Register";
-// import PartnerBlock from "../components/header/components/PartnerBlock";
-// import Support from "../components/support/Support";
-import Footer from "../components/footer/Footer";
 
 import dynamic from "next/dynamic";
 
