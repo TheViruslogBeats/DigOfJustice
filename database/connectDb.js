@@ -12,7 +12,7 @@ const sequelize = new Sequelize("DigitalJustice", "digofjustice", "111222333", {
 //   "DigitalJustice",
 //   "CONFMIREAMEGAPASSWORD",
 //   {
-//     host: "172.17.0.5",
+//     host: "10.90.192.15",
 //     port: 5432,
 //     dialect: "postgres",
 //     logging: false,
