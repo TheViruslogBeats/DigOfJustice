@@ -1,6 +1,7 @@
 version: "3.8"
 services:
   nodeserver:
+    container_name: ConfMirea-Site
     environment:
       - API_URL=https://apiconf.mirea.ru
     build:
