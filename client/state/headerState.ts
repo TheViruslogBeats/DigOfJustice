@@ -133,7 +133,9 @@ class HeaderState {
   }
 
   async getProgramm() {
+    console.log(process.env);
     let response = await $api.get<ProgramTypes>("/api/program");
+    
     console.log(response.data);
     
     this.program = response.data;

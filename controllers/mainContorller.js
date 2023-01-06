@@ -5,6 +5,7 @@ const ProgramListModel = require("../database/models/programListModel");
 const SectionListModel = require("../database/models/sectionListModel");
 const speakersModel = require("../database/models/speakersModel");
 const ReportsModel = require("../database/models/reportsModel");
+const fs = require("fs");
 
 const { validationResult } = require("express-validator");
 
@@ -13,7 +14,9 @@ const getProgramms = async () => {
   let programsInfo = await ProgramListInfoModel.findAll({ raw: true });
 
   programs.map((prog) => {
-    (prog.inform = programsInfo.filter((obj) => obj.programlistId === prog.id)).sort((a, b) => a.id - b.id),
+    (prog.inform = programsInfo.filter(
+      (obj) => obj.programlistId === prog.id
+    )).sort((a, b) => a.id - b.id),
       prog.inform.length > 0 ? (prog.info = true) : null;
   });
 
@@ -30,19 +33,23 @@ const getSections = async () => {
   let members = await SectionListMembersModel.findAll({ raw: true });
 
   sectionList.map((a) => {
-    if(a.mainTheme.length > 0) {
+    if (a.mainTheme.length > 0) {
       a.showArrow = true;
     }
     if (a.questions.length > 0) {
       a.showArrow = true;
       a.hQuesions = true;
     }
-    a.reports = reportsList.filter((rep) => a.id === rep.sectionlistId).sort((a, b) => a.id - b.id);
+    a.reports = reportsList
+      .filter((rep) => a.id === rep.sectionlistId)
+      .sort((a, b) => a.id - b.id);
     if (a.reports.length > 0) {
       a.showArrow = true;
       a.hReports = true;
     }
-    a.members = members.filter((memb) => a.id === memb.sectionlistId).sort((a, b) => a.id - b.id);
+    a.members = members
+      .filter((memb) => a.id === memb.sectionlistId)
+      .sort((a, b) => a.id - b.id);
     if (a.members.length > 0) {
       a.showArrow = true;
     }
@@ -149,6 +156,21 @@ class mainContorller {
           .sort((a, b) => a.id - b.id)
           .slice((page - 1) * size, page * size)
       );
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json("Ошибка сервера");
+    }
+  }
+
+  async getPressCenter(req, res) {
+    try {
+      let { API_URL } = await process.env;
+      console.log(process.env);
+      let data = fs.readdirSync("./files/images/pressCenter");
+      data = data.map((f) => {
+        return (f = `${API_URL}/img/pressCenter/${f}`);
+      });
+      return res.json(data);
     } catch (error) {
       console.log(error);
       return res.status(500).json("Ошибка сервера");

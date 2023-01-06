@@ -7,6 +7,7 @@ interface Props {}
 const program = (props: Props) => {
   useEffect(() => {
     programState.getProgram()
+    
   }, [])
   return (
     <MainLayout></MainLayout>
