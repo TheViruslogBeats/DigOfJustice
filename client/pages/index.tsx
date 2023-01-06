@@ -4,7 +4,9 @@ import styles from "../styles/Home.module.scss";
 
 import dynamic from "next/dynamic";
 
+
 export default function Home() {
+  const [regOpened, setRegOpened] = useState(false);
   const [techWorks, setTechWorks] = useState(false);
   const Header = dynamic(() => import("../components/header/Header"));
   const ConfInfo = dynamic(() => import("../components/confInfo/ConfInfo"));
@@ -40,11 +42,11 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
+      <Header regOpened={regOpened}  />
       <ConfInfo />
       <Programm />
       <Speakers />
-      {/* <Register /> */}
+      {regOpened && <Register />}
       <div style={{ margin: "100px auto", width: "1240px" }}>
         <PartnerBlock />
       </div>

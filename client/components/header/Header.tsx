@@ -15,7 +15,11 @@ import headerState from "../../state/headerState";
 
 import PartnerBlock from "./components/PartnerBlock";
 
-const Header = () => {
+interface props {
+  regOpened: boolean;
+}
+
+const Header = (props: props) => {
   const [modal, setModal] = useState(false);
   const [sidebar, setSidebar] = useState(false);
   const [scroll, setScroll] = useState(0);
@@ -166,11 +170,11 @@ const Header = () => {
             </div>
             <button
               onClick={() => {
-                //headerState.goToElement(headerState.regoffsetTop);
+                headerState.goToElement(headerState.regoffsetTop);
               }}
-              disabled
+              disabled={!props.regOpened}
             >
-              РЕГИСТРАЦИЯ ЗАКРЫТА
+              {props.regOpened ? "РЕГИСТРАЦИЯ" : "РЕГИСТРАЦИЯ ЗАКРЫТА"}
             </button>
           </motion.div>
         </div>
@@ -201,7 +205,7 @@ const Header = () => {
         <button
           className={styles.topBarButtonSidebar}
           onClick={() => {
-            setSidebar(false)
+            setSidebar(false);
             headerState.goToElement(headerState.confoffsetTop);
           }}
         >
@@ -209,7 +213,7 @@ const Header = () => {
         </button>
         <button
           onClick={() => {
-            setSidebar(false)
+            setSidebar(false);
             headerState.goToElement(headerState.progoffsetTop);
           }}
           className={styles.topBarButtonSidebar}
@@ -218,7 +222,7 @@ const Header = () => {
         </button>
         <button
           onClick={() => {
-            setSidebar(false)
+            setSidebar(false);
             headerState.goToElement(headerState.speakeroffsetTop);
           }}
           className={styles.topBarButtonSidebar}
@@ -227,7 +231,7 @@ const Header = () => {
         </button>
         <button
           onClick={() => {
-            setSidebar(false)
+            setSidebar(false);
             headerState.downloadReq();
           }}
           className={styles.topBarButtonSidebar}
