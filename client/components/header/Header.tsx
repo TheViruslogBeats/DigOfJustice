@@ -66,6 +66,33 @@ const Header = (props: props) => {
 
   const [date, setDate] = useState("ДЕКАБРЬ 9/12/13/14/15/16 2022");
 
+  const [buttons, setButtons] = useState([
+    {
+      text: "О КОНФЕРЕНЦИИ",
+      onclick: () => {
+        headerState.goToElement(headerState.confoffsetTop);
+      },
+    },
+    {
+      text: "ПРОГРАММА",
+      onclick: () => {
+        headerState.goToElement(headerState.progoffsetTop);
+      },
+    },
+    {
+      text: "ЭКСПЕРТЫ",
+      onclick: () => {
+        headerState.goToElement(headerState.speakeroffsetTop);
+      },
+    },
+    {
+      text: "ТРЕБОВАНИЯ К ПУБЛИКАЦИИ",
+      onclick: () => {
+        headerState.downloadReq();
+      },
+    },
+  ]);
+
   return (
     <div
       className={styles.header}
@@ -114,7 +141,14 @@ const Header = (props: props) => {
             </button>
           </div>
           <nav className={styles.topBarRight}>
-            <button
+            {buttons.map((b, i) => {
+              return (
+                <button key={i} className={styles.topBarButton} onClick={b.onclick}>
+                  {b.text}
+                </button>
+              );
+            })}
+            {/* <button
               className={styles.topBarButton}
               onClick={() => {
                 headerState.goToElement(headerState.confoffsetTop);
@@ -145,7 +179,7 @@ const Header = (props: props) => {
               className={styles.topBarButton}
             >
               ТРЕБОВАНИЯ К ПУБЛИКАЦИИ
-            </button>
+            </button> */}
             <button
               onClick={() => {
                 setSidebar(true);
