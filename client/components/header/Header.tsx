@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 import styles from "./styles.module.scss";
 
-import bgimg from "../../public/img/bg2.jpg";
+import { SERVER_URL } from "../../state/api";
 import image1 from "../../public/img/image1.png";
 import image2 from "../../public/img/image2.png";
 
@@ -48,11 +48,29 @@ const Header = (props: props) => {
     return () => clearTimeout(timeout);
   }, [scroll]);
 
+  const [title, setTitle] = useState([
+    {
+      text: "I НАЦИОНАЛЬНАЯ НАУЧНО - ПРАКТИЧЕСКАЯ КОНФЕРЕНЦИЯ",
+      bold: false,
+    },
+    {
+      text: "ЦИФРОВИЗАЦИЯ ПРАВОСУДИЯ: ПРОБЛЕМЫ И ПЕРСПЕКТИВЫ",
+      bold: true,
+    },
+  ]);
+
+  const [place, setPlace] = useState([
+    "МОСКВА, СТРОМЫНКА, 20",
+    "ПРОСПЕКТ ВЕРНАДСКОГО, 78 КОРПУС Е",
+  ]);
+
+  const [date, setDate] = useState("ДЕКАБРЬ 9/12/13/14/15/16 2022");
+
   return (
     <div
       className={styles.header}
       style={{
-        background: ` url(${bgimg.src}) no-repeat`,
+        background: ` url(${SERVER_URL}/img/background/bg.jpg) no-repeat`,
         backgroundSize: "cover",
         backgroundPositionX: "center",
       }}
@@ -145,9 +163,23 @@ const Header = (props: props) => {
             transition={{ duration: 3, type: "spring" }}
             className={styles.leftInfo}
           >
-            I НАЦИОНАЛЬНАЯ НАУЧНО - ПРАКТИЧЕСКАЯ КОНФЕРЕНЦИЯ
-            <br />
-            <b>ЦИФРОВИЗАЦИЯ ПРАВОСУДИЯ: ПРОБЛЕМЫ И ПЕРСПЕКТИВЫ</b>
+            {title.map((t) => {
+              if (t.bold) {
+                return (
+                  <>
+                    <b>{t.text}</b>
+                    <br />
+                  </>
+                );
+              } else {
+                return (
+                  <>
+                    {t.text}
+                    <br />
+                  </>
+                );
+              }
+            })}
           </motion.p>
           <motion.div
             initial={{ translateX: "20%", opacity: 0 }}
@@ -158,13 +190,18 @@ const Header = (props: props) => {
             <div>
               <HiOutlineLocationMarker />
               <p style={{ width: "228px" }}>
-                <b>МЕСТО ВСТРЕЧИ:</b> <br /> МОСКВА, СТРОМЫНКА, 20 <br />{" "}
-                ПРОСПЕКТ ВЕРНАДСКОГО, 78 КОРПУС Е
+                <b>МЕСТО ВСТРЕЧИ:</b> <br />
+                {place.map((t) => (
+                  <>
+                    {t}
+                    <br />
+                  </>
+                ))}
               </p>
             </div>
             <div style={{ alignSelf: "end" }}>
               <p style={{ width: "220px", textAlign: "right" }}>
-                <b>ДАТЫ ПРОВЕДЕНИЯ:</b> <br /> ДЕКАБРЬ 9/12/13/14/15/16 2022
+                <b>ДАТЫ ПРОВЕДЕНИЯ:</b> <br /> {date}
               </p>
               <HiOutlineCalendar />
             </div>

@@ -8,6 +8,7 @@ import Image from "next/image";
 import SpeakerState, { SpeakerType } from "../../state/speakersState";
 import { observer } from "mobx-react-lite";
 import headerState from "../../state/headerState";
+import { SERVER_URL } from "../../state/api";
 
 const Speakers = () => {
   const [expert, setExpert] = useState(0);
@@ -139,7 +140,7 @@ const Speakers = () => {
       {SpeakerState.all.length > 0 && (
         <motion.div
           style={{
-            background: `url(${bgModal.src}) no-repeat #fff`,
+            background: `url(${SERVER_URL}/img/background/bgModal.jpg) no-repeat #fff`,
             backgroundSize: "contain",
           }}
           initial={{ opacity: 0, clipPath: "circle(0%)" }}

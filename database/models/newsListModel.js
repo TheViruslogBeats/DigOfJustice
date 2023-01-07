@@ -8,18 +8,15 @@ const NewsListModel = dataBase.define("newslist", {
     primaryKey: true,
     allowNull: false,
   },
-  img: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
   title: {
-    type: Sequelize.STRING,
-    allowNull: false,
+    type: Sequelize.ARRAY(Sequelize.JSONB())
   },
-  text: {
-    type: Sequelize.STRING(10000),
-    allowNull: false,
+  place: {
+    type: Sequelize.ARRAY(Sequelize.STRING(500))
   },
+  date: {
+    type: Sequelize.STRING(500)
+  }
 });
 
 module.exports = NewsListModel;

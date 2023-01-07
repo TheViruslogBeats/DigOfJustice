@@ -1,5 +1,4 @@
 import axios from "axios";
-import env from "dotenv"
 
 
 export const SERVER_URL: string | undefined = process.env.API_URL;

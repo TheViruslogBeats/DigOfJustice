@@ -40,8 +40,8 @@
         display: block;
         position: absolute;
         content: "&#9913";
-        color: #3a7388;
-        background-color: #3a7388;
+        color: var(--main-text-color);
+        background-color: var(--main-text-color);
         top: 50%;
         right: 0%;
         z-index: 304;
@@ -102,7 +102,7 @@
   }
   &:focus {
     transform: translateY(-2px);
-    box-shadow: 0px 2px 0 0 #3a7388;
+    box-shadow: 0px 2px 0 0 var(--main-text-color);
   }
 }
 
@@ -114,7 +114,7 @@
   cursor: pointer;
   font-weight: 700;
   font-size: 24px;
-  background: #3a7388;
+  background: var(--main-text-color);
   border-radius: 10px;
   width: 410px;
   height: 64px;
@@ -192,7 +192,7 @@
     position: absolute;
     width: 0px;
     height: 0px;
-    background: #3a7388;
+    background: var(--main-text-color);
     display: block;
     top: 50%;
     left: 50%;
