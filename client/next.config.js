@@ -6,7 +6,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "api.virusbeats.ru",
+        hostname: process.env.API_URL.replace("https://", ""),
         pathname: "/img/**",
       },
     ],
