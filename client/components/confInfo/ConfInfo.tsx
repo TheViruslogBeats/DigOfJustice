@@ -72,20 +72,20 @@ const ConfInfo = () => {
         if (confData.length !== i - 1) {
           return (
             <>
-              <p>{t}</p>
-              <br />
+              <p key={i}>{t}</p>
+              <br key={i} />
             </>
           );
         }
-        return <p>{t}</p>;
+        return <p key={i}>{t}</p>;
       })}
       <div>
         <h2 className="titleH1 mx-auto">ЗАДАЧИ КОНФЕРЕНЦИИ</h2>
 
         <div className="mx-auto">
-          {confTasks.map((t) => {
+          {confTasks.map((t, i) => {
             return (
-              <div>
+              <div key={i}>
                 <Image
                   alt="SVG"
                   src={t.src}
